@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: WooCommerce SK/CZ Funkcie 0.1.0\n"
+"Project-Id-Version: WooCommerce SK/CZ Functions 0.1.0\n"
 "Report-Msgid-Bugs-To: https://nimble.help\n"
-"POT-Creation-Date: 2026-03-12 13:20+0000\n"
+"POT-Creation-Date: 2026-03-12 16:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -10,33 +10,48 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Domain: woocommerce-sk-cz-funkcie\n"
+"X-Domain: woocommerce-sk-cz-functions\n"
 
-#: includes/class-plugin.php:92
-msgid "WooCommerce SK/CZ Funkcie vyžaduje aktívny plugin WooCommerce."
+#: includes/class-plugin.php:41
+msgid "Settings"
 msgstr ""
 
-# Planned frontend MVP strings (Slovak source)
-msgid "Nákup na firmu?"
+#: includes/class-plugin.php:123
+msgid "WooCommerce SK/CZ Functions requires the WooCommerce plugin to be active."
 msgstr ""
 
-msgid "IČO"
+#: includes/features/class-company-checkout-fields.php:39
+msgid "Company purchase (Company ID, Tax ID)"
 msgstr ""
 
-msgid "DIČ"
+#: includes/features/class-company-checkout-fields.php:47
+msgid "Company ID"
 msgstr ""
 
-msgid "IČ DPH"
+#: includes/features/class-company-checkout-fields.php:56
+msgid "Tax ID"
 msgstr ""
 
-msgid "Názov firmy"
+#: includes/features/class-company-checkout-fields.php:65
+msgid "VAT ID"
 msgstr ""
 
-msgid "Adresa firmy"
+#: includes/features/class-company-checkout-fields.php:139
+msgid "For company purchases, enter the company name."
 msgstr ""
 
-msgid "Súhlasím so spracovaním osobných údajov podľa podmienok spracovania osobných údajov."
+#: includes/features/class-company-checkout-fields.php:146
+msgid "For company purchases, enter Company ID."
 msgstr ""
 
-msgid "Je potrebné si prečítať a súhlasiť s podmienkami ochrany osobných údajov"
+#: includes/features/class-company-checkout-fields.php:153
+msgid "For company purchases, enter Tax ID."
+msgstr ""
+
+#: includes/features/class-gdpr-checkbox.php:38
+msgid "I have read the privacy policy and agree with it."
+msgstr ""
+
+#: includes/features/class-gdpr-checkbox.php:51
+msgid "You must agree with the privacy policy to complete the order."
 msgstr ""

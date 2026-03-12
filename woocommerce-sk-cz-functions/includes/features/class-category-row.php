@@ -2,14 +2,14 @@
 /**
  * Category row feature for product category archives.
  *
- * @package WooCommerce_SK_CZ_Funkcie
+ * @package WooCommerce_SK_CZ_Functions
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-class WSCZF_Category_Row {
+class WSCF_Category_Row {
 
 	/**
 	 * Register feature hooks.

@@ -1,4 +1,4 @@
-=== WooCommerce SK/CZ Funkcie ===
+=== WooCommerce SK/CZ Functions ===
 Contributors: ljuk67
 Tags: woocommerce, checkout, slovakia, czechia, company, gdpr
 Requires at least: 6.4
@@ -13,7 +13,7 @@ Useful WooCommerce features for Slovak and Czech stores: company checkout fields
 
 == Description ==
 
-WooCommerce SK/CZ Funkcie adds practical ecommerce features commonly needed in Slovak and Czech WooCommerce stores.
+WooCommerce SK/CZ Functions adds practical ecommerce features commonly needed in Slovak and Czech WooCommerce stores.
 
 Current features:
 
@@ -23,7 +23,7 @@ Current features:
 
 == Installation ==
 
-1. Upload the `woocommerce-sk-cz-funkcie` folder to the `/wp-content/plugins/` directory.
+1. Upload the `woocommerce-sk-cz-functions` folder to the `/wp-content/plugins/` directory.
 2. Activate the plugin through the `Plugins` menu in WordPress.
 3. Ensure WooCommerce is active.
 4. Configure plugin settings in WordPress admin (if applicable).

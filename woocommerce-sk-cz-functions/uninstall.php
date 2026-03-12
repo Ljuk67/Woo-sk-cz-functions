@@ -2,11 +2,11 @@
 /**
  * Uninstall handler.
  *
- * @package WooCommerce_SK_CZ_Funkcie
+ * @package WooCommerce_SK_CZ_Functions
  */
 
 if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	exit;
 }
 
-delete_option( 'wsczf_settings' );
+delete_option( 'wscf_settings' );

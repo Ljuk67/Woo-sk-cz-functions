@@ -2,14 +2,14 @@
 /**
  * Basic settings helper for feature flags.
  *
- * @package WooCommerce_SK_CZ_Funkcie
+ * @package WooCommerce_SK_CZ_Functions
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-class WSCZF_Settings {
+class WSCF_Settings {
 
 	/**
 	 * Default settings.
@@ -21,6 +21,8 @@ class WSCZF_Settings {
 			'company_checkout_fields' => 1,
 			'gdpr_checkbox'           => 1,
 			'category_row'            => 1,
+			'hide_shipping_when_free' => 1,
+			'remove_additional_information_tab' => 1,
 		);
 	}
 
@@ -31,8 +33,8 @@ class WSCZF_Settings {
 	 */
 	public function register_settings() {
 		register_setting(
-			'wsczf_settings_group',
-			WSCZF_OPTION_KEY,
+			'wscf_settings_group',
+			WSCF_OPTION_KEY,
 			array(
 				'type'              => 'array',
 				'sanitize_callback' => array( $this, 'sanitize_settings' ),
@@ -64,7 +66,7 @@ class WSCZF_Settings {
 	 * @return array<string, int>
 	 */
 	public function get_settings() {
-		$saved_settings = get_option( WSCZF_OPTION_KEY, array() );
+		$saved_settings = get_option( WSCF_OPTION_KEY, array() );
 		$defaults       = $this->get_defaults();
 
 		if ( ! is_array( $saved_settings ) ) {

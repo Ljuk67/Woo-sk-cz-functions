@@ -1,6 +1,6 @@
-# WooCommerce SK/CZ Funkcie
+# WooCommerce SK/CZ Functions
 
-Užitočné funkcie pre SK/CZ WooCommerce - Nákup na firmu, IČO / DIČ, vlastné políčka v pokladni.
+Useful functions pre SK/CZ WooCommerce - Nákup na firmu, IČO / DIČ, vlastné políčka v pokladni.
 
 Free WooCommerce helper plugin focused on Slovak and Czech stores.
 
