@@ -2,11 +2,11 @@
 /**
  * Plugin Name:       WooCommerce SK/CZ Funkcie
  * Plugin URI:        https://nimble.help
- * Description:       Zakladne SK/CZ WooCommerce funkcie pre checkout a katalog.
+ * Description:       Užitočné funkcie pre SK/CZ WooCommerce - Nákup na firmu, IČO / DIČ, vlastné políčka v pokladni
  * Version:           0.1.0
  * Requires at least: 6.4
  * Requires PHP:      7.4
- * Author:            nimble.help
+ * Author:            Lukas Cech - www.nimble.help
  * Author URI:        https://nimble.help
  * Text Domain:       woocommerce-sk-cz-funkcie
  * Domain Path:       /languages

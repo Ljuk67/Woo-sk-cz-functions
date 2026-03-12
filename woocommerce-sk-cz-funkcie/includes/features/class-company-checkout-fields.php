@@ -19,7 +19,7 @@ class WSCZF_Company_Checkout_Fields {
 	public function register_hooks() {
 		// Phase 1 TODO:
 		// - Add "Nakup na firmu?" toggle at checkout.
-		// - Show/hide ICO, DIC, IC DPH, company name, company address.
+		// - Show/hide IČO, DIČ, IČ DPH, company name, company address.
 		// - Validate and store values in order meta.
 	}
 }

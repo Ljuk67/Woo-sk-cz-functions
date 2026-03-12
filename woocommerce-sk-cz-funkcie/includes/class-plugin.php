@@ -89,7 +89,7 @@ class WSCZF_Plugin {
 		}
 
 		echo '<div class="notice notice-error"><p>';
-		echo esc_html__( 'WooCommerce SK/CZ Funkcie vyzaduje aktivny plugin WooCommerce.', 'woocommerce-sk-cz-funkcie' );
+		echo esc_html__( 'WooCommerce SK/CZ Funkcie vyžaduje aktívny plugin WooCommerce.', 'woocommerce-sk-cz-funkcie' );
 		echo '</p></div>';
 	}
 }
