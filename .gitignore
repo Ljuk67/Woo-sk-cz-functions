@@ -21,6 +21,10 @@ node_modules/
 .env
 .env.*
 
+# Internal files
+ROADMAP.md
+agents.md
+
 # WordPress repo-level rules (only relevant if this repo is a WP root).
 # https://github.com/github/gitignore/blob/main/WordPress.gitignore
 wp-config.php
