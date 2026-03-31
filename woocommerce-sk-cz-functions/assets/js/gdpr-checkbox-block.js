@@ -4,10 +4,12 @@
 		var linkText;
 		var label;
 		var link;
+		var textContainer;
+
 
 		if ( ! input || input.dataset.wscfPrivacyPolicyLinked === '1' ) {
 			return;
-		}
+		}		
 
 		privacyPolicyUrl = input.dataset.wscfPrivacyPolicyUrl || '';
 		linkText = input.dataset.wscfPrivacyPolicyLinkText || '';
@@ -18,7 +20,13 @@
 
 		label = input.closest( 'label' );
 
-		if ( ! label || label.querySelector( '.wscf-privacy-policy-link' ) ) {
+		if ( ! label ) {
+			return;
+		}
+
+		textContainer = label.querySelector( '.wc-block-components-checkbox__label' );
+
+		if ( ! textContainer || textContainer.querySelector( '.wscf-privacy-policy-link' ) ) {
 			return;
 		}
 
@@ -29,8 +37,8 @@
 		link.rel = 'noopener';
 		link.textContent = linkText;
 
-		label.appendChild( document.createTextNode( ' ' ) );
-		label.appendChild( link );
+		textContainer.appendChild( document.createTextNode( ' ' ) );
+		textContainer.appendChild( link );
 		input.dataset.wscfPrivacyPolicyLinked = '1';
 	}
 

@@ -36,6 +36,7 @@ Definition of done:
 - no PHP warnings or notices in checkout flow
 - fields validate and save correctly
 - features can be independently enabled and disabled in code
+- checkout-facing features support both classic checkout and Checkout Block
 
 ## Session Update: 2026-03-12
 
@@ -64,6 +65,24 @@ In progress or next:
 - connect WooCommerce settings tab values fully with `WSCF_Settings` defaults and sanitization flow
 - implement `category_row` fully if it is still scaffold-only
 - add settings UI polish and help text
+
+## Session Update: 2026-03-31
+
+Completed:
+
+- refactored feature toggles from one serialized array option to individual WooCommerce options
+- changed feature defaults so new installs start with all features disabled until the merchant explicitly enables them
+- verified WooCommerce settings tab checkboxes persist and reload correctly
+- added WooCommerce Checkout Block support for the GDPR consent feature
+- added Privacy Policy page link support to the GDPR checkbox in both classic checkout and Checkout Block
+- clarified repository guidance so customer-facing WooCommerce features must check block-compatible APIs where they exist
+
+In progress or next:
+
+- extend company checkout fields to support both classic checkout and Checkout Block
+- audit remaining customer-facing features for block-compatible implementations where applicable
+- validate all supported features in both classic and block-based storefront flows
+- clean up settings UI and help text to reflect classic + block compatibility expectations
 
 ## Phase 2: Basic Settings
 

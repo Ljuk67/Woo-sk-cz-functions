@@ -120,7 +120,6 @@ class WSCF_GDPR_Checkbox {
 	 */
 	private function get_checkbox_label() {
 		return __( 'I have read the privacy policy and agree with it.', 'woocommerce-sk-cz-functions' );
-		return __( 'I have read the privacy policy and agree with it.', 'woocommerce-sk-cz-functions' );
 
 	}
 
