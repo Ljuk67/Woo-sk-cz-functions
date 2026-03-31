@@ -48,15 +48,8 @@ class WSCF_WC_Settings_Tab {
 	 * @return void
 	 */
 	public function save_tab() {
-		$settings_service = new WSCF_Settings();
-		$raw_settings     = array();
+		woocommerce_update_options( $this->get_settings() );
 
-		if ( isset( $_POST[ WSCF_OPTION_KEY ] ) && is_array( $_POST[ WSCF_OPTION_KEY ] ) ) {
-			$raw_settings = wp_unslash( $_POST[ WSCF_OPTION_KEY ] );
-		}
-
-		$clean_settings = $settings_service->sanitize_settings( $raw_settings );
-		update_option( WSCF_OPTION_KEY, $clean_settings );
 	}
 
 	/**
@@ -65,6 +58,9 @@ class WSCF_WC_Settings_Tab {
 	 * @return array<int, array<string, mixed>>
 	 */
 	public function get_settings() {
+		$settings_service = new WSCF_Settings();
+		$option_names     = $settings_service->get_option_names();
+
 		return array(
 			array(
 				'title' => __( 'WooCommerce SK/CZ', 'woocommerce-sk-cz-functions' ),
@@ -74,37 +70,37 @@ class WSCF_WC_Settings_Tab {
 			array(
 				'title'   => __( 'Enable company checkout fields', 'woocommerce-sk-cz-functions' ),
 				'desc'    => __( 'Adds company purchase checkbox and business fields at checkout.', 'woocommerce-sk-cz-functions' ),
-				'id'      => WSCF_OPTION_KEY . '[company_checkout_fields]',
+				'id' 	  => $option_names['company_checkout_fields'],
 				'type'    => 'checkbox',
-				'default' => 'yes',
+				'default' => 'no',
 			),
 			array(
 				'title'   => __( 'Enable GDPR checkbox in checkout', 'woocommerce-sk-cz-functions' ),
 				'desc'    => __( 'Adds a required privacy-policy consent checkbox at checkout.', 'woocommerce-sk-cz-functions' ),
-				'id'      => WSCF_OPTION_KEY . '[gdpr_checkbox]',
+				'id' 	  => $option_names['gdpr_checkbox'],
 				'type'    => 'checkbox',
-				'default' => 'yes',
+				'default' => 'no',
 			),
 			array(
 				'title'   => __( 'Enable child category row on archives', 'woocommerce-sk-cz-functions' ),
 				'desc'    => __( 'Displays child categories above products on category archive pages.', 'woocommerce-sk-cz-functions' ),
-				'id'      => WSCF_OPTION_KEY . '[category_row]',
+				'id' 	  => $option_names['category_row'],
 				'type'    => 'checkbox',
-				'default' => 'yes',
+				'default' => 'no',
 			),
 			array(
 				'title'   => __( 'Hide paid shipping when free shipping exists', 'woocommerce-sk-cz-functions' ),
 				'desc'    => __( 'Shows only free shipping rates when free shipping is available.', 'woocommerce-sk-cz-functions' ),
-				'id'      => WSCF_OPTION_KEY . '[hide_shipping_when_free]',
+				'id' 	  => $option_names['hide_shipping_when_free'],
 				'type'    => 'checkbox',
-				'default' => 'yes',
+				'default' => 'no',
 			),
 			array(
 				'title'   => __( 'Hide Additional Information tab on products', 'woocommerce-sk-cz-functions' ),
 				'desc'    => __( 'Removes the Additional Information tab from single product pages.', 'woocommerce-sk-cz-functions' ),
-				'id'      => WSCF_OPTION_KEY . '[remove_additional_information_tab]',
+				'id' 	  => $option_names['remove_additional_information_tab'],
 				'type'    => 'checkbox',
-				'default' => 'yes',
+				'default' => 'no',
 			),
 			array(
 				'type' => 'sectionend',

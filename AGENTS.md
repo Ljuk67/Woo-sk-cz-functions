@@ -34,7 +34,7 @@ Before making changes:
 - Prefer modular classes with clear responsibilities.
 - Use WordPress and WooCommerce hooks and APIs; avoid custom frameworks.
 - Keep commit scopes small and meaningful.
-- Plugin author string must be exactly: `Lukas Cech - www.nimble.help`.
+- Plugin author string must be exactly: `www.nimble.help`.
 
 ## State Management Rules
 

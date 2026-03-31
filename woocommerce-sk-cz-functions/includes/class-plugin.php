@@ -25,12 +25,12 @@ class WSCF_Plugin {
 	 */
 	public function init() {
 		$this->settings = new WSCF_Settings();
+		$this->settings->maybe_migrate_legacy_settings();
 		$wc_settings_tab = new WSCF_WC_Settings_Tab();
 		$wc_settings_tab->register_hooks();
 
 		add_action( 'plugins_loaded', array( $this, 'load_textdomain' ) );
 		add_action( 'plugins_loaded', array( $this, 'bootstrap_features' ), 20 );
-		add_action( 'admin_init', array( $this->settings, 'register_settings' ) );
 			add_filter(	'plugin_action_links_' . plugin_basename( WSCF_PLUGIN_FILE ),
 				array( $this, 'add_plugin_settings_link' )
 			);

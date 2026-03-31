@@ -6,7 +6,7 @@
  * Version:           0.1.0
  * Requires at least: 6.4
  * Requires PHP:      7.4
- * Author:            Lukas Cech - www.nimble.help
+ * Author:            www.nimble.help
  * Author URI:        https://nimble.help
  * Text Domain:       woocommerce-sk-cz-functions
  * Domain Path:       /languages

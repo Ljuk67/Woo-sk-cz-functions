@@ -12,18 +12,60 @@ if ( ! defined( 'ABSPATH' ) ) {
 class WSCF_Settings {
 
 	/**
+	 * Map feature keys to individual option names.
+	 *
+	 * @return array<string, string>
+	 */
+	public function get_option_names() {
+		return array(
+			'company_checkout_fields'           => 'wscf_company_checkout_fields',
+			'gdpr_checkbox'                     => 'wscf_gdpr_checkbox',
+			'category_row'                      => 'wscf_category_row',
+			'hide_shipping_when_free'           => 'wscf_hide_shipping_when_free',
+			'remove_additional_information_tab' => 'wscf_remove_additional_information_tab',
+		);
+	}
+
+
+	/**
 	 * Default settings.
 	 *
-	 * @return array<string, int>
+	 * @return array<string, string>
 	 */
 	public function get_defaults() {
 		return array(
-			'company_checkout_fields' => 1,
-			'gdpr_checkbox'           => 1,
-			'category_row'            => 1,
-			'hide_shipping_when_free' => 1,
-			'remove_additional_information_tab' => 1,
+			'company_checkout_fields'           => 'no',
+			'gdpr_checkbox'                     => 'no',
+			'category_row'                      => 'no',
+			'hide_shipping_when_free'           => 'no',
+			'remove_additional_information_tab' => 'no',
 		);
+	}
+	/**
+	 * Migrate the legacy array option to individual WooCommerce options.
+	 *
+	 * @return void
+	 */
+	public function maybe_migrate_legacy_settings() {
+		$legacy_settings = get_option( WSCF_OPTION_KEY, null );
+
+		if ( ! is_array( $legacy_settings ) ) {
+			return;
+		}
+
+		$option_names = $this->get_option_names();
+		$defaults     = $this->get_defaults();
+
+		foreach ( $option_names as $feature_key => $option_name ) {
+			if ( false !== get_option( $option_name, false ) ) {
+				continue;
+			}
+
+			$legacy_value = ! empty( $legacy_settings[ $feature_key ] ) ? 'yes' : $defaults[ $feature_key ];
+			update_option( $option_name, $legacy_value );
+		}
+
+		delete_option( WSCF_OPTION_KEY );
 	}
 
 	/**
@@ -60,6 +102,7 @@ class WSCF_Settings {
 		return $clean;
 	}
 
+
 	/**
 	 * Get merged settings (saved + defaults).
 	 *
@@ -83,8 +126,14 @@ class WSCF_Settings {
 	 * @return bool
 	 */
 	public function is_feature_enabled( $feature_key ) {
-		$settings = $this->get_settings();
+		$option_names = $this->get_option_names();
+		$defaults     = $this->get_defaults();
 
-		return ! empty( $settings[ $feature_key ] );
+		if ( ! isset( $option_names[ $feature_key ], $defaults[ $feature_key ] ) ) {
+			return false;
+		}
+
+		return 'yes' === get_option( $option_names[ $feature_key ], $defaults[ $feature_key ] );
 	}
+
 }
