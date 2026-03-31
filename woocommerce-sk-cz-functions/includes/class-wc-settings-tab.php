@@ -43,7 +43,7 @@ class WSCF_WC_Settings_Tab {
 	}
 
 	/**
-	 * Save settings to plugin array option.
+	 * Save settings with WooCommerce standard option handling
 	 *
 	 * @return void
 	 */

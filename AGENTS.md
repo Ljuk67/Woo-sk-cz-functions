@@ -36,6 +36,16 @@ Before making changes:
 - Keep commit scopes small and meaningful.
 - Plugin author string must be exactly: `www.nimble.help`.
 
+## Block Compatibility Rules
+
+- Always check whether a WooCommerce Blocks version or block-compatible API exists for any storefront feature you touch, including checkout, cart, and related customer-facing flows.
+- Do not assume classic WooCommerce hooks automatically apply to block-based experiences.
+- For customer-facing WooCommerce features, support both classic and block-based implementations whenever WooCommerce provides both surfaces.
+- Treat checkout-facing features as compatibility work across two surfaces: classic shortcode checkout and Checkout Block.
+- For checkout fields in the Checkout Block, prefer the WooCommerce additional checkout fields API instead of classic-only render hooks.
+- Shared business logic should stay centralized, while classic integration and block integration may be implemented separately.
+- If WooCommerce does not provide a viable block-compatible extension point for a feature, document that limitation clearly in code comments, docs, and settings/help text where relevant.
+
 ## State Management Rules
 
 - Update `memory/current-state.md` incrementally; do not rewrite it from scratch.
@@ -62,7 +72,9 @@ Before making changes:
 
 ## Definition Of Done Per Feature
 
-- Hooks execute in the standard WooCommerce checkout flow only where intended.
+- Hooks execute in the intended WooCommerce flow without affecting unsupported flows.
+- Customer-facing WooCommerce features have been checked for block-compatible integration points where applicable.
+- Checkout-facing features support both classic checkout and Checkout Block.
 - Validation errors are clear and localized.
 - Data is saved to the correct WooCommerce order meta keys.
 - Features can be toggled on and off without side effects.

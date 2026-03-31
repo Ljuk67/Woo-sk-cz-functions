@@ -25,7 +25,6 @@ class WSCF_Plugin {
 	 */
 	public function init() {
 		$this->settings = new WSCF_Settings();
-		$this->settings->maybe_migrate_legacy_settings();
 		$wc_settings_tab = new WSCF_WC_Settings_Tab();
 		$wc_settings_tab->register_hooks();
 

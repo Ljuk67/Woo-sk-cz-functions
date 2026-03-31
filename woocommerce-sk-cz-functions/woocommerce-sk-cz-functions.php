@@ -24,7 +24,6 @@ define( 'WSCF_VERSION', '0.1.0' );
 define( 'WSCF_PLUGIN_FILE', __FILE__ );
 define( 'WSCF_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 define( 'WSCF_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
-define( 'WSCF_OPTION_KEY', 'wscf_settings' );
 
 require_once WSCF_PLUGIN_PATH . 'includes/class-settings.php';
 require_once WSCF_PLUGIN_PATH . 'includes/class-wc-settings-tab.php';
