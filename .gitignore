@@ -9,6 +9,7 @@ Thumbs.db
 .local/
 
 # Local project planning/state
+/AGENTS.md
 /docs/
 /memory/
 
