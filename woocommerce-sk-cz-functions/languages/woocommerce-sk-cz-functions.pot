@@ -61,7 +61,13 @@ msgid "Enable child category row on archives"
 msgstr ""
 
 #: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:106
-msgid "Displays child categories above products on category archive pages."
+msgid ""
+"Displays clickable, responsive boxes for child categories above products on "
+"category archive pages."
+msgstr ""
+
+#: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:269
+msgid "Child category row preview"
 msgstr ""
 
 #: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:114

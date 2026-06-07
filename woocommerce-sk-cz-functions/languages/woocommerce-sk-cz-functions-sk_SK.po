@@ -62,9 +62,16 @@ msgid "Enable child category row on archives"
 msgstr "Povoliť riadok podradených kategórií v archívoch"
 
 #: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:106
-msgid "Displays child categories above products on category archive pages."
+msgid ""
+"Displays clickable, responsive boxes for child categories above products on "
+"category archive pages."
 msgstr ""
-"Zobrazí podradené kategórie nad produktmi na stránkach archívov kategórií."
+"Zobrazí klikateľné, responzívne boxy pre podradené kategórie nad produktmi "
+"na stránkach archívov kategórií."
+
+#: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:269
+msgid "Child category row preview"
+msgstr "Náhľad riadka podradených kategórií"
 
 #: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:114
 msgid "Hide paid shipping when free shipping exists"

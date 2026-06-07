@@ -53,6 +53,8 @@ class WSCF_WC_Settings_Tab {
 		echo '<style>';
 		echo 'tr.wscf-child-setting-row th{padding:0;}';
 		echo 'tr.wscf-child-setting-row td{padding-top:0;padding-left:24px;border-left:2px solid #dcdcde;}';
+		echo '.wscf-settings-preview-link{display:inline-block;margin-top:8px;}';
+		echo '.wscf-settings-preview-image{display:block;width:180px;max-width:100%;height:auto;border:1px solid #dcdcde;border-radius:4px;}';
 		echo '</style>';
 		echo '<script>';
 		echo 'document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll(\'#mainform input[data-wscf-child-setting]\').forEach(function(input){var row=input.closest("tr");if(row){row.classList.add("wscf-child-setting-row");}});});';
@@ -104,18 +106,18 @@ class WSCF_WC_Settings_Tab {
 				'custom_attributes' => $this->get_feature_field_attributes( $settings_service, 'company_checkout_fields' ),
 				'desc_tip' => false,
 			),
-				array(
-					'title'   => __( 'Enable GDPR checkbox in checkout', 'woocommerce-sk-cz-functions' ),
-					'desc'    => $this->get_gdpr_checkbox_description( $settings_service ),
-					'id'      => $option_names['gdpr_checkbox'],
-					'type'    => 'checkbox',
-					'default' => 'no',
-					'custom_attributes' => $this->get_feature_field_attributes( $settings_service, 'gdpr_checkbox' ),
-					'desc_tip' => false,
-				),
-				array(
-					'title'   => __( 'Enable child category row on archives', 'woocommerce-sk-cz-functions' ),
-					'desc'    => $this->get_feature_description( $settings_service, 'category_row', __( 'Displays child categories above products on category archive pages.', 'woocommerce-sk-cz-functions' ) ),
+			array(
+				'title'   => __( 'Enable GDPR checkbox in checkout', 'woocommerce-sk-cz-functions' ),
+				'desc'    => $this->get_gdpr_checkbox_description( $settings_service ),
+				'id'      => $option_names['gdpr_checkbox'],
+				'type'    => 'checkbox',
+				'default' => 'no',
+				'custom_attributes' => $this->get_feature_field_attributes( $settings_service, 'gdpr_checkbox' ),
+				'desc_tip' => false,
+			),
+			array(
+				'title'   => __( 'Enable child category row on archives', 'woocommerce-sk-cz-functions' ),
+				'desc'    => $this->get_category_row_description( $settings_service ),
 				'id'      => $option_names['category_row'],
 				'type'    => 'checkbox',
 				'default' => 'no',
@@ -254,6 +256,36 @@ class WSCF_WC_Settings_Tab {
 		);
 
 		return $this->get_feature_description( $settings_service, 'gdpr_checkbox', $description );
+	}
+
+	/**
+	 * Get child category row description with linked screenshot preview.
+	 *
+	 * @param WSCF_Settings $settings_service Settings service.
+	 * @return string
+	 */
+	private function get_category_row_description( $settings_service ) {
+		$description = $this->get_feature_description(
+			$settings_service,
+			'category_row',
+			esc_html__( 'Displays clickable, responsive boxes for child categories above products on category archive pages.', 'woocommerce-sk-cz-functions' )
+		);
+
+		$image_path = WSCF_PLUGIN_PATH . 'assets/img/child_cat.jpeg';
+
+		if ( ! file_exists( $image_path ) ) {
+			return $description;
+		}
+
+		$image_url = WSCF_PLUGIN_URL . 'assets/img/child_cat.jpeg';
+		$image_alt = __( 'Child category row preview', 'woocommerce-sk-cz-functions' );
+
+		return sprintf(
+			'%1$s<br /><a class="wscf-settings-preview-link" href="%2$s" target="_blank" rel="noopener noreferrer"><img class="wscf-settings-preview-image" src="%2$s" alt="%3$s" /></a>',
+			$description,
+			esc_url( $image_url ),
+			esc_attr( $image_alt )
+		);
 	}
 
 	/**
