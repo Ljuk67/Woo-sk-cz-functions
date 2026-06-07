@@ -74,8 +74,3 @@ The free plugin root is:
 
 Typical local usage is to symlink or copy that directory into a WordPress site's `wp-content/plugins/` directory, then activate it with WooCommerce enabled.
 
-## Recommended Next Repo-Level Improvements
-
-- add `.editorconfig`
-- add PHP linting/coding-standard tooling when you are ready to enforce it
-- add a premium plugin root when premium work starts instead of mixing premium code into the free plugin
