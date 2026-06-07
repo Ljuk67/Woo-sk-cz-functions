@@ -12,6 +12,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 class WSCF_Company_Checkout_Fields {
 
 	/**
+	 * Block checkout field IDs.
+	 *
+	 * @var array<string, string>
+	 */
+	private $block_field_ids = array(
+		'buying_as_company' => 'woocommerce-sk-cz-functions/buying-as-company',
+		'company_name'      => 'woocommerce-sk-cz-functions/company-name',
+		'company_id'        => 'woocommerce-sk-cz-functions/company-id',
+		'tax_id'            => 'woocommerce-sk-cz-functions/tax-id',
+		'vat_id'            => 'woocommerce-sk-cz-functions/vat-id',
+	);
+
+	/**
 	 * Register feature hooks.
 	 *
 	 * @return void
@@ -21,8 +34,100 @@ class WSCF_Company_Checkout_Fields {
 		add_action( 'woocommerce_after_checkout_form', array( $this, 'render_toggle_script' ), 20 );
 		add_action( 'woocommerce_checkout_process', array( $this, 'validate_company_checkout_fields' ) );
 		add_action( 'woocommerce_checkout_create_order', array( $this, 'save_company_checkout_fields' ), 20, 2 );
+		add_action( 'woocommerce_init', array( $this, 'register_block_checkout_fields' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_block_checkout_assets' ) );
+		add_action( 'woocommerce_blocks_validate_location_other_fields', array( $this, 'validate_block_company_checkout_fields' ), 10, 3 );
+		add_action( 'woocommerce_store_api_checkout_update_order_from_request', array( $this, 'sync_block_company_order_meta_from_request' ), 20, 2 );
+		add_action( 'woocommerce_store_api_checkout_update_order_meta', array( $this, 'cleanup_block_company_order_meta' ), 20, 2 );
+		add_action( 'woocommerce_set_additional_field_value', array( $this, 'sync_block_field_to_order_meta' ), 10, 4 );
 		add_action( 'woocommerce_admin_order_data_after_billing_address', array( $this, 'show_company_fields_in_admin_order' ), 10, 1 );
+		add_action( 'woocommerce_order_details_after_order_table', array( $this, 'show_company_fields_in_order_details' ), 20, 1 );
 		add_filter( 'woocommerce_email_order_meta_fields', array( $this, 'add_company_fields_to_emails' ), 10, 3 );
+	}
+
+	/**
+	 * Register company fields for the Checkout Block.
+	 *
+	 * @return void
+	 */
+	public function register_block_checkout_fields() {
+		if ( ! function_exists( 'woocommerce_register_additional_checkout_field' ) ) {
+			return;
+		}
+
+		woocommerce_register_additional_checkout_field(
+			array(
+				'id'       => $this->block_field_ids['buying_as_company'],
+				'label'    => __( 'Company purchase - Company ID, Tax ID', 'woocommerce-sk-cz-functions' ),
+				'location' => 'order',
+				'type'     => 'checkbox',
+				'attributes' => array(
+					'data-wscf-company-toggle'       => '1',
+					'data-wscf-company-helper-text' => $this->get_block_company_helper_text(),
+				),
+			)
+		);
+
+		woocommerce_register_additional_checkout_field(
+			array(
+				'id'          => $this->block_field_ids['company_name'],
+				'label'       => __( 'Company name', 'woocommerce-sk-cz-functions' ),
+				'location'    => 'order',
+				'type'        => 'text',
+				'attributes'  => $this->get_block_company_field_attributes( true ),
+			)
+		);
+
+		woocommerce_register_additional_checkout_field(
+			array(
+				'id'          => $this->block_field_ids['company_id'],
+				'label'       => __( 'Company ID', 'woocommerce-sk-cz-functions' ),
+				'location'    => 'order',
+				'type'        => 'text',
+				'attributes'  => $this->get_block_company_field_attributes( true ),
+			)
+		);
+
+		woocommerce_register_additional_checkout_field(
+			array(
+				'id'          => $this->block_field_ids['tax_id'],
+				'label'       => __( 'Tax ID', 'woocommerce-sk-cz-functions' ),
+				'location'    => 'order',
+				'type'        => 'text',
+				'attributes'  => $this->get_block_company_field_attributes( true ),
+			)
+		);
+
+		woocommerce_register_additional_checkout_field(
+			array(
+				'id'          => $this->block_field_ids['vat_id'],
+				'label'       => __( 'VAT ID', 'woocommerce-sk-cz-functions' ),
+				'location'    => 'order',
+				'type'        => 'text',
+				'attributes'  => $this->get_block_company_field_attributes( false ),
+			)
+		);
+	}
+
+	/**
+	 * Enqueue block checkout enhancement script for company field visibility.
+	 *
+	 * @return void
+	 */
+	public function enqueue_block_checkout_assets() {
+		$script_path = WSCF_PLUGIN_PATH . 'assets/js/company-checkout-fields-block.js';
+
+		if ( ! function_exists( 'is_checkout' ) || ! is_checkout() || is_order_received_page() || ! file_exists( $script_path ) ) {
+			return;
+		}
+
+		wp_enqueue_script(
+			'wscf-company-checkout-fields-block',
+			WSCF_PLUGIN_URL . 'assets/js/company-checkout-fields-block.js',
+			array(),
+			(string) filemtime( $script_path ),
+			true
+		);
 	}
 
 	/**
@@ -45,11 +150,20 @@ class WSCF_Company_Checkout_Fields {
 			'priority' => 5,
 		);
 
-		if ( isset( $fields['billing']['billing_company'] ) && is_array( $fields['billing']['billing_company'] ) ) {
-			$fields['billing']['billing_company']['required'] = false;
-			$fields['billing']['billing_company']['priority'] = 6;
-			$fields['billing']['billing_company']['class']    = array( 'form-row-wide', 'nimble-company-field' );
-		}
+		$fields['billing']['billing_company'] = wp_parse_args(
+			isset( $fields['billing']['billing_company'] ) && is_array( $fields['billing']['billing_company'] )
+				? $fields['billing']['billing_company']
+				: array(),
+			array(
+				'type'        => 'text',
+				'label'       => __( 'Company name', 'woocommerce-sk-cz-functions' ),
+				'placeholder' => __( 'Company name', 'woocommerce-sk-cz-functions' ),
+				'required'    => false,
+				'class'       => array( 'form-row-wide', 'nimble-company-field' ),
+				'clear'       => true,
+				'priority'    => 6,
+			)
+		);
 
 		$fields['billing']['billing_ico'] = array(
 			'type'        => 'text',
@@ -132,15 +246,19 @@ class WSCF_Company_Checkout_Fields {
 	 * @return void
 	 */
 	public function validate_company_checkout_fields() {
-		$is_company = ! empty( $_POST['billing_buying_as_company'] );
+		if ( $this->is_store_api_checkout_request() ) {
+			return;
+		}
+
+		$is_company = $this->get_posted_bool( 'billing_buying_as_company' );
 
 		if ( ! $is_company ) {
 			return;
 		}
 
-		$company = isset( $_POST['billing_company'] ) ? trim( wp_unslash( $_POST['billing_company'] ) ) : '';
-		$ico     = isset( $_POST['billing_ico'] ) ? trim( wp_unslash( $_POST['billing_ico'] ) ) : '';
-		$dic     = isset( $_POST['billing_dic'] ) ? trim( wp_unslash( $_POST['billing_dic'] ) ) : '';
+		$company = $this->get_posted_text( 'billing_company' );
+		$ico     = $this->get_posted_text( 'billing_ico' );
+		$dic     = $this->get_posted_text( 'billing_dic' );
 
 		if ( '' === $company ) {
 			wc_add_notice( __( 'Please enter the company name.', 'woocommerce-sk-cz-functions' ), 'error' );
@@ -156,6 +274,43 @@ class WSCF_Company_Checkout_Fields {
 	}
 
 	/**
+	 * Validate block checkout company fields when company purchase is checked.
+	 *
+	 * @param WP_Error             $errors Validation errors.
+	 * @param array<string, mixed> $fields Submitted order-location block fields.
+	 * @param string              $group  Additional field group.
+	 * @return void
+	 */
+	public function validate_block_company_checkout_fields( $errors, $fields, $group ) {
+		if ( 'other' !== $group ) {
+			return;
+		}
+
+		$is_company = isset( $fields[ $this->block_field_ids['buying_as_company'] ] )
+			&& $this->get_bool_value( $fields[ $this->block_field_ids['buying_as_company'] ] );
+
+		if ( ! $is_company ) {
+			return;
+		}
+
+		$company = $this->get_block_field_value( $fields, 'company_name' );
+		$ico     = $this->get_block_field_value( $fields, 'company_id' );
+		$dic     = $this->get_block_field_value( $fields, 'tax_id' );
+
+		if ( '' === $company ) {
+			$errors->add( 'wscf_missing_company_name', __( 'Please enter the company name.', 'woocommerce-sk-cz-functions' ) );
+		}
+
+		if ( '' === $ico ) {
+			$errors->add( 'wscf_missing_company_id', __( 'Please enter Company ID.', 'woocommerce-sk-cz-functions' ) );
+		}
+
+		if ( '' === $dic ) {
+			$errors->add( 'wscf_missing_tax_id', __( 'Please enter Tax ID.', 'woocommerce-sk-cz-functions' ) );
+		}
+	}
+
+	/**
 	 * Save company checkout fields to order meta.
 	 *
 	 * @param WC_Order             $order Order object.
@@ -165,22 +320,25 @@ class WSCF_Company_Checkout_Fields {
 	public function save_company_checkout_fields( $order, $data ) {
 		unset( $data );
 
+		if ( $this->is_store_api_checkout_request() ) {
+			return;
+		}
+
 		$order->update_meta_data(
 			'_billing_buying_as_company',
-			! empty( $_POST['billing_buying_as_company'] ) ? '1' : '0'
+			$this->get_posted_bool( 'billing_buying_as_company' ) ? '1' : '0'
 		);
 
-		if ( isset( $_POST['billing_ico'] ) ) {
-			$order->update_meta_data( '_billing_ico', sanitize_text_field( wp_unslash( $_POST['billing_ico'] ) ) );
+		if ( ! $this->get_posted_bool( 'billing_buying_as_company' ) ) {
+			$order->update_meta_data( '_billing_ico', '' );
+			$order->update_meta_data( '_billing_dic', '' );
+			$order->update_meta_data( '_billing_ic_dph', '' );
+			return;
 		}
 
-		if ( isset( $_POST['billing_dic'] ) ) {
-			$order->update_meta_data( '_billing_dic', sanitize_text_field( wp_unslash( $_POST['billing_dic'] ) ) );
-		}
-
-		if ( isset( $_POST['billing_ic_dph'] ) ) {
-			$order->update_meta_data( '_billing_ic_dph', sanitize_text_field( wp_unslash( $_POST['billing_ic_dph'] ) ) );
-		}
+		$order->update_meta_data( '_billing_ico', $this->get_posted_text( 'billing_ico' ) );
+		$order->update_meta_data( '_billing_dic', $this->get_posted_text( 'billing_dic' ) );
+		$order->update_meta_data( '_billing_ic_dph', $this->get_posted_text( 'billing_ic_dph' ) );
 	}
 
 	/**
@@ -212,6 +370,40 @@ class WSCF_Company_Checkout_Fields {
 		if ( ! empty( $ic_dph ) ) {
 			echo '<p><strong>' . esc_html__( 'VAT ID:', 'woocommerce-sk-cz-functions' ) . '</strong> ' . esc_html( $ic_dph ) . '</p>';
 		}
+	}
+
+	/**
+	 * Show company data on customer order details and order confirmation pages.
+	 *
+	 * @param WC_Order $order Order object.
+	 * @return void
+	 */
+	public function show_company_fields_in_order_details( $order ) {
+		if ( ! $order instanceof WC_Order || '1' !== $order->get_meta( '_billing_buying_as_company' ) ) {
+			return;
+		}
+
+		$company_details = $this->get_company_order_details( $order );
+
+		if ( empty( $company_details ) ) {
+			return;
+		}
+
+		echo '<section class="woocommerce-customer-details wscf-company-details">';
+		echo '<h2 class="woocommerce-column__title">' . esc_html__( 'Company data', 'woocommerce-sk-cz-functions' ) . '</h2>';
+		echo '<table class="woocommerce-table woocommerce-table--custom-fields shop_table custom-fields">';
+		echo '<tbody>';
+
+		foreach ( $company_details as $company_detail ) {
+			echo '<tr>';
+			echo '<th>' . esc_html( $company_detail['label'] ) . '</th>';
+			echo '<td>' . esc_html( $company_detail['value'] ) . '</td>';
+			echo '</tr>';
+		}
+
+		echo '</tbody>';
+		echo '</table>';
+		echo '</section>';
 	}
 
 	/**
@@ -255,5 +447,371 @@ class WSCF_Company_Checkout_Fields {
 		}
 
 		return $fields;
+	}
+
+	/**
+	 * Get company order details for customer-facing order output.
+	 *
+	 * @param WC_Order $order Order object.
+	 * @return array<int, array{label: string, value: string}>
+	 */
+	private function get_company_order_details( $order ) {
+		$details = array();
+		$company = $order->get_billing_company();
+		$ico     = $order->get_meta( '_billing_ico' );
+		$dic     = $order->get_meta( '_billing_dic' );
+		$ic_dph  = $order->get_meta( '_billing_ic_dph' );
+
+		if ( ! empty( $company ) ) {
+			$details[] = array(
+				'label' => __( 'Company name', 'woocommerce-sk-cz-functions' ),
+				'value' => $company,
+			);
+		}
+
+		if ( ! empty( $ico ) ) {
+			$details[] = array(
+				'label' => __( 'Company ID', 'woocommerce-sk-cz-functions' ),
+				'value' => $ico,
+			);
+		}
+
+		if ( ! empty( $dic ) ) {
+			$details[] = array(
+				'label' => __( 'Tax ID', 'woocommerce-sk-cz-functions' ),
+				'value' => $dic,
+			);
+		}
+
+		if ( ! empty( $ic_dph ) ) {
+			$details[] = array(
+				'label' => __( 'VAT ID', 'woocommerce-sk-cz-functions' ),
+				'value' => $ic_dph,
+			);
+		}
+
+		return $details;
+	}
+
+	/**
+	 * Mirror block checkout fields into existing order data keys.
+	 *
+	 * @param string           $key       Additional field key.
+	 * @param mixed            $value     Additional field value.
+	 * @param string           $group     Additional field group.
+	 * @param WC_Data|WC_Order $wc_object WooCommerce object being updated.
+	 * @return void
+	 */
+	public function sync_block_field_to_order_meta( $key, $value, $group, $wc_object ) {
+		if ( 'other' !== $group || ! $wc_object instanceof WC_Order ) {
+			return;
+		}
+
+		if ( ! in_array( $key, $this->block_field_ids, true ) ) {
+			return;
+		}
+
+		if ( $this->block_field_ids['buying_as_company'] === $key ) {
+			$is_company = $this->get_bool_value( $value ) ? '1' : '0';
+
+			$wc_object->update_meta_data( '_billing_buying_as_company', $is_company );
+
+			if ( '0' === $is_company ) {
+				$wc_object->set_billing_company( '' );
+				$wc_object->update_meta_data( '_billing_ico', '' );
+				$wc_object->update_meta_data( '_billing_dic', '' );
+				$wc_object->update_meta_data( '_billing_ic_dph', '' );
+			}
+
+			return;
+		}
+
+		if ( $this->block_field_ids['company_name'] === $key ) {
+			if ( '1' !== $wc_object->get_meta( '_billing_buying_as_company' ) ) {
+				$this->delete_block_additional_field_meta( $wc_object, $key );
+				return;
+			}
+
+			$wc_object->set_billing_company( $this->sanitize_scalar_text( $value ) );
+			$this->delete_block_additional_field_meta( $wc_object, $key );
+			return;
+		}
+
+		if ( $this->block_field_ids['company_id'] === $key ) {
+			if ( '1' !== $wc_object->get_meta( '_billing_buying_as_company' ) ) {
+				$this->delete_block_additional_field_meta( $wc_object, $key );
+				return;
+			}
+
+			$wc_object->update_meta_data( '_billing_ico', $this->sanitize_scalar_text( $value ) );
+			$this->delete_block_additional_field_meta( $wc_object, $key );
+			return;
+		}
+
+		if ( $this->block_field_ids['tax_id'] === $key ) {
+			if ( '1' !== $wc_object->get_meta( '_billing_buying_as_company' ) ) {
+				$this->delete_block_additional_field_meta( $wc_object, $key );
+				return;
+			}
+
+			$wc_object->update_meta_data( '_billing_dic', $this->sanitize_scalar_text( $value ) );
+			$this->delete_block_additional_field_meta( $wc_object, $key );
+			return;
+		}
+
+		if ( $this->block_field_ids['vat_id'] === $key ) {
+			if ( '1' !== $wc_object->get_meta( '_billing_buying_as_company' ) ) {
+				$this->delete_block_additional_field_meta( $wc_object, $key );
+				return;
+			}
+
+			$wc_object->update_meta_data( '_billing_ic_dph', $this->sanitize_scalar_text( $value ) );
+			$this->delete_block_additional_field_meta( $wc_object, $key );
+		}
+	}
+
+	/**
+	 * Make the final Store API checkout payload authoritative for mirrored meta.
+	 *
+	 * Additional checkout fields are saved independently by WooCommerce Blocks.
+	 * This pass prevents stale hidden company values from being re-saved after
+	 * the shopper unchecks the company-purchase toggle.
+	 *
+	 * @param WC_Order        $order   Order object.
+	 * @param WP_REST_Request $request Store API request.
+	 * @return void
+	 */
+	public function sync_block_company_order_meta_from_request( $order, $request ) {
+		if ( ! $order instanceof WC_Order || ! $request instanceof WP_REST_Request ) {
+			return;
+		}
+
+		$additional_fields = $request->get_param( 'additional_fields' );
+
+		if ( ! is_array( $additional_fields ) ) {
+			return;
+		}
+
+		$is_company = isset( $additional_fields[ $this->block_field_ids['buying_as_company'] ] )
+			&& $this->get_bool_value( $additional_fields[ $this->block_field_ids['buying_as_company'] ] );
+
+		$order->update_meta_data( '_billing_buying_as_company', $is_company ? '1' : '0' );
+
+		if ( ! $is_company ) {
+			$order->set_billing_company( '' );
+			$order->update_meta_data( '_billing_ico', '' );
+			$order->update_meta_data( '_billing_dic', '' );
+			$order->update_meta_data( '_billing_ic_dph', '' );
+			$this->delete_block_company_text_field_meta( $order );
+			return;
+		}
+
+		$order->set_billing_company( $this->get_block_request_field_value( $additional_fields, 'company_name' ) );
+		$order->update_meta_data( '_billing_ico', $this->get_block_request_field_value( $additional_fields, 'company_id' ) );
+		$order->update_meta_data( '_billing_dic', $this->get_block_request_field_value( $additional_fields, 'tax_id' ) );
+		$order->update_meta_data( '_billing_ic_dph', $this->get_block_request_field_value( $additional_fields, 'vat_id' ) );
+		$this->delete_block_company_text_field_meta( $order );
+	}
+
+	/**
+	 * Remove duplicate block additional text-field meta after Store API checkout updates.
+	 *
+	 * WooCommerce renders block additional fields from its own `_wc_other/...`
+	 * meta keys in some admin/customer order views. Keep the native checkbox
+	 * meta so WooCommerce can display the selected company-purchase state, but
+	 * remove text-field duplicates because those are mirrored into billing meta.
+	 *
+	 * @param WC_Order        $order   Order object.
+	 * @param WP_REST_Request $request Store API request.
+	 * @return void
+	 */
+	public function cleanup_block_company_order_meta( $order, $request = null ) {
+		unset( $request );
+
+		if ( ! $order instanceof WC_Order ) {
+			return;
+		}
+
+		$this->delete_block_company_text_field_meta( $order );
+
+		$order->save();
+	}
+
+	/**
+	 * Get a sanitized classic checkout posted text value.
+	 *
+	 * @param string $key Posted field key.
+	 * @return string
+	 */
+	private function get_posted_text( $key ) {
+		if ( ! isset( $_POST[ $key ] ) ) {
+			return '';
+		}
+
+		$value = wp_unslash( $_POST[ $key ] );
+
+		if ( is_array( $value ) ) {
+			return '';
+		}
+
+		return trim( sanitize_text_field( (string) $value ) );
+	}
+
+	/**
+	 * Get a classic checkout posted boolean value.
+	 *
+	 * @param string $key Posted field key.
+	 * @return bool
+	 */
+	private function get_posted_bool( $key ) {
+		if ( ! isset( $_POST[ $key ] ) ) {
+			return false;
+		}
+
+		$value = wp_unslash( $_POST[ $key ] );
+
+		if ( is_array( $value ) ) {
+			return false;
+		}
+
+		return $this->get_bool_value( $value );
+	}
+
+	/**
+	 * Get custom attributes for block company fields.
+	 *
+	 * @param bool $required Whether the field should be required when shown.
+	 * @return array<string, string>
+	 */
+	private function get_block_company_field_attributes( $required ) {
+		return array(
+			'data-wscf-company-dependent' => '1',
+			'data-wscf-company-required'  => $required ? '1' : '0',
+		);
+	}
+
+	/**
+	 * Get a trimmed string value from block checkout fields.
+	 *
+	 * @param array<string, mixed> $fields    Submitted order-location block fields.
+	 * @param string               $field_key Internal block field key.
+	 * @return string
+	 */
+	private function get_block_field_value( $fields, $field_key ) {
+		if ( ! isset( $this->block_field_ids[ $field_key ], $fields[ $this->block_field_ids[ $field_key ] ] ) ) {
+			return '';
+		}
+
+		$value = $fields[ $this->block_field_ids[ $field_key ] ];
+
+		if ( is_array( $value ) ) {
+			return '';
+		}
+
+		return trim( sanitize_text_field( (string) $value ) );
+	}
+
+	/**
+	 * Get a boolean value from a scalar input.
+	 *
+	 * @param mixed $value Raw value.
+	 * @return bool
+	 */
+	private function get_bool_value( $value ) {
+		if ( is_array( $value ) ) {
+			return false;
+		}
+
+		return wc_string_to_bool( $value );
+	}
+
+	/**
+	 * Sanitize scalar text and reject arrays.
+	 *
+	 * @param mixed $value Raw value.
+	 * @return string
+	 */
+	private function sanitize_scalar_text( $value ) {
+		if ( is_array( $value ) ) {
+			return '';
+		}
+
+		return trim( sanitize_text_field( (string) $value ) );
+	}
+
+	/**
+	 * Get a sanitized Store API additional-field value.
+	 *
+	 * @param array<string, mixed> $additional_fields Store API additional fields.
+	 * @param string               $field_key         Internal block field key.
+	 * @return string
+	 */
+	private function get_block_request_field_value( $additional_fields, $field_key ) {
+		if ( ! isset( $this->block_field_ids[ $field_key ], $additional_fields[ $this->block_field_ids[ $field_key ] ] ) ) {
+			return '';
+		}
+
+		$value = $additional_fields[ $this->block_field_ids[ $field_key ] ];
+
+		if ( is_array( $value ) ) {
+			return '';
+		}
+
+		return trim( sanitize_text_field( (string) $value ) );
+	}
+
+	/**
+	 * Get helper text shown below the block checkout company toggle.
+	 *
+	 * @return string
+	 */
+	private function get_block_company_helper_text() {
+		return __( 'Company fields will appear below in the "Additional order information" section.', 'woocommerce-sk-cz-functions' );
+	}
+
+	/**
+	 * Remove the duplicate WooCommerce additional-field order meta for block orders.
+	 *
+	 * The company data is already mirrored into the billing/company meta keys
+	 * that we use for admin output, emails, and customer order details.
+	 *
+	 * @param WC_Order $order    Order object.
+	 * @param string   $field_id Registered block field ID.
+	 * @return void
+	 */
+	private function delete_block_additional_field_meta( $order, $field_id ) {
+		$order->delete_meta_data( '_wc_other/' . $field_id );
+	}
+
+	/**
+	 * Remove WooCommerce additional-field meta for company text fields.
+	 *
+	 * @param WC_Order $order Order object.
+	 * @return void
+	 */
+	private function delete_block_company_text_field_meta( $order ) {
+		$this->delete_block_additional_field_meta( $order, $this->block_field_ids['company_name'] );
+		$this->delete_block_additional_field_meta( $order, $this->block_field_ids['company_id'] );
+		$this->delete_block_additional_field_meta( $order, $this->block_field_ids['tax_id'] );
+		$this->delete_block_additional_field_meta( $order, $this->block_field_ids['vat_id'] );
+	}
+
+	/**
+	 * Detect Store API checkout requests used by the Checkout Block.
+	 *
+	 * @return bool
+	 */
+	private function is_store_api_checkout_request() {
+		if ( ! defined( 'REST_REQUEST' ) || ! REST_REQUEST ) {
+			return false;
+		}
+
+		if ( empty( $_SERVER['REQUEST_URI'] ) ) {
+			return false;
+		}
+
+		$request_uri = wp_unslash( $_SERVER['REQUEST_URI'] );
+
+		return false !== strpos( $request_uri, '/wc/store/' ) && false !== strpos( $request_uri, '/checkout' );
 	}
 }

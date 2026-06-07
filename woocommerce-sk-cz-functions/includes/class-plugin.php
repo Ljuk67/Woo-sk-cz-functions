@@ -81,6 +81,8 @@ class WSCF_Plugin {
 	 * @return void
 	 */
 	private function register_features() {
+		( new WSCF_Checkout_Button_Text( $this->settings ) )->register_hooks();
+
 		if ( $this->settings->is_feature_enabled( 'company_checkout_fields' ) ) {
 			( new WSCF_Company_Checkout_Fields() )->register_hooks();
 		}
@@ -97,8 +99,12 @@ class WSCF_Plugin {
 			( new WSCF_Hide_Shipping_When_Free() )->register_hooks();
 		}
 
+		if ( $this->settings->is_feature_enabled( 'cod_fee' ) ) {
+			( new WSCF_COD_Fee( $this->settings ) )->register_hooks();
+		}
+
 		if ( $this->settings->is_feature_enabled( 'remove_additional_information_tab' ) ) {
-			( new WSCF_Remove_Additional_Information_Tab() )->register_hooks();
+			( new WSCF_Remove_Additional_Information_Tab( $this->settings ) )->register_hooks();
 		}
 	}
 

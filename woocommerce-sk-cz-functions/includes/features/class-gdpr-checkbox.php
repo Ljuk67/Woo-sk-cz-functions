@@ -12,13 +12,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 class WSCF_GDPR_Checkbox {
 
 	/**
-	 * Block checkout field identifier.
-	 *
-	 * @var string
-	 */
-	private $block_field_id = 'woocommerce-sk-cz-functions/privacy-policy';
-
-	/**
 	 * Register feature hooks.
 	 *
 	 * @return void
@@ -26,54 +19,6 @@ class WSCF_GDPR_Checkbox {
 	public function register_hooks() {
 		add_action( 'woocommerce_review_order_before_submit', array( $this, 'render_privacy_checkbox' ), 9 );
 		add_action( 'woocommerce_checkout_process', array( $this, 'validate_privacy_checkbox' ) );
-		add_action( 'woocommerce_init', array( $this, 'register_block_checkout_field' ) );
-		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_block_checkout_assets' ) );
-	}
-
-	/**
-	 * Register GDPR consent field for the Checkout Block.
-	 *
-	 * @return void
-	 */
-	public function register_block_checkout_field() {
-		if ( ! function_exists( 'woocommerce_register_additional_checkout_field' ) ) {
-			return;
-		}
-
-		woocommerce_register_additional_checkout_field(
-			array(
-				'id'            => $this->block_field_id,
-				'label'         => $this->get_checkbox_label(),
-				'location'      => 'order',
-				'type'          => 'checkbox',
-				'required'      => true,
-				'error_message' => $this->get_validation_message(),
-				'attributes'    => array(
-					'data-wscf-privacy-policy-field'     => '1',
-					'data-wscf-privacy-policy-url'       => $this->get_privacy_policy_url(),
-					'data-wscf-privacy-policy-link-text' => $this->get_privacy_policy_link_text(),
-				),
-			)
-		);
-	}
-
-	/**
-	 * Enqueue block checkout enhancement script for privacy policy link.
-	 *
-	 * @return void
-	 */
-	public function enqueue_block_checkout_assets() {
-		if ( ! function_exists( 'is_checkout' ) || ! is_checkout() || is_order_received_page() ) {
-			return;
-		}
-
-		wp_enqueue_script(
-			'wscf-gdpr-checkbox-block',
-			WSCF_PLUGIN_URL . 'assets/js/gdpr-checkbox-block.js',
-			array(),
-			WSCF_VERSION,
-			true
-		);
 	}
 
 	/**
@@ -114,16 +59,6 @@ class WSCF_GDPR_Checkbox {
 	}
 
 	/**
-	 * Get the consent label shared by classic and block checkout.
-	 *
-	 * @return string
-	 */
-	private function get_checkbox_label() {
-		return __( 'I have read the privacy policy and agree with it.', 'woocommerce-sk-cz-functions' );
-
-	}
-
-	/**
 	 * Get the classic checkout label with privacy policy link when available.
 	 *
 	 * @return string
@@ -132,12 +67,12 @@ class WSCF_GDPR_Checkbox {
 		$privacy_policy_url = $this->get_privacy_policy_url();
 
 		if ( '' === $privacy_policy_url ) {
-			return $this->get_checkbox_label();
+			return __( 'I have read the privacy policy and agree with it.', 'woocommerce-sk-cz-functions' );
 		}
 
 		return sprintf(
 			'%1$s <a href="%2$s" target="_blank" rel="noopener">%3$s</a>',
-			esc_html( $this->get_checkbox_label() ),
+			esc_html__( 'I have read the privacy policy and agree with it.', 'woocommerce-sk-cz-functions' ),
 			esc_url( $privacy_policy_url ),
 			esc_html( $this->get_privacy_policy_link_text() )
 		);

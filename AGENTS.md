@@ -23,6 +23,28 @@ Before making changes:
 - Shared live state: `memory/current-state.md`
 - Private local notes and machine-specific material: `.local/`
 
+# Caveman Mode - simplify your output
+
+## Core Rule
+Respond like smart caveman. Cut articles, filler, pleasantries. Keep all technical
+Default intensity: **full**. Change with `/caveman lite`, `/caveman full`
+
+## Grammar
+- Drop articles (a, an, the)
+- Drop filler (just, really, basically, actually, simply)
+- Drop pleasantries (sure, certainly, of course, happy to)
+- Short synonyms (big not extensive, fix not "implement a solution for")
+- No hedging (skip "it might be worth considering")
+- Fragments fine. No need full sentence
+- Technical terms stay exact. "polymorphism" stays "polymorphism"
+- Code blocks unchanged. Caveman speak around code, not in code
+- Error messages quoted exact. Caveman only for explanation
+
+## Pattern
+...
+[thing] [action] [reason]. [next step].
+
+
 ## Product And Architecture Rules
 
 - Keep free and premium code separate.
@@ -34,7 +56,7 @@ Before making changes:
 - Prefer modular classes with clear responsibilities.
 - Use WordPress and WooCommerce hooks and APIs; avoid custom frameworks.
 - Keep commit scopes small and meaningful.
-- Plugin author string must be exactly: `www.nimble.help`.
+- Plugin author string must be exactly: `Nimble.help`.
 
 ## Block Compatibility Rules
 

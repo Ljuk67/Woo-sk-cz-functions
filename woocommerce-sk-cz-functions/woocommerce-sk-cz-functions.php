@@ -1,17 +1,18 @@
 <?php
 /**
  * Plugin Name:       WooCommerce SK/CZ Functions
- * Plugin URI:        https://nimble.help
- * Description:       Useful WooCommerce features for Slovak/Czech stores - company checkout fields, GDPR checkbox, and UX improvements.
+ * Plugin URI:        https://github.com/Ljuk67/Woo-sk-cz-functions
+ * Description:       WooCommerce tools for Slovak and Czech stores: company checkout fields, COD fee, GDPR consent, shipping, and catalog helpers.
  * Version:           0.1.0
  * Requires at least: 6.4
  * Requires PHP:      7.4
- * Author:            www.nimble.help
+ * Author:            Nimble.help
  * Author URI:        https://nimble.help
  * Text Domain:       woocommerce-sk-cz-functions
  * Domain Path:       /languages
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+ * Requires Plugins:  woocommerce
  *
  * @package WooCommerce_SK_CZ_Functions
  */
@@ -27,10 +28,12 @@ define( 'WSCF_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
 require_once WSCF_PLUGIN_PATH . 'includes/class-settings.php';
 require_once WSCF_PLUGIN_PATH . 'includes/class-wc-settings-tab.php';
+require_once WSCF_PLUGIN_PATH . 'includes/features/class-checkout-button-text.php';
 require_once WSCF_PLUGIN_PATH . 'includes/features/class-company-checkout-fields.php';
 require_once WSCF_PLUGIN_PATH . 'includes/features/class-gdpr-checkbox.php';
 require_once WSCF_PLUGIN_PATH . 'includes/features/class-category-row.php';
 require_once WSCF_PLUGIN_PATH . 'includes/features/class-hide-shipping-when-free.php';
+require_once WSCF_PLUGIN_PATH . 'includes/features/class-cod-fee.php';
 require_once WSCF_PLUGIN_PATH . 'includes/features/class-remove-additional-information-tab.php';
 require_once WSCF_PLUGIN_PATH . 'includes/class-plugin.php';
 

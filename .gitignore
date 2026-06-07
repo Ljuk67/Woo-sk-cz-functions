@@ -8,12 +8,17 @@ Thumbs.db
 .backups/
 .local/
 
+# Local project planning/state
+/docs/
+/memory/
+
 # Logs
 *.log
 
 # Build artifacts
 dist/
 build/
+*.zip
 
 # Dependency directories
 vendor/
