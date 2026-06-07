@@ -47,7 +47,7 @@ msgstr "Objednat s povinností platby"
 
 #: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:87
 msgid "Enable company checkout fields"
-msgstr "Povolit firemní pole v pokladně"
+msgstr "Povolit \"Nákup na firmu\" v pokladně"
 
 #: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:88
 msgid "Adds company purchase checkbox and business fields at checkout."

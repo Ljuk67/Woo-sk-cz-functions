@@ -6,6 +6,7 @@ Thumbs.db
 .idea/
 .vscode/
 .backups/
+.codex
 .local/
 
 # Local project planning/state
