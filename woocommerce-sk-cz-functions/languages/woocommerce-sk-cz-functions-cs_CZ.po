@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Nimble WooCommerce SK/CZ Functions 1.0.0\n"
 "Report-Msgid-Bugs-To: https://nimble.help\n"
-"POT-Creation-Date: 2026-06-07 11:49+0200\n"
+"POT-Creation-Date: 2026-06-09 17:58+0200\n"
 "PO-Revision-Date: 2026-03-12 16:15+0000\n"
 "Last-Translator: nimble.help\n"
 "Language-Team: Czech\n"
@@ -13,26 +13,72 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Domain: woocommerce-sk-cz-functions\n"
 
-#: woocommerce-sk-cz-functions/includes/class-plugin.php:43
+#: woocommerce-sk-cz-functions/includes/class-plugin.php:49
 msgid "Settings"
 msgstr "Nastavení"
 
-#: woocommerce-sk-cz-functions/includes/class-plugin.php:129
+#: woocommerce-sk-cz-functions/includes/class-plugin.php:137
 msgid ""
 "Nimble WooCommerce SK/CZ Functions requires the WooCommerce plugin to be "
 "active."
-msgstr "Nimble WooCommerce SK/CZ Functions vyžaduje aktivní plugin WooCommerce."
+msgstr ""
+"Nimble WooCommerce SK/CZ Functions vyžaduje aktivní plugin WooCommerce."
+
+#: woocommerce-sk-cz-functions/includes/class-settings.php:83
+msgid "Objednať s povinnosťou platby"
+msgstr "Objednat s povinností platby"
+
+#: woocommerce-sk-cz-functions/includes/class-settings.php:101
+msgid "Cash on delivery fee"
+msgstr "Poplatek za dobírku"
 
 #: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:32
-#: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:82
+#: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:129
 msgid "WooCommerce SK/CZ"
 msgstr "WooCommerce SK/CZ"
 
-#: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:87
+#: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:90
+msgid "Plugin support and rating links"
+msgstr "Podpora pluginu a odkazy na hodnocení"
+
+#: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:93
+msgid "Custom solutions"
+msgstr "Vývoj na míru"
+
+#: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:94
+msgid ""
+"Need a custom plugin, theme adjustments, or specific features? I create "
+"custom WordPress solutions for your needs."
+msgstr ""
+"Potřebujete vlastní doplněk, úpravy šablon nebo specifické funkce? Vytvářím "
+"řešení WordPress na míru pro vaše potřeby."
+
+#: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:95
+msgid "Fast & reliable websites for businesses that need things done properly"
+msgstr ""
+"Rychlé a spolehlivé weby pro firmy, které potřebují věci udělat pořádně"
+
+#: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:96
+msgid "Ask about your website"
+msgstr "Zeptejte se na svůj web"
+
+#: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:101
+msgid ""
+"Like this plugin? Rate it on WordPress.org - we'll add a link once it's "
+"uploaded to WordPress here."
+msgstr ""
+"Líbí se vám tento plugin? Ohodnoťte ho na WordPress.org - odkaz sem přidáme "
+"po nahrání na WordPress."
+
+#: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:102
+msgid "Add rating"
+msgstr "Přidat hodnocení"
+
+#: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:134
 msgid "Checkout button text"
 msgstr "Text tlačítka v pokladně"
 
-#: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:88
+#: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:135
 msgid ""
 "Leave the predefined text unchanged to use the translated default for the "
 "current site language. Clear the field to return to the default after saving "
@@ -42,55 +88,39 @@ msgstr ""
 "pro aktuální jazyk webu. Pokud se po uložení vlastního textu chcete vrátit k "
 "výchozímu textu, pole vymažte."
 
-#: woocommerce-sk-cz-functions/includes/class-settings.php:78
-msgid "Objednať s povinnosťou platby"
-msgstr "Objednat s povinností platby"
-
-#: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:87
+#: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:144
 msgid "Enable company checkout fields"
 msgstr "Povolit \"Nákup na firmu\" v pokladně"
 
-#: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:88
+#: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:145
 msgid "Adds company purchase checkbox and business fields at checkout."
 msgstr "Přidá checkbox nákupu na firmu a firemní pole v pokladně."
 
-#: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:96
+#: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:153
 msgid "Enable GDPR checkbox in checkout"
 msgstr "Povolit GDPR checkbox v pokladně"
 
-#: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:105
+#: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:162
 msgid "Enable child category row on archives"
 msgstr "Povolit řádek podkategorií v archivech"
 
-#: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:106
-msgid ""
-"Displays clickable, responsive boxes for child categories above products on "
-"category archive pages."
-msgstr ""
-"Zobrazí klikatelné, responzivní boxy pro podkategorie nad produkty na "
-"stránkách archivů kategorií."
-
-#: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:269
-msgid "Child category row preview"
-msgstr "Náhled řádku podkategorií"
-
-#: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:114
+#: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:171
 msgid "Hide paid shipping when free shipping exists"
 msgstr "Skrýt placené způsoby dopravy, když je dostupná doprava zdarma"
 
-#: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:115
+#: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:172
 msgid "Shows only free shipping rates when free shipping is available."
 msgstr "Zobrazí pouze dopravu zdarma, když je dostupná."
 
-#: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:123
+#: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:180
 msgid "Hide Additional Information tab on products"
 msgstr "Skrýt kartu Další informace u produktů"
 
-#: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:124
+#: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:181
 msgid "Removes the Additional Information tab from single product pages."
 msgstr "Odstraní kartu Další informace ze stránek jednotlivých produktů."
 
-#: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:133
+#: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:190
 msgid ""
 "When enabled, show the hidden Additional Information content directly in the "
 "long product description instead of hiding it completely."
@@ -98,21 +128,21 @@ msgstr ""
 "Pokud je povoleno, zobrazí skrytý obsah karty Další informace přímo v "
 "dlouhém popisu produktu místo úplného skrytí."
 
-#: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:141
+#: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:198
 msgid "Enable COD fee"
 msgstr "Povolit poplatek za dobírku"
 
-#: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:142
+#: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:199
 msgid ""
 "Adds an extra fee when the customer selects the Cash on Delivery payment "
 "gateway."
 msgstr "Přidá další poplatek, když zákazník zvolí platební bránu Dobírka."
 
-#: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:150
+#: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:207
 msgid "Default COD fee amount"
 msgstr "Výchozí výše poplatku za dobírku"
 
-#: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:151
+#: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:208
 msgid ""
 "Used when no configured cart-total band matches. Based on cart total after "
 "shipping, tax, and coupons."
@@ -120,21 +150,21 @@ msgstr ""
 "Použije se jako pevný poplatek. Vychází z celkové částky košíku po dopravě, "
 "dani a kuponech."
 
-#: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:160
+#: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:217
 msgid "COD fee label"
 msgstr "Název poplatku za dobírku"
 
-#: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:161
+#: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:218
 msgid "Frontend fee label. Leave empty to use the default plugin label."
 msgstr ""
 "Název poplatku zobrazený zákazníkovi. Nechte prázdné pro výchozí název "
 "pluginu."
 
-#: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:227
+#: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:284
 msgid "Not ready yet."
 msgstr "Zatím není připraveno."
 
-#: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:240
+#: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:297
 msgid ""
 "Classic checkout only: Adds a required privacy-policy consent checkbox at "
 "checkout."
@@ -142,18 +172,26 @@ msgstr ""
 "Pouze klasická pokladna: Přidá do pokladny povinný checkbox souhlasu se "
 "zásadami ochrany osobních údajů."
 
-#: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:241
+#: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:298
 msgid ""
 "In block checkout, the GDPR checkbox is combined with the terms-and-"
 "conditions checkbox."
 msgstr ""
 "V blokové pokladně je GDPR checkbox spojený s checkboxem obchodních podmínek."
 
-#: woocommerce-sk-cz-functions/includes/features/class-cod-fee.php:162
-msgid "Cash on delivery fee"
-msgstr "Poplatek za dobírku"
+#: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:314
+msgid ""
+"Displays clickable, responsive boxes for child categories above products on "
+"category archive pages."
+msgstr ""
+"Zobrazí klikatelné, responzivní boxy pro podkategorie nad produkty na "
+"stránkách archivů kategorií."
 
-#: woocommerce-sk-cz-functions/includes/features/class-company-checkout-fields.php:60
+#: woocommerce-sk-cz-functions/includes/class-wc-settings-tab.php:324
+msgid "Child category row preview"
+msgstr "Náhled řádku podkategorií"
+
+#: woocommerce-sk-cz-functions/includes/features/class-company-checkout-fields.php:61
 #: woocommerce-sk-cz-functions/includes/features/class-company-checkout-fields.php:145
 msgid "Company purchase - Company ID, Tax ID"
 msgstr "Nákup na firmu - IČO, DIČ"
@@ -161,58 +199,63 @@ msgstr "Nákup na firmu - IČO, DIČ"
 #: woocommerce-sk-cz-functions/includes/features/class-company-checkout-fields.php:73
 #: woocommerce-sk-cz-functions/includes/features/class-company-checkout-fields.php:158
 #: woocommerce-sk-cz-functions/includes/features/class-company-checkout-fields.php:159
+#: woocommerce-sk-cz-functions/includes/features/class-company-checkout-fields.php:466
 msgid "Company name"
 msgstr "Název firmy"
 
 #: woocommerce-sk-cz-functions/includes/features/class-company-checkout-fields.php:83
 #: woocommerce-sk-cz-functions/includes/features/class-company-checkout-fields.php:169
 #: woocommerce-sk-cz-functions/includes/features/class-company-checkout-fields.php:170
-#: woocommerce-sk-cz-functions/includes/features/class-company-checkout-fields.php:394
+#: woocommerce-sk-cz-functions/includes/features/class-company-checkout-fields.php:429
+#: woocommerce-sk-cz-functions/includes/features/class-company-checkout-fields.php:473
 msgid "Company ID"
 msgstr "IČO"
 
 #: woocommerce-sk-cz-functions/includes/features/class-company-checkout-fields.php:93
 #: woocommerce-sk-cz-functions/includes/features/class-company-checkout-fields.php:179
 #: woocommerce-sk-cz-functions/includes/features/class-company-checkout-fields.php:180
-#: woocommerce-sk-cz-functions/includes/features/class-company-checkout-fields.php:401
+#: woocommerce-sk-cz-functions/includes/features/class-company-checkout-fields.php:436
+#: woocommerce-sk-cz-functions/includes/features/class-company-checkout-fields.php:480
 msgid "Tax ID"
 msgstr "DIČ"
 
 #: woocommerce-sk-cz-functions/includes/features/class-company-checkout-fields.php:103
 #: woocommerce-sk-cz-functions/includes/features/class-company-checkout-fields.php:189
 #: woocommerce-sk-cz-functions/includes/features/class-company-checkout-fields.php:190
-#: woocommerce-sk-cz-functions/includes/features/class-company-checkout-fields.php:408
+#: woocommerce-sk-cz-functions/includes/features/class-company-checkout-fields.php:443
+#: woocommerce-sk-cz-functions/includes/features/class-company-checkout-fields.php:487
 msgid "VAT ID"
 msgstr "IČ DPH"
 
 #: woocommerce-sk-cz-functions/includes/features/class-company-checkout-fields.php:263
-#: woocommerce-sk-cz-functions/includes/features/class-company-checkout-fields.php:299
+#: woocommerce-sk-cz-functions/includes/features/class-company-checkout-fields.php:300
 msgid "Please enter the company name."
 msgstr "Vyplňte název firmy."
 
 #: woocommerce-sk-cz-functions/includes/features/class-company-checkout-fields.php:267
-#: woocommerce-sk-cz-functions/includes/features/class-company-checkout-fields.php:303
+#: woocommerce-sk-cz-functions/includes/features/class-company-checkout-fields.php:304
 msgid "Please enter Company ID."
 msgstr "Vyplňte IČO."
 
 #: woocommerce-sk-cz-functions/includes/features/class-company-checkout-fields.php:271
-#: woocommerce-sk-cz-functions/includes/features/class-company-checkout-fields.php:307
+#: woocommerce-sk-cz-functions/includes/features/class-company-checkout-fields.php:308
 msgid "Please enter Tax ID."
 msgstr "Vyplňte DIČ."
 
-#: woocommerce-sk-cz-functions/includes/features/class-company-checkout-fields.php:358
+#: woocommerce-sk-cz-functions/includes/features/class-company-checkout-fields.php:359
+#: woocommerce-sk-cz-functions/includes/features/class-company-checkout-fields.php:392
 msgid "Company data"
 msgstr "Firemní údaje"
 
-#: woocommerce-sk-cz-functions/includes/features/class-company-checkout-fields.php:361
+#: woocommerce-sk-cz-functions/includes/features/class-company-checkout-fields.php:362
 msgid "Company ID:"
 msgstr "IČO:"
 
-#: woocommerce-sk-cz-functions/includes/features/class-company-checkout-fields.php:365
+#: woocommerce-sk-cz-functions/includes/features/class-company-checkout-fields.php:366
 msgid "Tax ID:"
 msgstr "DIČ:"
 
-#: woocommerce-sk-cz-functions/includes/features/class-company-checkout-fields.php:369
+#: woocommerce-sk-cz-functions/includes/features/class-company-checkout-fields.php:370
 msgid "VAT ID:"
 msgstr "IČ DPH:"
 
@@ -234,3 +277,9 @@ msgstr "Zásady ochrany osobních údajů"
 #: woocommerce-sk-cz-functions/includes/features/class-remove-additional-information-tab.php:104
 msgid "Additional information"
 msgstr "Další informace"
+
+#~ msgid "Contact me"
+#~ msgstr "Kontaktujte mě"
+
+#~ msgid "Need any help / custom work?"
+#~ msgstr "Potřebujete pomoc / úpravy na míru?"

@@ -42,7 +42,12 @@ class WSCF_WC_Settings_Tab {
 		$this->delete_default_checkout_button_text_option();
 		$this->delete_default_cod_fee_label_option();
 		$this->render_settings_styles();
+		echo '<div class="wscf-settings-layout">';
+		echo '<div class="wscf-settings-main">';
 		woocommerce_admin_fields( $this->get_settings() );
+		echo '</div>';
+		$this->render_promo_sidebar();
+		echo '</div>';
 	}
 
 	/**
@@ -56,10 +61,47 @@ class WSCF_WC_Settings_Tab {
 		echo 'tr.wscf-child-setting-row td{padding-top:0;padding-left:24px;border-left:2px solid #dcdcde;}';
 		echo '.wscf-settings-preview-link{display:inline-block;margin-top:8px;}';
 		echo '.wscf-settings-preview-image{display:block;width:180px;max-width:100%;height:auto;border:1px solid #dcdcde;border-radius:4px;}';
+		echo '.wscf-settings-layout{display:flex;align-items:flex-start;gap:24px;width:100%;}';
+		echo '.wscf-settings-main{flex:1 1 calc(70% - 12px);min-width:0;}';
+		echo '.wscf-settings-sidebar{flex:0 0 calc(30% - 12px);max-width:calc(30% - 12px);display:flex;flex-direction:column;gap:16px;margin-top:16px;}';
+		echo '.wscf-promo-box{box-sizing:border-box;width:100%;padding:18px;background:#fff;border:1px solid #8c8f94;box-shadow:0 2px 8px rgba(0,0,0,.08);}';
+		echo '.wscf-promo-box-with-logo{display:flex;align-items:center;justify-content:space-between;gap:16px;}';
+		echo '.wscf-promo-box-content{min-width:0;}';
+		echo '.wscf-promo-title{display:flex;align-items:center;gap:6px;margin:0 0 8px;font-size:13px;font-weight:600;line-height:1.4;color:#1d2327;}';
+		echo '.wscf-promo-title .dashicons{width:16px;height:16px;font-size:16px;line-height:1;}';
+		echo '.wscf-promo-logo{display:block;flex:0 0 auto;width:200px;max-width:50%;height:auto;}';
+		echo '.wscf-promo-box p{margin:0 0 14px;font-size:14px;line-height:1.5;color:#1d2327;}';
+		echo '.wscf-promo-box strong{display:block;margin:0 0 14px;font-size:14px;line-height:1.5;color:#1d2327;}';
+		echo '.wscf-promo-box .button{margin-top:2px;}';
+		echo '@media (max-width:960px) and (min-width:783px){.wscf-promo-box-with-logo{align-items:flex-start;flex-direction:column;}.wscf-promo-logo{max-width:120px;}}';
+		echo '@media (max-width:782px){.wscf-settings-layout{display:block;}.wscf-settings-sidebar{max-width:none;width:100%;margin-top:24px;}.wscf-settings-main{width:100%;}.wscf-promo-logo{max-width:120px;}}';
 		echo '</style>';
 		echo '<script>';
 		echo 'document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll(\'#mainform input[data-wscf-child-setting]\').forEach(function(input){var row=input.closest("tr");if(row){row.classList.add("wscf-child-setting-row");}});});';
 		echo '</script>';
+	}
+
+	/**
+	 * Render promotional sidebar beside settings fields.
+	 *
+	 * @return void
+	 */
+	private function render_promo_sidebar() {
+		echo '<aside class="wscf-settings-sidebar" aria-label="' . esc_attr__( 'Plugin support and rating links', 'woocommerce-sk-cz-functions' ) . '">';
+		echo '<div class="wscf-promo-box wscf-promo-box-with-logo">';
+		echo '<div class="wscf-promo-box-content">';
+		echo '<h3 class="wscf-promo-title"><span class="dashicons dashicons-editor-code" aria-hidden="true"></span>' . esc_html__( 'Custom solutions', 'woocommerce-sk-cz-functions' ) . '</h3>';
+		echo '<p>' . esc_html__( 'Need a custom plugin, theme adjustments, or specific features? I create custom WordPress solutions for your needs.', 'woocommerce-sk-cz-functions' ) . '</p>';
+		echo '<strong>' . esc_html__( 'Fast & reliable websites for businesses that need things done properly', 'woocommerce-sk-cz-functions' ) . '</strong>';
+		echo '<a class="button button-primary" href="' . esc_url( 'https://nimble.help/' ) . '" target="_blank" rel="noopener noreferrer">' . esc_html__( 'Ask about your website', 'woocommerce-sk-cz-functions' ) . '</a>';
+		echo '</div>';
+		echo '<img class="wscf-promo-logo" src="' . esc_url( WSCF_PLUGIN_URL . 'assets/img/nimble-logo.jpg' ) . '" alt="' . esc_attr( 'Nimble.help' ) . '" />';
+		echo '</div>';
+		echo '<div class="wscf-promo-box">';
+		echo '<p>' . esc_html__( "Like this plugin? Rate it on WordPress.org - we'll add a link once it's uploaded to WordPress here.", 'woocommerce-sk-cz-functions' ) . '</p>';
+		echo '<button type="button" class="button" disabled="disabled">' . esc_html__( 'Add rating', 'woocommerce-sk-cz-functions' ) . '</button>';
+		echo '</div>';
+		echo '</aside>';
 	}
 
 	/**
