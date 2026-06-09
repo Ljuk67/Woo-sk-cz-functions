@@ -6,19 +6,11 @@ Public GitHub repository:
 
 - https://github.com/Ljuk67/Woo-sk-cz-functions
 
-Today it contains the free plugin:
-
-- `woocommerce-sk-cz-functions/`
-
-It is also structured to later contain the premium plugin:
-
-- `woocommerce-sk-cz-functions-premium/`
-
 This repo is not a WordPress installation root. It is the project workspace that holds plugin code and release files.
 
 ## What This Project Is
 
-Nimble WooCommerce SK/CZ Functions is a WordPress/WooCommerce plugin project focused on practical store features commonly needed in Slovak and Czech ecommerce sites.
+Nimble WooCommerce SK/CZ Functions is a WordPress/WooCommerce plugin project focused on practical store features commonly needed (not only) in Slovak and Czech ecommerce sites.
 
 The free plugin currently targets features such as:
 
