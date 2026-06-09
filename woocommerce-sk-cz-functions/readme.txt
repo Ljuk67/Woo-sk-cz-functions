@@ -1,8 +1,8 @@
 === Nimble WooCommerce SK/CZ Functions ===
-Contributors: ljuk67
-Tags: woocommerce, checkout, slovakia, czechia, gdpr
+Contributors: https://github.com/Ljuk67/
+Tags: woocommerce, checkout, slovakia, czechia, gdpr, nakup na firmu, ico, dic, dobierka poplatok, dobirka pooplatek, COD Fee
 Requires at least: 6.4
-Tested up to: 6.8
+Tested up to: 7.0
 Requires PHP: 7.4
 Requires Plugins: woocommerce
 Stable tag: 1.0.0
@@ -13,7 +13,7 @@ WooCommerce tools for Slovak and Czech stores: company fields, checkout button t
 
 == Description ==
 
-Nimble WooCommerce SK/CZ Functions adds practical WooCommerce features commonly needed in Slovak and Czech stores.
+Nimble WooCommerce SK/CZ Functions adds practical WooCommerce features commonly needed in (not only) Slovak and Czech stores.
 
 Current features:
 
@@ -22,7 +22,7 @@ Current features:
 * Classic checkout GDPR consent checkbox with privacy policy link support.
 * Fixed Cash on Delivery fee for the WooCommerce `cod` payment gateway.
 * Hide paid shipping methods when free shipping is available.
-* Remove the Additional Information product tab, with an option to move its content into the product description.
+* Hide the Additional Information product tab, with an option to move its content into the product description.
 * Product subcategories row above products on category archive pages.
 
 Most feature toggles are disabled by default. Enable only the features you need in WooCommerce settings. The checkout button text field is available immediately and defaults to the translated Slovak/Czech payment-obligation wording unless you save custom text.
@@ -52,7 +52,7 @@ Tested themes before the 1.0.0 release:
 1. Upload the `woocommerce-sk-cz-functions` folder to the `/wp-content/plugins/` directory.
 2. Activate the plugin through the `Plugins` menu in WordPress.
 3. Ensure WooCommerce is installed and active.
-4. Go to WooCommerce > Settings > WooCommerce SK/CZ.
+4. Go to WooCommerce > Settings > WooCommerce SK/CZ tab.
 5. Enable the features your store needs and save changes.
 
 == Frequently Asked Questions ==
@@ -63,7 +63,7 @@ Yes. WooCommerce must be installed and active.
 
 = Is this plugin intended for SK/CZ stores only? =
 
-It is primarily focused on Slovak and Czech store requirements, but parts may be useful elsewhere.
+It is primarily focused on Slovak and Czech store requirements, but some functions are generic for any store in any language.
 
 = Does it support Checkout Block? =
 
@@ -80,6 +80,10 @@ No. The plugin does not send store data to external services and does not load r
 = Where is development hosted? =
 
 Public development is hosted at https://github.com/Ljuk67/Woo-sk-cz-functions.
+
+= Is it translatable? =
+
+Yes, you can easily translate it to any language using Loco Translate.
 
 == Changelog ==
 
