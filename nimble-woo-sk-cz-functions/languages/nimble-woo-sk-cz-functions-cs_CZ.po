@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Nimble Woo SK/CZ Functions 1.0.0\n"
 "Report-Msgid-Bugs-To: https://nimble.help\n"
-"POT-Creation-Date: 2026-06-07 11:49+0200\n"
+"POT-Creation-Date: 2026-06-09 18:44+0200\n"
 "PO-Revision-Date: 2026-03-12 16:15+0000\n"
 "Last-Translator: nimble.help\n"
 "Language-Team: Czech\n"
@@ -13,26 +13,70 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Domain: nimble-woo-sk-cz-functions\n"
 
-#: nimble-woo-sk-cz-functions/includes/class-plugin.php:43
+#: nimble-woo-sk-cz-functions/includes/class-plugin.php:49
 msgid "Settings"
 msgstr "Nastavení"
 
-#: nimble-woo-sk-cz-functions/includes/class-plugin.php:129
+#: nimble-woo-sk-cz-functions/includes/class-plugin.php:137
 msgid ""
-"Nimble Woo SK/CZ Functions requires the WooCommerce plugin to be "
-"active."
+"Nimble Woo SK/CZ Functions requires the WooCommerce plugin to be active."
 msgstr "Nimble Woo SK/CZ Functions vyžaduje aktivní plugin WooCommerce."
 
+#: nimble-woo-sk-cz-functions/includes/class-settings.php:83
+msgid "Objednať s povinnosťou platby"
+msgstr "Objednat s povinností platby"
+
+#: nimble-woo-sk-cz-functions/includes/class-settings.php:101
+msgid "Cash on delivery fee"
+msgstr "Poplatek za dobírku"
+
 #: nimble-woo-sk-cz-functions/includes/class-wc-settings-tab.php:32
-#: nimble-woo-sk-cz-functions/includes/class-wc-settings-tab.php:82
+#: nimble-woo-sk-cz-functions/includes/class-wc-settings-tab.php:129
 msgid "Nimble Woo SK/CZ"
 msgstr "Nimble Woo SK/CZ"
 
-#: nimble-woo-sk-cz-functions/includes/class-wc-settings-tab.php:87
+#: nimble-woo-sk-cz-functions/includes/class-wc-settings-tab.php:90
+msgid "Plugin support and rating links"
+msgstr "Podpora pluginu a odkazy na hodnocení"
+
+#: nimble-woo-sk-cz-functions/includes/class-wc-settings-tab.php:93
+msgid "Custom solutions"
+msgstr "Vývoj na míru"
+
+#: nimble-woo-sk-cz-functions/includes/class-wc-settings-tab.php:94
+msgid ""
+"Need a custom plugin, theme adjustments, or specific features? I create "
+"custom WordPress solutions for your needs."
+msgstr ""
+"Potřebujete vlastní doplněk, úpravy šablon nebo specifické funkce? Vytvářím "
+"řešení WordPress na míru pro vaše potřeby."
+
+#: nimble-woo-sk-cz-functions/includes/class-wc-settings-tab.php:95
+msgid "Fast & reliable websites for businesses that need things done properly"
+msgstr ""
+"Rychlé a spolehlivé weby pro firmy, které potřebují věci udělat pořádně"
+
+#: nimble-woo-sk-cz-functions/includes/class-wc-settings-tab.php:96
+msgid "Ask about your website"
+msgstr "Zeptejte se na svůj web"
+
+#: nimble-woo-sk-cz-functions/includes/class-wc-settings-tab.php:101
+msgid ""
+"Like this plugin? Rate it on WordPress.org - we'll add a link once it's "
+"uploaded to WordPress here."
+msgstr ""
+"Líbí se vám tento plugin? Ohodnoťte ho na WordPress.org - odkaz sem přidáme "
+"po nahrání na WordPress."
+
+#: nimble-woo-sk-cz-functions/includes/class-wc-settings-tab.php:102
+msgid "Add rating"
+msgstr "Přidat hodnocení"
+
+#: nimble-woo-sk-cz-functions/includes/class-wc-settings-tab.php:134
 msgid "Checkout button text"
 msgstr "Text tlačítka v pokladně"
 
-#: nimble-woo-sk-cz-functions/includes/class-wc-settings-tab.php:88
+#: nimble-woo-sk-cz-functions/includes/class-wc-settings-tab.php:135
 msgid ""
 "Leave the predefined text unchanged to use the translated default for the "
 "current site language. Clear the field to return to the default after saving "
@@ -42,55 +86,39 @@ msgstr ""
 "pro aktuální jazyk webu. Pokud se po uložení vlastního textu chcete vrátit k "
 "výchozímu textu, pole vymažte."
 
-#: nimble-woo-sk-cz-functions/includes/class-settings.php:78
-msgid "Objednať s povinnosťou platby"
-msgstr "Objednat s povinností platby"
-
-#: nimble-woo-sk-cz-functions/includes/class-wc-settings-tab.php:87
+#: nimble-woo-sk-cz-functions/includes/class-wc-settings-tab.php:144
 msgid "Enable company checkout fields"
 msgstr "Povolit \"Nákup na firmu\" v pokladně"
 
-#: nimble-woo-sk-cz-functions/includes/class-wc-settings-tab.php:88
+#: nimble-woo-sk-cz-functions/includes/class-wc-settings-tab.php:145
 msgid "Adds company purchase checkbox and business fields at checkout."
 msgstr "Přidá checkbox nákupu na firmu a firemní pole v pokladně."
 
-#: nimble-woo-sk-cz-functions/includes/class-wc-settings-tab.php:96
+#: nimble-woo-sk-cz-functions/includes/class-wc-settings-tab.php:153
 msgid "Enable GDPR checkbox in checkout"
 msgstr "Povolit GDPR checkbox v pokladně"
 
-#: nimble-woo-sk-cz-functions/includes/class-wc-settings-tab.php:105
+#: nimble-woo-sk-cz-functions/includes/class-wc-settings-tab.php:162
 msgid "Enable child category row on archives"
 msgstr "Povolit řádek podkategorií v archivech"
 
-#: nimble-woo-sk-cz-functions/includes/class-wc-settings-tab.php:106
-msgid ""
-"Displays clickable, responsive boxes for child categories above products on "
-"category archive pages."
-msgstr ""
-"Zobrazí klikatelné, responzivní boxy pro podkategorie nad produkty na "
-"stránkách archivů kategorií."
-
-#: nimble-woo-sk-cz-functions/includes/class-wc-settings-tab.php:269
-msgid "Child category row preview"
-msgstr "Náhled řádku podkategorií"
-
-#: nimble-woo-sk-cz-functions/includes/class-wc-settings-tab.php:114
+#: nimble-woo-sk-cz-functions/includes/class-wc-settings-tab.php:171
 msgid "Hide paid shipping when free shipping exists"
 msgstr "Skrýt placené způsoby dopravy, když je dostupná doprava zdarma"
 
-#: nimble-woo-sk-cz-functions/includes/class-wc-settings-tab.php:115
+#: nimble-woo-sk-cz-functions/includes/class-wc-settings-tab.php:172
 msgid "Shows only free shipping rates when free shipping is available."
 msgstr "Zobrazí pouze dopravu zdarma, když je dostupná."
 
-#: nimble-woo-sk-cz-functions/includes/class-wc-settings-tab.php:123
+#: nimble-woo-sk-cz-functions/includes/class-wc-settings-tab.php:180
 msgid "Hide Additional Information tab on products"
 msgstr "Skrýt kartu Další informace u produktů"
 
-#: nimble-woo-sk-cz-functions/includes/class-wc-settings-tab.php:124
+#: nimble-woo-sk-cz-functions/includes/class-wc-settings-tab.php:181
 msgid "Removes the Additional Information tab from single product pages."
 msgstr "Odstraní kartu Další informace ze stránek jednotlivých produktů."
 
-#: nimble-woo-sk-cz-functions/includes/class-wc-settings-tab.php:133
+#: nimble-woo-sk-cz-functions/includes/class-wc-settings-tab.php:190
 msgid ""
 "When enabled, show the hidden Additional Information content directly in the "
 "long product description instead of hiding it completely."
@@ -98,21 +126,21 @@ msgstr ""
 "Pokud je povoleno, zobrazí skrytý obsah karty Další informace přímo v "
 "dlouhém popisu produktu místo úplného skrytí."
 
-#: nimble-woo-sk-cz-functions/includes/class-wc-settings-tab.php:141
+#: nimble-woo-sk-cz-functions/includes/class-wc-settings-tab.php:198
 msgid "Enable COD fee"
 msgstr "Povolit poplatek za dobírku"
 
-#: nimble-woo-sk-cz-functions/includes/class-wc-settings-tab.php:142
+#: nimble-woo-sk-cz-functions/includes/class-wc-settings-tab.php:199
 msgid ""
 "Adds an extra fee when the customer selects the Cash on Delivery payment "
 "gateway."
 msgstr "Přidá další poplatek, když zákazník zvolí platební bránu Dobírka."
 
-#: nimble-woo-sk-cz-functions/includes/class-wc-settings-tab.php:150
+#: nimble-woo-sk-cz-functions/includes/class-wc-settings-tab.php:207
 msgid "Default COD fee amount"
 msgstr "Výchozí výše poplatku za dobírku"
 
-#: nimble-woo-sk-cz-functions/includes/class-wc-settings-tab.php:151
+#: nimble-woo-sk-cz-functions/includes/class-wc-settings-tab.php:208
 msgid ""
 "Used when no configured cart-total band matches. Based on cart total after "
 "shipping, tax, and coupons."
@@ -120,21 +148,21 @@ msgstr ""
 "Použije se jako pevný poplatek. Vychází z celkové částky košíku po dopravě, "
 "dani a kuponech."
 
-#: nimble-woo-sk-cz-functions/includes/class-wc-settings-tab.php:160
+#: nimble-woo-sk-cz-functions/includes/class-wc-settings-tab.php:217
 msgid "COD fee label"
 msgstr "Název poplatku za dobírku"
 
-#: nimble-woo-sk-cz-functions/includes/class-wc-settings-tab.php:161
+#: nimble-woo-sk-cz-functions/includes/class-wc-settings-tab.php:218
 msgid "Frontend fee label. Leave empty to use the default plugin label."
 msgstr ""
 "Název poplatku zobrazený zákazníkovi. Nechte prázdné pro výchozí název "
 "pluginu."
 
-#: nimble-woo-sk-cz-functions/includes/class-wc-settings-tab.php:227
+#: nimble-woo-sk-cz-functions/includes/class-wc-settings-tab.php:284
 msgid "Not ready yet."
 msgstr "Zatím není připraveno."
 
-#: nimble-woo-sk-cz-functions/includes/class-wc-settings-tab.php:240
+#: nimble-woo-sk-cz-functions/includes/class-wc-settings-tab.php:297
 msgid ""
 "Classic checkout only: Adds a required privacy-policy consent checkbox at "
 "checkout."
@@ -142,18 +170,26 @@ msgstr ""
 "Pouze klasická pokladna: Přidá do pokladny povinný checkbox souhlasu se "
 "zásadami ochrany osobních údajů."
 
-#: nimble-woo-sk-cz-functions/includes/class-wc-settings-tab.php:241
+#: nimble-woo-sk-cz-functions/includes/class-wc-settings-tab.php:298
 msgid ""
 "In block checkout, the GDPR checkbox is combined with the terms-and-"
 "conditions checkbox."
 msgstr ""
 "V blokové pokladně je GDPR checkbox spojený s checkboxem obchodních podmínek."
 
-#: nimble-woo-sk-cz-functions/includes/features/class-cod-fee.php:162
-msgid "Cash on delivery fee"
-msgstr "Poplatek za dobírku"
+#: nimble-woo-sk-cz-functions/includes/class-wc-settings-tab.php:314
+msgid ""
+"Displays clickable, responsive boxes for child categories above products on "
+"category archive pages."
+msgstr ""
+"Zobrazí klikatelné, responzivní boxy pro podkategorie nad produkty na "
+"stránkách archivů kategorií."
 
-#: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:60
+#: nimble-woo-sk-cz-functions/includes/class-wc-settings-tab.php:324
+msgid "Child category row preview"
+msgstr "Náhled řádku podkategorií"
+
+#: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:61
 #: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:145
 msgid "Company purchase - Company ID, Tax ID"
 msgstr "Nákup na firmu - IČO, DIČ"
@@ -161,58 +197,63 @@ msgstr "Nákup na firmu - IČO, DIČ"
 #: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:73
 #: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:158
 #: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:159
+#: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:466
 msgid "Company name"
 msgstr "Název firmy"
 
 #: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:83
 #: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:169
 #: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:170
-#: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:394
+#: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:429
+#: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:473
 msgid "Company ID"
 msgstr "IČO"
 
 #: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:93
 #: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:179
 #: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:180
-#: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:401
+#: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:436
+#: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:480
 msgid "Tax ID"
 msgstr "DIČ"
 
 #: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:103
 #: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:189
 #: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:190
-#: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:408
+#: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:443
+#: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:487
 msgid "VAT ID"
 msgstr "IČ DPH"
 
 #: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:263
-#: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:299
+#: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:300
 msgid "Please enter the company name."
 msgstr "Vyplňte název firmy."
 
 #: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:267
-#: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:303
+#: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:304
 msgid "Please enter Company ID."
 msgstr "Vyplňte IČO."
 
 #: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:271
-#: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:307
+#: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:308
 msgid "Please enter Tax ID."
 msgstr "Vyplňte DIČ."
 
-#: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:358
+#: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:359
+#: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:392
 msgid "Company data"
 msgstr "Firemní údaje"
 
-#: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:361
+#: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:362
 msgid "Company ID:"
 msgstr "IČO:"
 
-#: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:365
+#: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:366
 msgid "Tax ID:"
 msgstr "DIČ:"
 
-#: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:369
+#: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:370
 msgid "VAT ID:"
 msgstr "IČ DPH:"
 
