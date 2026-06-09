@@ -62,8 +62,7 @@ class WSCF_Company_Checkout_Fields {
 				'location' => 'order',
 				'type'     => 'checkbox',
 				'attributes' => array(
-					'data-wscf-company-toggle'       => '1',
-					'data-wscf-company-helper-text' => $this->get_block_company_helper_text(),
+					'data-wscf-company-toggle' => '1',
 				),
 			)
 		);
@@ -758,15 +757,6 @@ class WSCF_Company_Checkout_Fields {
 		}
 
 		return trim( sanitize_text_field( (string) $value ) );
-	}
-
-	/**
-	 * Get helper text shown below the block checkout company toggle.
-	 *
-	 * @return string
-	 */
-	private function get_block_company_helper_text() {
-		return __( 'Company fields will appear below in the "Additional order information" section.', 'woocommerce-sk-cz-functions' );
 	}
 
 	/**

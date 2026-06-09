@@ -27,6 +27,26 @@ Current features:
 
 Most feature toggles are disabled by default. Enable only the features you need in WooCommerce settings. The checkout button text field is available immediately and defaults to the translated Slovak/Czech payment-obligation wording unless you save custom text.
 
+== Compatibility ==
+
+Checkout-facing features were built for both classic checkout and Checkout Block where WooCommerce provides a stable block-compatible API. Company checkout fields, custom checkout button text, and the fixed COD fee support both checkout experiences.
+
+The GDPR checkbox is intentionally limited to classic checkout. In Checkout Block, WooCommerce combines legal consent with its terms and conditions flow.
+
+The product subcategories row is designed for standard WooCommerce category archive templates and hooks. Custom blocks and custom archive templates use their own structure and are outside this feature's scope.
+
+The Additional Information tab feature uses WooCommerce's product tabs API and applies to standard WooCommerce single product templates.
+
+Tested themes before the 0.1.0 release:
+
+* Astra
+* Blocksy
+* GeneratePress
+* Kadence
+* OceanWP
+* Storefront
+* Twenty Twenty-Five / current bundled WordPress block theme
+
 == Installation ==
 
 1. Upload the `woocommerce-sk-cz-functions` folder to the `/wp-content/plugins/` directory.

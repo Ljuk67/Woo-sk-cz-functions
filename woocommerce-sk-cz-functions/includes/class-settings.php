@@ -93,6 +93,69 @@ class WSCF_Settings {
 	}
 
 	/**
+	 * Get the default COD fee label.
+	 *
+	 * @return string
+	 */
+	public function get_default_cod_fee_label() {
+		return __( 'Cash on delivery fee', 'woocommerce-sk-cz-functions' );
+	}
+
+	/**
+	 * Get the option name used to mark custom COD fee label text.
+	 *
+	 * @return string
+	 */
+	public function get_cod_fee_label_customized_option_name() {
+		return 'wscf_cod_fee_label_customized';
+	}
+
+	/**
+	 * Get all locale defaults that should not be treated as custom merchant text.
+	 *
+	 * @return array<int, string>
+	 */
+	public function get_cod_fee_label_default_values() {
+		return array_unique(
+			array(
+				$this->get_default_cod_fee_label(),
+				'Cash on delivery fee',
+				'Poplatok za dobierku',
+				'Poplatek za dobírku',
+			)
+		);
+	}
+
+	/**
+	 * Check whether a COD fee label value is one of the translated defaults.
+	 *
+	 * @param string $fee_label Fee label.
+	 * @return bool
+	 */
+	public function is_cod_fee_label_default_value( $fee_label ) {
+		return in_array( trim( $fee_label ), $this->get_cod_fee_label_default_values(), true );
+	}
+
+	/**
+	 * Check whether a COD fee label matches the active locale default.
+	 *
+	 * @param string $fee_label Fee label.
+	 * @return bool
+	 */
+	public function is_current_cod_fee_label_default_value( $fee_label ) {
+		return trim( $fee_label ) === $this->get_default_cod_fee_label();
+	}
+
+	/**
+	 * Check whether the merchant saved custom COD fee label text.
+	 *
+	 * @return bool
+	 */
+	public function is_cod_fee_label_customized() {
+		return 'yes' === get_option( $this->get_cod_fee_label_customized_option_name(), 'no' );
+	}
+
+	/**
 	 * Get all locale defaults that should not be treated as custom merchant text.
 	 *
 	 * @return array<int, string>
@@ -161,6 +224,30 @@ class WSCF_Settings {
 	}
 
 	/**
+	 * Get COD fee label with translated default fallback.
+	 *
+	 * @return string
+	 */
+	public function get_cod_fee_label() {
+		$option_names = $this->get_option_names();
+		$fee_label    = sanitize_text_field( get_option( $option_names['cod_fee_label'], '' ) );
+
+		if ( '' === $fee_label ) {
+			return $this->get_default_cod_fee_label();
+		}
+
+		if ( $this->is_cod_fee_label_customized() ) {
+			return $fee_label;
+		}
+
+		if ( $this->is_cod_fee_label_default_value( $fee_label ) ) {
+			return $this->get_default_cod_fee_label();
+		}
+
+		return $fee_label;
+	}
+
+	/**
 	 * Check if a feature is internally available.
 	 *
 	 * @param string $feature_key Feature key.
@@ -212,6 +299,10 @@ class WSCF_Settings {
 	public function get_setting_value( $setting_key ) {
 		if ( 'checkout_button_text' === $setting_key ) {
 			return $this->get_checkout_button_text();
+		}
+
+		if ( 'cod_fee_label' === $setting_key ) {
+			return $this->get_cod_fee_label();
 		}
 
 		$option_names = $this->get_option_names();

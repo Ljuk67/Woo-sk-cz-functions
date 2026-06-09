@@ -16,6 +16,7 @@ delete_option( 'wscf_hide_shipping_when_free' );
 delete_option( 'wscf_cod_fee' );
 delete_option( 'wscf_cod_fee_amount' );
 delete_option( 'wscf_cod_fee_label' );
+delete_option( 'wscf_cod_fee_label_customized' );
 delete_option( 'wscf_checkout_button_text' );
 delete_option( 'wscf_checkout_button_text_customized' );
 delete_option( 'wscf_remove_additional_information_tab' );

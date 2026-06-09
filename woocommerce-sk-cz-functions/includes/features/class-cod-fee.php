@@ -153,13 +153,7 @@ class WSCF_COD_Fee {
 	 * @return string
 	 */
 	private function get_fee_label() {
-		$custom_label = trim( $this->settings->get_setting_value( 'cod_fee_label' ) );
-
-		if ( '' !== $custom_label ) {
-			return $custom_label;
-		}
-
-		return __( 'Cash on delivery fee', 'woocommerce-sk-cz-functions' );
+		return $this->settings->get_cod_fee_label();
 	}
 
 	/**

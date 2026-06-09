@@ -40,6 +40,7 @@ class WSCF_WC_Settings_Tab {
 	 */
 	public function render_tab() {
 		$this->delete_default_checkout_button_text_option();
+		$this->delete_default_cod_fee_label_option();
 		$this->render_settings_styles();
 		woocommerce_admin_fields( $this->get_settings() );
 	}
@@ -175,7 +176,7 @@ class WSCF_WC_Settings_Tab {
 				'desc'    => $this->get_feature_description( $settings_service, 'cod_fee_label', __( 'Frontend fee label. Leave empty to use the default plugin label.', 'woocommerce-sk-cz-functions' ) ),
 				'id'      => $option_names['cod_fee_label'],
 				'type'    => 'text',
-				'default' => '',
+				'default' => $settings_service->get_default_cod_fee_label(),
 				'css'     => 'min-width:280px;',
 				'custom_attributes' => $this->get_child_setting_field_attributes( $settings_service, 'cod_fee_label', 'cod_fee' ),
 				'desc_tip' => false,
@@ -296,16 +297,23 @@ class WSCF_WC_Settings_Tab {
 	private function normalize_cod_fee_settings() {
 		$settings_service = new WSCF_Settings();
 		$option_names     = $settings_service->get_option_names();
+		$fee_label        = sanitize_text_field( get_option( $option_names['cod_fee_label'], '' ) );
+		$customized_name  = $settings_service->get_cod_fee_label_customized_option_name();
+		$was_customized   = $settings_service->is_cod_fee_label_customized();
 
 		update_option(
 			$option_names['cod_fee_amount'],
 			wc_format_decimal( $settings_service->get_setting_value( 'cod_fee_amount' ), wc_get_price_decimals() )
 		);
 
-		update_option(
-			$option_names['cod_fee_label'],
-			sanitize_text_field( $settings_service->get_setting_value( 'cod_fee_label' ) )
-		);
+		if ( '' === $fee_label || ( ! $was_customized && $settings_service->is_current_cod_fee_label_default_value( $fee_label ) ) ) {
+			delete_option( $option_names['cod_fee_label'] );
+			update_option( $customized_name, 'no' );
+			return;
+		}
+
+		update_option( $option_names['cod_fee_label'], $fee_label );
+		update_option( $customized_name, 'yes' );
 	}
 
 	/**
@@ -352,6 +360,32 @@ class WSCF_WC_Settings_Tab {
 		}
 
 		if ( '' !== $button_text ) {
+			update_option( $customized_name, 'yes' );
+		}
+	}
+
+	/**
+	 * Delete stored locale defaults so the COD fee label field follows the active language.
+	 *
+	 * @return void
+	 */
+	private function delete_default_cod_fee_label_option() {
+		$settings_service = new WSCF_Settings();
+		$option_names     = $settings_service->get_option_names();
+		$fee_label        = sanitize_text_field( get_option( $option_names['cod_fee_label'], '' ) );
+		$customized_name  = $settings_service->get_cod_fee_label_customized_option_name();
+
+		if ( $settings_service->is_cod_fee_label_customized() ) {
+			return;
+		}
+
+		if ( '' !== $fee_label && $settings_service->is_cod_fee_label_default_value( $fee_label ) ) {
+			delete_option( $option_names['cod_fee_label'] );
+			update_option( $customized_name, 'no' );
+			return;
+		}
+
+		if ( '' !== $fee_label ) {
 			update_option( $customized_name, 'yes' );
 		}
 	}

@@ -203,12 +203,6 @@ msgstr ""
 msgid "VAT ID:"
 msgstr ""
 
-#: woocommerce-sk-cz-functions/includes/features/class-company-checkout-fields.php:634
-msgid ""
-"Company fields will appear below in the \"Additional order information\" "
-"section."
-msgstr ""
-
 #: woocommerce-sk-cz-functions/includes/features/class-gdpr-checkbox.php:70
 #: woocommerce-sk-cz-functions/includes/features/class-gdpr-checkbox.php:75
 msgid "I have read the privacy policy and agree with it."
