@@ -30,21 +30,27 @@ class WSCF_Plugin {
 
 		add_action( 'plugins_loaded', array( $this, 'load_textdomain' ) );
 		add_action( 'plugins_loaded', array( $this, 'bootstrap_features' ), 20 );
-			add_filter(	'plugin_action_links_' . plugin_basename( WSCF_PLUGIN_FILE ),
-				array( $this, 'add_plugin_settings_link' )
-			);
+		add_filter(
+			'plugin_action_links_' . plugin_basename( WSCF_PLUGIN_FILE ),
+			array( $this, 'add_plugin_settings_link' )
+		);
 	}
 
-	//add a settings link to the plugins page
+	/**
+	 * Add a settings shortcut to the plugins page.
+	 *
+	 * @param array<int, string> $links Plugin action links.
+	 * @return array<int, string>
+	 */
 	public function add_plugin_settings_link( $links ) {
 		$settings_url = admin_url( 'admin.php?page=wc-settings&tab=wscf' );
-	
+
 		$settings_link = '<a href="' . esc_url( $settings_url ) . '">' .
 			esc_html__( 'Settings', 'woocommerce-sk-cz-functions' ) .
 		'</a>';
-	
+
 		array_unshift( $links, $settings_link );
-	
+
 		return $links;
 	}
 
