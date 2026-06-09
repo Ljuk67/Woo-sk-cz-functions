@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name:       WooCommerce SK/CZ Functions
+ * Plugin Name:       Nimble WooCommerce SK/CZ Functions
  * Plugin URI:        https://github.com/Ljuk67/Woo-sk-cz-functions
  * Description:       WooCommerce tools for Slovak and Czech stores: company checkout fields, COD fee, GDPR consent, shipping, and catalog helpers.
- * Version:           0.1.0
+ * Version:           1.0.0
  * Requires at least: 6.4
  * Requires PHP:      7.4
  * Author:            Nimble.help
@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'WSCF_VERSION', '0.1.0' );
+define( 'WSCF_VERSION', '1.0.0' );
 define( 'WSCF_PLUGIN_FILE', __FILE__ );
 define( 'WSCF_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 define( 'WSCF_PLUGIN_URL', plugin_dir_url( __FILE__ ) );

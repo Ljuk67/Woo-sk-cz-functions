@@ -1,11 +1,11 @@
-=== WooCommerce SK/CZ Functions ===
+=== Nimble WooCommerce SK/CZ Functions ===
 Contributors: ljuk67
 Tags: woocommerce, checkout, slovakia, czechia, gdpr
 Requires at least: 6.4
 Tested up to: 6.8
 Requires PHP: 7.4
 Requires Plugins: woocommerce
-Stable tag: 0.1.0
+Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,7 +13,7 @@ WooCommerce tools for Slovak and Czech stores: company fields, checkout button t
 
 == Description ==
 
-WooCommerce SK/CZ Functions adds practical WooCommerce features commonly needed in Slovak and Czech stores.
+Nimble WooCommerce SK/CZ Functions adds practical WooCommerce features commonly needed in Slovak and Czech stores.
 
 Current features:
 
@@ -37,7 +37,7 @@ The product subcategories row is designed for standard WooCommerce category arch
 
 The Additional Information tab feature uses WooCommerce's product tabs API and applies to standard WooCommerce single product templates.
 
-Tested themes before the 0.1.0 release:
+Tested themes before the 1.0.0 release:
 
 * Astra
 * Blocksy
@@ -83,7 +83,7 @@ Public development is hosted at https://github.com/Ljuk67/Woo-sk-cz-functions.
 
 == Changelog ==
 
-= 0.1.0 =
+= 1.0.0 =
 
 * Initial release.
 * Company checkout fields.

@@ -134,7 +134,7 @@ class WSCF_Plugin {
 		}
 
 		echo '<div class="notice notice-error"><p>';
-		echo esc_html__( 'WooCommerce SK/CZ Functions requires the WooCommerce plugin to be active.', 'woocommerce-sk-cz-functions' );
+		echo esc_html__( 'Nimble WooCommerce SK/CZ Functions requires the WooCommerce plugin to be active.', 'woocommerce-sk-cz-functions' );
 		echo '</p></div>';
 	}
 }
