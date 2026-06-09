@@ -1,6 +1,6 @@
-=== Nimble WooCommerce SK/CZ Functions ===
-Contributors: https://github.com/Ljuk67/
-Tags: woocommerce, checkout, slovakia, czechia, gdpr, nakup na firmu, ico, dic, dobierka poplatok, dobirka pooplatek, COD Fee
+=== Nimble Woo SK/CZ Functions ===
+Contributors: lukascech
+Tags: woocommerce, checkout, nakup na firmu, company fields, gdpr
 Requires at least: 6.4
 Tested up to: 7.0
 Requires PHP: 7.4
@@ -13,7 +13,7 @@ WooCommerce tools for Slovak and Czech stores: company fields, checkout button t
 
 == Description ==
 
-Nimble WooCommerce SK/CZ Functions adds practical WooCommerce features commonly needed in (not only) Slovak and Czech stores.
+Nimble Woo SK/CZ Functions adds practical WooCommerce features commonly needed in (not only) Slovak and Czech stores.
 
 Current features:
 
@@ -49,10 +49,10 @@ Tested themes before the 1.0.0 release:
 
 == Installation ==
 
-1. Upload the `woocommerce-sk-cz-functions` folder to the `/wp-content/plugins/` directory.
+1. Upload the `nimble-woo-sk-cz-functions` folder to the `/wp-content/plugins/` directory.
 2. Activate the plugin through the `Plugins` menu in WordPress.
 3. Ensure WooCommerce is installed and active.
-4. Go to WooCommerce > Settings > WooCommerce SK/CZ tab.
+4. Go to WooCommerce > Settings > Nimble Woo SK/CZ tab.
 5. Enable the features your store needs and save changes.
 
 == Frequently Asked Questions ==
@@ -71,7 +71,7 @@ Company checkout fields, custom checkout button text, and the fixed COD fee supp
 
 = Can I change the checkout order button text? =
 
-Yes. Go to WooCommerce > Settings > WooCommerce SK/CZ and edit "Checkout button text". Leave the predefined text unchanged to use the translated default for the current site language. Clear the field and save to return to the translated default after saving custom text.
+Yes. Go to WooCommerce > Settings > Nimble Woo SK/CZ and edit "Checkout button text". Leave the predefined text unchanged to use the translated default for the current site language. Clear the field and save to return to the translated default after saving custom text.
 
 = Does the plugin connect to external services? =
 
@@ -85,6 +85,14 @@ Public development is hosted at https://github.com/Ljuk67/Woo-sk-cz-functions.
 
 Yes, you can easily translate it to any language using Loco Translate.
 
+== Screenshots ==
+
+1. Plugin settings tab in WooCommerce settings.
+2. Company checkout fields on the checkout page.
+3. Checkout button text setting with Slovak/Czech default behavior.
+4. Cash on Delivery fee shown in checkout totals.
+5. Product subcategories row on a category archive page.
+
 == Changelog ==
 
 = 1.0.0 =
@@ -97,3 +105,9 @@ Yes, you can easily translate it to any language using Loco Translate.
 * Hide paid shipping when free shipping is available.
 * Remove or move Additional Information product tab content.
 * Fixed COD fee for the WooCommerce Cash on Delivery gateway.
+
+== Upgrade Notice ==
+
+= 1.0.0 =
+
+Initial public release. No upgrade steps are needed.

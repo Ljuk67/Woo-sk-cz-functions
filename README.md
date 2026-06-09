@@ -1,6 +1,6 @@
-# Nimble WooCommerce SK/CZ Functions
+# Nimble Woo SK/CZ Functions
 
-This repository is the project root for the Nimble WooCommerce SK/CZ Functions product line.
+This repository is the project root for the Nimble Woo SK/CZ Functions product line.
 
 Public GitHub repository:
 
@@ -8,17 +8,17 @@ Public GitHub repository:
 
 Today it contains the free plugin:
 
-- `woocommerce-sk-cz-functions/`
+- `nimble-woo-sk-cz-functions/`
 
 It is also structured to later contain the premium plugin:
 
-- `woocommerce-sk-cz-functions-premium/`
+- `nimble-woo-sk-cz-functions-premium/`
 
 This repo is not a WordPress installation root. It is the project workspace that holds plugin code and release files.
 
 ## What This Project Is
 
-Nimble WooCommerce SK/CZ Functions is a WordPress/WooCommerce plugin project focused on practical store features commonly needed in Slovak and Czech ecommerce sites.
+Nimble Woo SK/CZ Functions is a WordPress/WooCommerce plugin project focused on practical store features commonly needed in Slovak and Czech ecommerce sites.
 
 The free plugin currently targets features such as:
 
@@ -29,27 +29,27 @@ The free plugin currently targets features such as:
 - catalog and checkout UX improvements
 - translation-ready SK/CZ store behavior
 
-The checkout button text setting appears in `WooCommerce > Settings > WooCommerce SK/CZ` above the feature checkboxes. If the merchant leaves the predefined text unchanged or clears the field, the plugin uses the translated default for the active site language: Slovak `Objednať s povinnosťou platby` or Czech `Objednat s povinností platby`. Saving different text stores that merchant-defined wording for both classic checkout and Checkout Block.
+The checkout button text setting appears in `WooCommerce > Settings > Nimble Woo SK/CZ` above the feature checkboxes. If the merchant leaves the predefined text unchanged or clears the field, the plugin uses the translated default for the active site language: Slovak `Objednať s povinnosťou platby` or Czech `Objednat s povinností platby`. Saving different text stores that merchant-defined wording for both classic checkout and Checkout Block.
 
 ## Repository Layout
 
 ```text
 /
   README.md
-  woocommerce-sk-cz-functions/    # free plugin root
-  woocommerce-sk-cz-functions-premium/  # planned premium plugin root
+  nimble-woo-sk-cz-functions/    # free plugin root
+  nimble-woo-sk-cz-functions-premium/  # planned premium plugin root
 ```
 
 ## Source Of Truth
 
 Use these files for shared project context:
 
-- `woocommerce-sk-cz-functions/readme.txt`: WordPress.org plugin readme for the free plugin package
-- `woocommerce-sk-cz-functions/`: free plugin package source
+- `nimble-woo-sk-cz-functions/readme.txt`: WordPress.org plugin readme for the free plugin package
+- `nimble-woo-sk-cz-functions/`: free plugin package source
 
 ## WordPress.org Release Notes
 
-The free plugin is prepared for WordPress.org distribution from the `woocommerce-sk-cz-functions/` directory.
+The free plugin is prepared for WordPress.org distribution from the `nimble-woo-sk-cz-functions/` directory.
 
 Important rules for public release:
 
@@ -70,6 +70,6 @@ Important rules for public release:
 
 The free plugin root is:
 
-- `woocommerce-sk-cz-functions/`
+- `nimble-woo-sk-cz-functions/`
 
 Typical local usage is to symlink or copy that directory into a WordPress site's `wp-content/plugins/` directory, then activate it with WooCommerce enabled.

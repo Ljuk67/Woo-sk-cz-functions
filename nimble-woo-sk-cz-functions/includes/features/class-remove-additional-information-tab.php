@@ -101,7 +101,7 @@ class WSCF_Remove_Additional_Information_Tab {
 
 		return sprintf(
 			'<section class="wscf-additional-information-content"><h2>%1$s</h2>%2$s</section>',
-			esc_html__( 'Additional information', 'woocommerce-sk-cz-functions' ),
+			esc_html__( 'Additional information', 'nimble-woo-sk-cz-functions' ),
 			$attributes_html
 		);
 	}

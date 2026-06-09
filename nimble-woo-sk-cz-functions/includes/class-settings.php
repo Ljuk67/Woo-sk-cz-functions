@@ -80,7 +80,7 @@ class WSCF_Settings {
 	 * @return string
 	 */
 	public function get_default_checkout_button_text() {
-		return __( 'Objednať s povinnosťou platby', 'woocommerce-sk-cz-functions' );
+		return __( 'Objednať s povinnosťou platby', 'nimble-woo-sk-cz-functions' );
 	}
 
 	/**
@@ -98,7 +98,7 @@ class WSCF_Settings {
 	 * @return string
 	 */
 	public function get_default_cod_fee_label() {
-		return __( 'Cash on delivery fee', 'woocommerce-sk-cz-functions' );
+		return __( 'Cash on delivery fee', 'nimble-woo-sk-cz-functions' );
 	}
 
 	/**

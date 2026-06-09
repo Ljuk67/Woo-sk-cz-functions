@@ -29,7 +29,7 @@ class WSCF_WC_Settings_Tab {
 	 * @return array<string, string>
 	 */
 	public function add_tab( $tabs ) {
-		$tabs['wscf'] = __( 'WooCommerce SK/CZ', 'woocommerce-sk-cz-functions' );
+		$tabs['wscf'] = __( 'Nimble Woo SK/CZ', 'nimble-woo-sk-cz-functions' );
 		return $tabs;
 	}
 
@@ -84,13 +84,13 @@ class WSCF_WC_Settings_Tab {
 
 		$settings = array(
 			array(
-				'title' => __( 'WooCommerce SK/CZ', 'woocommerce-sk-cz-functions' ),
+				'title' => __( 'Nimble Woo SK/CZ', 'nimble-woo-sk-cz-functions' ),
 				'type'  => 'title',
 				'id'    => 'wscf_settings_section',
 			),
 			array(
-				'title'   => __( 'Checkout button text', 'woocommerce-sk-cz-functions' ),
-				'desc'    => __( 'Leave the predefined text unchanged to use the translated default for the current site language. Clear the field to return to the default after saving custom text.', 'woocommerce-sk-cz-functions' ),
+				'title'   => __( 'Checkout button text', 'nimble-woo-sk-cz-functions' ),
+				'desc'    => __( 'Leave the predefined text unchanged to use the translated default for the current site language. Clear the field to return to the default after saving custom text.', 'nimble-woo-sk-cz-functions' ),
 				'id'      => $option_names['checkout_button_text'],
 				'type'    => 'text',
 				'default' => $settings_service->get_default_checkout_button_text(),
@@ -99,8 +99,8 @@ class WSCF_WC_Settings_Tab {
 				'desc_tip' => false,
 			),
 			array(
-				'title'   => __( 'Enable company checkout fields', 'woocommerce-sk-cz-functions' ),
-				'desc'    => $this->get_feature_description( $settings_service, 'company_checkout_fields', __( 'Adds company purchase checkbox and business fields at checkout.', 'woocommerce-sk-cz-functions' ) ),
+				'title'   => __( 'Enable company checkout fields', 'nimble-woo-sk-cz-functions' ),
+				'desc'    => $this->get_feature_description( $settings_service, 'company_checkout_fields', __( 'Adds company purchase checkbox and business fields at checkout.', 'nimble-woo-sk-cz-functions' ) ),
 				'id'      => $option_names['company_checkout_fields'],
 				'type'    => 'checkbox',
 				'default' => 'no',
@@ -108,7 +108,7 @@ class WSCF_WC_Settings_Tab {
 				'desc_tip' => false,
 			),
 			array(
-				'title'   => __( 'Enable GDPR checkbox in checkout', 'woocommerce-sk-cz-functions' ),
+				'title'   => __( 'Enable GDPR checkbox in checkout', 'nimble-woo-sk-cz-functions' ),
 				'desc'    => $this->get_gdpr_checkbox_description( $settings_service ),
 				'id'      => $option_names['gdpr_checkbox'],
 				'type'    => 'checkbox',
@@ -117,7 +117,7 @@ class WSCF_WC_Settings_Tab {
 				'desc_tip' => false,
 			),
 			array(
-				'title'   => __( 'Enable child category row on archives', 'woocommerce-sk-cz-functions' ),
+				'title'   => __( 'Enable child category row on archives', 'nimble-woo-sk-cz-functions' ),
 				'desc'    => $this->get_category_row_description( $settings_service ),
 				'id'      => $option_names['category_row'],
 				'type'    => 'checkbox',
@@ -126,8 +126,8 @@ class WSCF_WC_Settings_Tab {
 				'desc_tip' => false,
 			),
 			array(
-				'title'   => __( 'Hide paid shipping when free shipping exists', 'woocommerce-sk-cz-functions' ),
-				'desc'    => $this->get_feature_description( $settings_service, 'hide_shipping_when_free', __( 'Shows only free shipping rates when free shipping is available.', 'woocommerce-sk-cz-functions' ) ),
+				'title'   => __( 'Hide paid shipping when free shipping exists', 'nimble-woo-sk-cz-functions' ),
+				'desc'    => $this->get_feature_description( $settings_service, 'hide_shipping_when_free', __( 'Shows only free shipping rates when free shipping is available.', 'nimble-woo-sk-cz-functions' ) ),
 				'id'      => $option_names['hide_shipping_when_free'],
 				'type'    => 'checkbox',
 				'default' => 'no',
@@ -135,8 +135,8 @@ class WSCF_WC_Settings_Tab {
 				'desc_tip' => false,
 			),
 			array(
-				'title'   => __( 'Hide Additional Information tab on products', 'woocommerce-sk-cz-functions' ),
-				'desc'    => $this->get_feature_description( $settings_service, 'remove_additional_information_tab', __( 'Removes the Additional Information tab from single product pages.', 'woocommerce-sk-cz-functions' ) ),
+				'title'   => __( 'Hide Additional Information tab on products', 'nimble-woo-sk-cz-functions' ),
+				'desc'    => $this->get_feature_description( $settings_service, 'remove_additional_information_tab', __( 'Removes the Additional Information tab from single product pages.', 'nimble-woo-sk-cz-functions' ) ),
 				'id'      => $option_names['remove_additional_information_tab'],
 				'type'    => 'checkbox',
 				'default' => 'no',
@@ -145,7 +145,7 @@ class WSCF_WC_Settings_Tab {
 			),
 			array(
 				'title'   => '',
-				'desc'    => $this->get_feature_description( $settings_service, 'move_additional_information_to_description', __( 'When enabled, show the hidden Additional Information content directly in the long product description instead of hiding it completely.', 'woocommerce-sk-cz-functions' ) ),
+				'desc'    => $this->get_feature_description( $settings_service, 'move_additional_information_to_description', __( 'When enabled, show the hidden Additional Information content directly in the long product description instead of hiding it completely.', 'nimble-woo-sk-cz-functions' ) ),
 				'id'      => $option_names['move_additional_information_to_description'],
 				'type'    => 'checkbox',
 				'default' => 'no',
@@ -153,8 +153,8 @@ class WSCF_WC_Settings_Tab {
 				'desc_tip' => false,
 			),
 			array(
-				'title'   => __( 'Enable COD fee', 'woocommerce-sk-cz-functions' ),
-				'desc'    => $this->get_feature_description( $settings_service, 'cod_fee', __( 'Adds an extra fee when the customer selects the Cash on Delivery payment gateway.', 'woocommerce-sk-cz-functions' ) ),
+				'title'   => __( 'Enable COD fee', 'nimble-woo-sk-cz-functions' ),
+				'desc'    => $this->get_feature_description( $settings_service, 'cod_fee', __( 'Adds an extra fee when the customer selects the Cash on Delivery payment gateway.', 'nimble-woo-sk-cz-functions' ) ),
 				'id'      => $option_names['cod_fee'],
 				'type'    => 'checkbox',
 				'default' => 'no',
@@ -162,8 +162,8 @@ class WSCF_WC_Settings_Tab {
 				'desc_tip' => false,
 			),
 			array(
-				'title'   => __( 'Default COD fee amount', 'woocommerce-sk-cz-functions' ),
-				'desc'    => $this->get_feature_description( $settings_service, 'cod_fee_amount', __( 'Used when no configured cart-total band matches. Based on cart total after shipping, tax, and coupons.', 'woocommerce-sk-cz-functions' ) ),
+				'title'   => __( 'Default COD fee amount', 'nimble-woo-sk-cz-functions' ),
+				'desc'    => $this->get_feature_description( $settings_service, 'cod_fee_amount', __( 'Used when no configured cart-total band matches. Based on cart total after shipping, tax, and coupons.', 'nimble-woo-sk-cz-functions' ) ),
 				'id'      => $option_names['cod_fee_amount'],
 				'type'    => 'text',
 				'default' => '0',
@@ -172,8 +172,8 @@ class WSCF_WC_Settings_Tab {
 				'desc_tip' => false,
 			),
 			array(
-				'title'   => __( 'COD fee label', 'woocommerce-sk-cz-functions' ),
-				'desc'    => $this->get_feature_description( $settings_service, 'cod_fee_label', __( 'Frontend fee label. Leave empty to use the default plugin label.', 'woocommerce-sk-cz-functions' ) ),
+				'title'   => __( 'COD fee label', 'nimble-woo-sk-cz-functions' ),
+				'desc'    => $this->get_feature_description( $settings_service, 'cod_fee_label', __( 'Frontend fee label. Leave empty to use the default plugin label.', 'nimble-woo-sk-cz-functions' ) ),
 				'id'      => $option_names['cod_fee_label'],
 				'type'    => 'text',
 				'default' => $settings_service->get_default_cod_fee_label(),
@@ -239,7 +239,7 @@ class WSCF_WC_Settings_Tab {
 		return sprintf(
 			'%1$s <span class="description">%2$s</span>',
 			esc_html( $description ),
-			esc_html__( 'Not ready yet.', 'woocommerce-sk-cz-functions' )
+			esc_html__( 'Not ready yet.', 'nimble-woo-sk-cz-functions' )
 		);
 	}
 
@@ -252,8 +252,8 @@ class WSCF_WC_Settings_Tab {
 	private function get_gdpr_checkbox_description( $settings_service ) {
 		$description = sprintf(
 			'%1$s<br /><span class="description">%2$s</span>',
-			esc_html__( 'Classic checkout only: Adds a required privacy-policy consent checkbox at checkout.', 'woocommerce-sk-cz-functions' ),
-			esc_html__( 'In block checkout, the GDPR checkbox is combined with the terms-and-conditions checkbox.', 'woocommerce-sk-cz-functions' )
+			esc_html__( 'Classic checkout only: Adds a required privacy-policy consent checkbox at checkout.', 'nimble-woo-sk-cz-functions' ),
+			esc_html__( 'In block checkout, the GDPR checkbox is combined with the terms-and-conditions checkbox.', 'nimble-woo-sk-cz-functions' )
 		);
 
 		return $this->get_feature_description( $settings_service, 'gdpr_checkbox', $description );
@@ -269,7 +269,7 @@ class WSCF_WC_Settings_Tab {
 		$description = $this->get_feature_description(
 			$settings_service,
 			'category_row',
-			esc_html__( 'Displays clickable, responsive boxes for child categories above products on category archive pages.', 'woocommerce-sk-cz-functions' )
+			esc_html__( 'Displays clickable, responsive boxes for child categories above products on category archive pages.', 'nimble-woo-sk-cz-functions' )
 		);
 
 		$image_path = WSCF_PLUGIN_PATH . 'assets/img/child_cat.jpeg';
@@ -279,7 +279,7 @@ class WSCF_WC_Settings_Tab {
 		}
 
 		$image_url = WSCF_PLUGIN_URL . 'assets/img/child_cat.jpeg';
-		$image_alt = __( 'Child category row preview', 'woocommerce-sk-cz-functions' );
+		$image_alt = __( 'Child category row preview', 'nimble-woo-sk-cz-functions' );
 
 		return sprintf(
 			'%1$s<br /><a class="wscf-settings-preview-link" href="%2$s" target="_blank" rel="noopener noreferrer"><img class="wscf-settings-preview-image" src="%2$s" alt="%3$s" /></a>',

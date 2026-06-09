@@ -46,7 +46,7 @@ class WSCF_Plugin {
 		$settings_url = admin_url( 'admin.php?page=wc-settings&tab=wscf' );
 
 		$settings_link = '<a href="' . esc_url( $settings_url ) . '">' .
-			esc_html__( 'Settings', 'woocommerce-sk-cz-functions' ) .
+			esc_html__( 'Settings', 'nimble-woo-sk-cz-functions' ) .
 		'</a>';
 
 		array_unshift( $links, $settings_link );
@@ -75,7 +75,7 @@ class WSCF_Plugin {
 	 */
 	public function load_textdomain() {
 		load_plugin_textdomain(
-			'woocommerce-sk-cz-functions',
+			'nimble-woo-sk-cz-functions',
 			false,
 			dirname( plugin_basename( WSCF_PLUGIN_FILE ) ) . '/languages'
 		);
@@ -134,7 +134,7 @@ class WSCF_Plugin {
 		}
 
 		echo '<div class="notice notice-error"><p>';
-		echo esc_html__( 'Nimble WooCommerce SK/CZ Functions requires the WooCommerce plugin to be active.', 'woocommerce-sk-cz-functions' );
+		echo esc_html__( 'Nimble Woo SK/CZ Functions requires the WooCommerce plugin to be active.', 'nimble-woo-sk-cz-functions' );
 		echo '</p></div>';
 	}
 }
