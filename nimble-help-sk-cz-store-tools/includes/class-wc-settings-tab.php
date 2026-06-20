@@ -29,7 +29,7 @@ class WSCF_WC_Settings_Tab {
 	 * @return array<string, string>
 	 */
 	public function add_tab( $tabs ) {
-		$tabs['wscf'] = __( 'Nimble Woo SK/CZ', 'nimble-woo-sk-cz-functions' );
+		$tabs['wscf'] = __( 'Nimble Woo SK/CZ', 'nimble-help-sk-cz-store-tools' );
 		return $tabs;
 	}
 
@@ -87,19 +87,19 @@ class WSCF_WC_Settings_Tab {
 	 * @return void
 	 */
 	private function render_promo_sidebar() {
-		echo '<aside class="wscf-settings-sidebar" aria-label="' . esc_attr__( 'Plugin support and rating links', 'nimble-woo-sk-cz-functions' ) . '">';
+		echo '<aside class="wscf-settings-sidebar" aria-label="' . esc_attr__( 'Plugin support and rating links', 'nimble-help-sk-cz-store-tools' ) . '">';
 		echo '<div class="wscf-promo-box wscf-promo-box-with-logo">';
 		echo '<div class="wscf-promo-box-content">';
-		echo '<h3 class="wscf-promo-title"><span class="dashicons dashicons-editor-code" aria-hidden="true"></span>' . esc_html__( 'Custom solutions', 'nimble-woo-sk-cz-functions' ) . '</h3>';
-		echo '<p>' . esc_html__( 'Need a custom plugin, theme adjustments, or specific features? I create custom WordPress solutions for your needs.', 'nimble-woo-sk-cz-functions' ) . '</p>';
-		echo '<strong>' . esc_html__( 'Fast & reliable websites for businesses that need things done properly', 'nimble-woo-sk-cz-functions' ) . '</strong>';
-		echo '<a class="button button-primary" href="' . esc_url( 'https://nimble.help/' ) . '" target="_blank" rel="noopener noreferrer">' . esc_html__( 'Ask about your website', 'nimble-woo-sk-cz-functions' ) . '</a>';
+		echo '<h3 class="wscf-promo-title"><span class="dashicons dashicons-editor-code" aria-hidden="true"></span>' . esc_html__( 'Custom solutions', 'nimble-help-sk-cz-store-tools' ) . '</h3>';
+		echo '<p>' . esc_html__( 'Need a custom plugin, theme adjustments, or specific features? I create custom WordPress solutions for your needs.', 'nimble-help-sk-cz-store-tools' ) . '</p>';
+		echo '<strong>' . esc_html__( 'Fast & reliable websites for businesses that need things done properly', 'nimble-help-sk-cz-store-tools' ) . '</strong>';
+		echo '<a class="button button-primary" href="' . esc_url( 'https://nimble.help/' ) . '" target="_blank" rel="noopener noreferrer">' . esc_html__( 'Ask about your website', 'nimble-help-sk-cz-store-tools' ) . '</a>';
 		echo '</div>';
 		echo '<img class="wscf-promo-logo" src="' . esc_url( WSCF_PLUGIN_URL . 'assets/img/nimble-logo.jpg' ) . '" alt="' . esc_attr( 'Nimble.help' ) . '" />';
 		echo '</div>';
 		echo '<div class="wscf-promo-box">';
-		echo '<p>' . esc_html__( "Like this plugin? Rate it on WordPress.org - we'll add a link once it's uploaded to WordPress here.", 'nimble-woo-sk-cz-functions' ) . '</p>';
-		echo '<button type="button" class="button" disabled="disabled">' . esc_html__( 'Add rating', 'nimble-woo-sk-cz-functions' ) . '</button>';
+		echo '<p>' . esc_html__( "Like this plugin? Rate it on WordPress.org - we'll add a link once it's uploaded to WordPress here.", 'nimble-help-sk-cz-store-tools' ) . '</p>';
+		echo '<button type="button" class="button" disabled="disabled">' . esc_html__( 'Add rating', 'nimble-help-sk-cz-store-tools' ) . '</button>';
 		echo '</div>';
 		echo '</aside>';
 	}
@@ -126,13 +126,13 @@ class WSCF_WC_Settings_Tab {
 
 		$settings = array(
 			array(
-				'title' => __( 'Nimble Woo SK/CZ', 'nimble-woo-sk-cz-functions' ),
+				'title' => __( 'Nimble Woo SK/CZ', 'nimble-help-sk-cz-store-tools' ),
 				'type'  => 'title',
 				'id'    => 'wscf_settings_section',
 			),
 			array(
-				'title'   => __( 'Checkout button text', 'nimble-woo-sk-cz-functions' ),
-				'desc'    => __( 'Leave the predefined text unchanged to use the translated default for the current site language. Clear the field to return to the default after saving custom text.', 'nimble-woo-sk-cz-functions' ),
+				'title'   => __( 'Checkout button text', 'nimble-help-sk-cz-store-tools' ),
+				'desc'    => __( 'Leave the predefined text unchanged to use the translated default for the current site language. Clear the field to return to the default after saving custom text.', 'nimble-help-sk-cz-store-tools' ),
 				'id'      => $option_names['checkout_button_text'],
 				'type'    => 'text',
 				'default' => $settings_service->get_default_checkout_button_text(),
@@ -141,8 +141,8 @@ class WSCF_WC_Settings_Tab {
 				'desc_tip' => false,
 			),
 			array(
-				'title'   => __( 'Enable company checkout fields', 'nimble-woo-sk-cz-functions' ),
-				'desc'    => $this->get_feature_description( $settings_service, 'company_checkout_fields', __( 'Adds company purchase checkbox and business fields at checkout.', 'nimble-woo-sk-cz-functions' ) ),
+				'title'   => __( 'Enable company checkout fields', 'nimble-help-sk-cz-store-tools' ),
+				'desc'    => $this->get_feature_description( $settings_service, 'company_checkout_fields', __( 'Adds company purchase checkbox and business fields at checkout.', 'nimble-help-sk-cz-store-tools' ) ),
 				'id'      => $option_names['company_checkout_fields'],
 				'type'    => 'checkbox',
 				'default' => 'no',
@@ -150,7 +150,7 @@ class WSCF_WC_Settings_Tab {
 				'desc_tip' => false,
 			),
 			array(
-				'title'   => __( 'Enable GDPR checkbox in checkout', 'nimble-woo-sk-cz-functions' ),
+				'title'   => __( 'Enable GDPR checkbox in checkout', 'nimble-help-sk-cz-store-tools' ),
 				'desc'    => $this->get_gdpr_checkbox_description( $settings_service ),
 				'id'      => $option_names['gdpr_checkbox'],
 				'type'    => 'checkbox',
@@ -159,7 +159,7 @@ class WSCF_WC_Settings_Tab {
 				'desc_tip' => false,
 			),
 			array(
-				'title'   => __( 'Enable child category row on archives', 'nimble-woo-sk-cz-functions' ),
+				'title'   => __( 'Enable child category row on archives', 'nimble-help-sk-cz-store-tools' ),
 				'desc'    => $this->get_category_row_description( $settings_service ),
 				'id'      => $option_names['category_row'],
 				'type'    => 'checkbox',
@@ -168,8 +168,8 @@ class WSCF_WC_Settings_Tab {
 				'desc_tip' => false,
 			),
 			array(
-				'title'   => __( 'Hide paid shipping when free shipping exists', 'nimble-woo-sk-cz-functions' ),
-				'desc'    => $this->get_feature_description( $settings_service, 'hide_shipping_when_free', __( 'Shows only free shipping rates when free shipping is available.', 'nimble-woo-sk-cz-functions' ) ),
+				'title'   => __( 'Hide paid shipping when free shipping exists', 'nimble-help-sk-cz-store-tools' ),
+				'desc'    => $this->get_feature_description( $settings_service, 'hide_shipping_when_free', __( 'Shows only free shipping rates when free shipping is available.', 'nimble-help-sk-cz-store-tools' ) ),
 				'id'      => $option_names['hide_shipping_when_free'],
 				'type'    => 'checkbox',
 				'default' => 'no',
@@ -177,8 +177,8 @@ class WSCF_WC_Settings_Tab {
 				'desc_tip' => false,
 			),
 			array(
-				'title'   => __( 'Hide Additional Information tab on products', 'nimble-woo-sk-cz-functions' ),
-				'desc'    => $this->get_feature_description( $settings_service, 'remove_additional_information_tab', __( 'Removes the Additional Information tab from single product pages.', 'nimble-woo-sk-cz-functions' ) ),
+				'title'   => __( 'Hide Additional Information tab on products', 'nimble-help-sk-cz-store-tools' ),
+				'desc'    => $this->get_feature_description( $settings_service, 'remove_additional_information_tab', __( 'Removes the Additional Information tab from single product pages.', 'nimble-help-sk-cz-store-tools' ) ),
 				'id'      => $option_names['remove_additional_information_tab'],
 				'type'    => 'checkbox',
 				'default' => 'no',
@@ -187,7 +187,7 @@ class WSCF_WC_Settings_Tab {
 			),
 			array(
 				'title'   => '',
-				'desc'    => $this->get_feature_description( $settings_service, 'move_additional_information_to_description', __( 'When enabled, show the hidden Additional Information content directly in the long product description instead of hiding it completely.', 'nimble-woo-sk-cz-functions' ) ),
+				'desc'    => $this->get_feature_description( $settings_service, 'move_additional_information_to_description', __( 'When enabled, show the hidden Additional Information content directly in the long product description instead of hiding it completely.', 'nimble-help-sk-cz-store-tools' ) ),
 				'id'      => $option_names['move_additional_information_to_description'],
 				'type'    => 'checkbox',
 				'default' => 'no',
@@ -195,8 +195,8 @@ class WSCF_WC_Settings_Tab {
 				'desc_tip' => false,
 			),
 			array(
-				'title'   => __( 'Enable COD fee', 'nimble-woo-sk-cz-functions' ),
-				'desc'    => $this->get_feature_description( $settings_service, 'cod_fee', __( 'Adds an extra fee when the customer selects the Cash on Delivery payment gateway.', 'nimble-woo-sk-cz-functions' ) ),
+				'title'   => __( 'Enable COD fee', 'nimble-help-sk-cz-store-tools' ),
+				'desc'    => $this->get_feature_description( $settings_service, 'cod_fee', __( 'Adds an extra fee when the customer selects the Cash on Delivery payment gateway.', 'nimble-help-sk-cz-store-tools' ) ),
 				'id'      => $option_names['cod_fee'],
 				'type'    => 'checkbox',
 				'default' => 'no',
@@ -204,8 +204,8 @@ class WSCF_WC_Settings_Tab {
 				'desc_tip' => false,
 			),
 			array(
-				'title'   => __( 'Default COD fee amount', 'nimble-woo-sk-cz-functions' ),
-				'desc'    => $this->get_feature_description( $settings_service, 'cod_fee_amount', __( 'Used when no configured cart-total band matches. Based on cart total after shipping, tax, and coupons.', 'nimble-woo-sk-cz-functions' ) ),
+				'title'   => __( 'Default COD fee amount', 'nimble-help-sk-cz-store-tools' ),
+				'desc'    => $this->get_feature_description( $settings_service, 'cod_fee_amount', __( 'Used when no configured cart-total band matches. Based on cart total after shipping, tax, and coupons.', 'nimble-help-sk-cz-store-tools' ) ),
 				'id'      => $option_names['cod_fee_amount'],
 				'type'    => 'text',
 				'default' => '0',
@@ -214,8 +214,8 @@ class WSCF_WC_Settings_Tab {
 				'desc_tip' => false,
 			),
 			array(
-				'title'   => __( 'COD fee label', 'nimble-woo-sk-cz-functions' ),
-				'desc'    => $this->get_feature_description( $settings_service, 'cod_fee_label', __( 'Frontend fee label. Leave empty to use the default plugin label.', 'nimble-woo-sk-cz-functions' ) ),
+				'title'   => __( 'COD fee label', 'nimble-help-sk-cz-store-tools' ),
+				'desc'    => $this->get_feature_description( $settings_service, 'cod_fee_label', __( 'Frontend fee label. Leave empty to use the default plugin label.', 'nimble-help-sk-cz-store-tools' ) ),
 				'id'      => $option_names['cod_fee_label'],
 				'type'    => 'text',
 				'default' => $settings_service->get_default_cod_fee_label(),
@@ -281,7 +281,7 @@ class WSCF_WC_Settings_Tab {
 		return sprintf(
 			'%1$s <span class="description">%2$s</span>',
 			esc_html( $description ),
-			esc_html__( 'Not ready yet.', 'nimble-woo-sk-cz-functions' )
+			esc_html__( 'Not ready yet.', 'nimble-help-sk-cz-store-tools' )
 		);
 	}
 
@@ -294,8 +294,8 @@ class WSCF_WC_Settings_Tab {
 	private function get_gdpr_checkbox_description( $settings_service ) {
 		$description = sprintf(
 			'%1$s<br /><span class="description">%2$s</span>',
-			esc_html__( 'Classic checkout only: Adds a required privacy-policy consent checkbox at checkout.', 'nimble-woo-sk-cz-functions' ),
-			esc_html__( 'In block checkout, the GDPR checkbox is combined with the terms-and-conditions checkbox.', 'nimble-woo-sk-cz-functions' )
+			esc_html__( 'Classic checkout only: Adds a required privacy-policy consent checkbox at checkout.', 'nimble-help-sk-cz-store-tools' ),
+			esc_html__( 'In block checkout, the GDPR checkbox is combined with the terms-and-conditions checkbox.', 'nimble-help-sk-cz-store-tools' )
 		);
 
 		return $this->get_feature_description( $settings_service, 'gdpr_checkbox', $description );
@@ -311,7 +311,7 @@ class WSCF_WC_Settings_Tab {
 		$description = $this->get_feature_description(
 			$settings_service,
 			'category_row',
-			esc_html__( 'Displays clickable, responsive boxes for child categories above products on category archive pages.', 'nimble-woo-sk-cz-functions' )
+			esc_html__( 'Displays clickable, responsive boxes for child categories above products on category archive pages.', 'nimble-help-sk-cz-store-tools' )
 		);
 
 		$image_path = WSCF_PLUGIN_PATH . 'assets/img/child_cat.jpeg';
@@ -321,7 +321,7 @@ class WSCF_WC_Settings_Tab {
 		}
 
 		$image_url = WSCF_PLUGIN_URL . 'assets/img/child_cat.jpeg';
-		$image_alt = __( 'Child category row preview', 'nimble-woo-sk-cz-functions' );
+		$image_alt = __( 'Child category row preview', 'nimble-help-sk-cz-store-tools' );
 
 		return sprintf(
 			'%1$s<br /><a class="wscf-settings-preview-link" href="%2$s" target="_blank" rel="noopener noreferrer"><img class="wscf-settings-preview-image" src="%2$s" alt="%3$s" /></a>',

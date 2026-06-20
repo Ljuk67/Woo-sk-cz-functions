@@ -1,6 +1,6 @@
-# Nimble Woo SK/CZ Functions
+# Nimble.help - SK/CZ Store Tools for WooCommerce
 
-This repository is the project root for the Nimble Woo SK/CZ Functions product line.
+This repository is the project root for the Nimble.help - SK/CZ Store Tools for WooCommerce product line.
 
 Public GitHub repository:
 
@@ -10,12 +10,12 @@ This repo is not a WordPress installation root. It is the project workspace that
 
 ## What This Project Is
 
-Nimble Woo SK/CZ Functions is a WordPress/WooCommerce plugin project focused on practical store features commonly needed in Slovak and Czech ecommerce sites.
+Nimble.help - SK/CZ Store Tools for WooCommerce is a WordPress/WooCommerce plugin project focused on practical store features commonly needed in Slovak and Czech ecommerce sites.
 
 The free plugin currently includes these functions:
 
 - company checkout toggle with company name, ICO, DIC, and IC DPH fields
-- configurable checkout order button text with Slovak and Czech translated defaults
+- configurable checkout order button text with English default and Slovak/Czech translations
 - GDPR consent checkbox for classic checkout, with privacy-policy link support
 - fixed Cash on Delivery fee for the WooCommerce `cod` payment gateway
 - hide paid shipping methods when free shipping is available
@@ -25,7 +25,7 @@ The free plugin currently includes these functions:
 
 Checkout-facing functions are implemented for both classic checkout and Checkout Block where the current free plugin supports that surface. The GDPR checkbox is intentionally limited to classic checkout because WooCommerce handles legal consent differently in Checkout Block.
 
-The checkout button text setting appears in `WooCommerce > Settings > Nimble Woo SK/CZ` above the feature checkboxes. If the merchant leaves the predefined text unchanged or clears the field, the plugin uses the translated default for the active site language: Slovak `Objednať s povinnosťou platby` or Czech `Objednat s povinností platby`. Saving different text stores that merchant-defined wording for both classic checkout and Checkout Block.
+The checkout button text setting appears in `WooCommerce > Settings > Nimble Woo SK/CZ` above the feature checkboxes. If the merchant leaves the predefined text unchanged or clears the field, the plugin uses the translated default for the active site language: English `Place order with payment obligation`, Slovak `Objednať s povinnosťou platby`, or Czech `Objednat s povinností platby`. Saving different text stores that merchant-defined wording for both classic checkout and Checkout Block.
 
 ## Repository Layout
 
@@ -36,8 +36,8 @@ The checkout button text setting appears in `WooCommerce > Settings > Nimble Woo
   docs/
   memory/
   .local/                        # ignored; private machine-specific notes
-  nimble-woo-sk-cz-functions/    # free plugin root
-  nimble-woo-sk-cz-functions-premium/  # planned premium plugin root
+  nimble-help-sk-cz-store-tools/    # free plugin root
+  nimble-help-sk-cz-store-tools-premium/  # planned premium plugin root
 ```
 
 ## Source Of Truth
@@ -47,12 +47,12 @@ Use these files for shared project context:
 - `AGENTS.md`: stable repo instructions for agents
 - `docs/roadmap.md`: product direction and release phases
 - `memory/current-state.md`: live project state and active work
-- `nimble-woo-sk-cz-functions/readme.txt`: WordPress.org plugin readme for the free plugin package
-- `nimble-woo-sk-cz-functions/`: free plugin package source
+- `nimble-help-sk-cz-store-tools/readme.txt`: WordPress.org plugin readme for the free plugin package
+- `nimble-help-sk-cz-store-tools/`: free plugin package source
 
 ## WordPress.org Release Notes
 
-The free plugin is prepared for WordPress.org distribution from the `nimble-woo-sk-cz-functions/` directory.
+The free plugin is prepared for WordPress.org distribution from the `nimble-help-sk-cz-store-tools/` directory.
 
 Important rules for public release:
 
@@ -73,6 +73,6 @@ Important rules for public release:
 
 The free plugin root is:
 
-- `nimble-woo-sk-cz-functions/`
+- `nimble-help-sk-cz-store-tools/`
 
 Typical local usage is to symlink or copy that directory into a WordPress site's `wp-content/plugins/` directory, then activate it with WooCommerce enabled.

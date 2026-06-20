@@ -1,4 +1,4 @@
-=== Nimble Woo SK/CZ Functions ===
+=== Nimble.help - SK/CZ Store Tools for WooCommerce ===
 Contributors: lukascech
 Tags: woocommerce, checkout, nakup na firmu, company fields, gdpr, woo sk, woo cz
 Requires at least: 6.4
@@ -13,19 +13,19 @@ WooCommerce tools for Slovak and Czech stores: company fields, checkout button t
 
 == Description ==
 
-Nimble Woo SK/CZ Functions adds practical WooCommerce features commonly needed in (not only) Slovak and Czech stores.
+Nimble.help - SK/CZ Store Tools for WooCommerce adds practical WooCommerce features commonly needed in (not only) Slovak and Czech stores.
 
 Current features:
 
 * Company checkout toggle with ICO, DIC, IC DPH, and billing company support.
-* Custom checkout order button text with Slovak and Czech defaults (Objednať s povinnosťou platby / Objednat s povinností platby)
+* Custom checkout order button text with English default and Slovak/Czech translations.
 * Classic checkout GDPR consent checkbox with privacy policy link support.
 * Fixed Cash on Delivery (Platba na dobierku) fee for the WooCommerce `cod` payment gateway.
 * Hide paid shipping methods when free shipping is available.
 * Hide the Additional Information product tab, with an option to move its content into the product description.
 * Product subcategories row above products on category archive pages.
 
-Most feature toggles are disabled by default. Enable only the features you need in WooCommerce settings. The checkout button text field is available immediately and defaults to the translated Slovak/Czech payment-obligation wording unless you save custom text.
+Most feature toggles are disabled by default. Enable only the features you need in WooCommerce settings. The checkout button text field is available immediately and defaults to the active site language unless you save custom text.
 
 == Compatibility ==
 
@@ -49,7 +49,7 @@ Tested themes before the 1.0.0 release:
 
 == Installation ==
 
-1. Upload the `nimble-woo-sk-cz-functions` folder to the `/wp-content/plugins/` directory.
+1. Upload the `nimble-help-sk-cz-store-tools` folder to the `/wp-content/plugins/` directory.
 2. Activate the plugin through the `Plugins` menu in WordPress.
 3. Ensure WooCommerce is installed and active.
 4. Go to WooCommerce > Settings > Nimble Woo SK/CZ tab.
@@ -102,7 +102,7 @@ Yes, you can easily translate it to any language using Loco Translate.
 
 * Initial release.
 * Company checkout fields.
-* Custom checkout order button text with Slovak and Czech translated defaults.
+* Custom checkout order button text with English default and Slovak/Czech translations.
 * GDPR checkbox.
 * Category subcategory row.
 * Hide paid shipping when free shipping is available.

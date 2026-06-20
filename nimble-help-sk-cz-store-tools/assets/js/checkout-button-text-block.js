@@ -1,7 +1,7 @@
 ( function() {
 	var attempts = 0;
 	var maxAttempts = 20;
-	var extensionName = 'nimble-woo-sk-cz-functions';
+	var extensionName = 'nimble-help-sk-cz-store-tools';
 	var settings = window.wscfCheckoutButtonText || {};
 
 	function registerFilter() {

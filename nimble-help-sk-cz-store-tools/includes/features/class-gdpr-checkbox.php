@@ -68,12 +68,12 @@ class WSCF_GDPR_Checkbox {
 		$privacy_policy_url = $this->get_privacy_policy_url();
 
 		if ( '' === $privacy_policy_url ) {
-			return __( 'I have read the privacy policy and agree with it.', 'nimble-woo-sk-cz-functions' );
+			return __( 'I have read the privacy policy and agree with it.', 'nimble-help-sk-cz-store-tools' );
 		}
 
 		return sprintf(
 			'%1$s <a href="%2$s" target="_blank" rel="noopener">%3$s</a>',
-			esc_html__( 'I have read the privacy policy and agree with it.', 'nimble-woo-sk-cz-functions' ),
+			esc_html__( 'I have read the privacy policy and agree with it.', 'nimble-help-sk-cz-store-tools' ),
 			esc_url( $privacy_policy_url ),
 			esc_html( $this->get_privacy_policy_link_text() )
 		);
@@ -85,7 +85,7 @@ class WSCF_GDPR_Checkbox {
 	 * @return string
 	 */
 	private function get_validation_message() {
-		return __( 'You must agree with the privacy policy to complete the order.', 'nimble-woo-sk-cz-functions' );
+		return __( 'You must agree with the privacy policy to complete the order.', 'nimble-help-sk-cz-store-tools' );
 	}
 
 	/**
@@ -117,7 +117,7 @@ class WSCF_GDPR_Checkbox {
 			}
 		}
 
-		return __( 'Privacy Policy', 'nimble-woo-sk-cz-functions' );
+		return __( 'Privacy Policy', 'nimble-help-sk-cz-store-tools' );
 	}
 
 	/**

@@ -45,7 +45,7 @@ class WSCF_Plugin {
 		$settings_url = admin_url( 'admin.php?page=wc-settings&tab=wscf' );
 
 		$settings_link = '<a href="' . esc_url( $settings_url ) . '">' .
-			esc_html__( 'Settings', 'nimble-woo-sk-cz-functions' ) .
+			esc_html__( 'Settings', 'nimble-help-sk-cz-store-tools' ) .
 		'</a>';
 
 		array_unshift( $links, $settings_link );
@@ -120,7 +120,7 @@ class WSCF_Plugin {
 		}
 
 		echo '<div class="notice notice-error"><p>';
-		echo esc_html__( 'Nimble Woo SK/CZ Functions requires the WooCommerce plugin to be active.', 'nimble-woo-sk-cz-functions' );
+		echo esc_html__( 'Nimble.help - SK/CZ Store Tools for WooCommerce requires the WooCommerce plugin to be active.', 'nimble-help-sk-cz-store-tools' );
 		echo '</p></div>';
 	}
 }

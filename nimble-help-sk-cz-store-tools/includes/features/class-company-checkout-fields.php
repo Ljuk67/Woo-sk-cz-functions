@@ -17,11 +17,11 @@ class WSCF_Company_Checkout_Fields {
 	 * @var array<string, string>
 	 */
 	private $block_field_ids = array(
-		'buying_as_company' => 'nimble-woo-sk-cz-functions/buying-as-company',
-		'company_name'      => 'nimble-woo-sk-cz-functions/company-name',
-		'company_id'        => 'nimble-woo-sk-cz-functions/company-id',
-		'tax_id'            => 'nimble-woo-sk-cz-functions/tax-id',
-		'vat_id'            => 'nimble-woo-sk-cz-functions/vat-id',
+		'buying_as_company' => 'nimble-help-sk-cz-store-tools/buying-as-company',
+		'company_name'      => 'nimble-help-sk-cz-store-tools/company-name',
+		'company_id'        => 'nimble-help-sk-cz-store-tools/company-id',
+		'tax_id'            => 'nimble-help-sk-cz-store-tools/tax-id',
+		'vat_id'            => 'nimble-help-sk-cz-store-tools/vat-id',
 	);
 
 	/**
@@ -58,7 +58,7 @@ class WSCF_Company_Checkout_Fields {
 		woocommerce_register_additional_checkout_field(
 			array(
 				'id'       => $this->block_field_ids['buying_as_company'],
-				'label'    => __( 'Company purchase - Company ID, Tax ID', 'nimble-woo-sk-cz-functions' ),
+				'label'    => __( 'Company purchase - Company ID, Tax ID', 'nimble-help-sk-cz-store-tools' ),
 				'location' => 'order',
 				'type'     => 'checkbox',
 				'attributes' => array(
@@ -70,7 +70,7 @@ class WSCF_Company_Checkout_Fields {
 		woocommerce_register_additional_checkout_field(
 			array(
 				'id'          => $this->block_field_ids['company_name'],
-				'label'       => __( 'Company name', 'nimble-woo-sk-cz-functions' ),
+				'label'       => __( 'Company name', 'nimble-help-sk-cz-store-tools' ),
 				'location'    => 'order',
 				'type'        => 'text',
 				'attributes'  => $this->get_block_company_field_attributes( true ),
@@ -80,7 +80,7 @@ class WSCF_Company_Checkout_Fields {
 		woocommerce_register_additional_checkout_field(
 			array(
 				'id'          => $this->block_field_ids['company_id'],
-				'label'       => __( 'Company ID', 'nimble-woo-sk-cz-functions' ),
+				'label'       => __( 'Company ID', 'nimble-help-sk-cz-store-tools' ),
 				'location'    => 'order',
 				'type'        => 'text',
 				'attributes'  => $this->get_block_company_field_attributes( true ),
@@ -90,7 +90,7 @@ class WSCF_Company_Checkout_Fields {
 		woocommerce_register_additional_checkout_field(
 			array(
 				'id'          => $this->block_field_ids['tax_id'],
-				'label'       => __( 'Tax ID', 'nimble-woo-sk-cz-functions' ),
+				'label'       => __( 'Tax ID', 'nimble-help-sk-cz-store-tools' ),
 				'location'    => 'order',
 				'type'        => 'text',
 				'attributes'  => $this->get_block_company_field_attributes( true ),
@@ -100,7 +100,7 @@ class WSCF_Company_Checkout_Fields {
 		woocommerce_register_additional_checkout_field(
 			array(
 				'id'          => $this->block_field_ids['vat_id'],
-				'label'       => __( 'VAT ID', 'nimble-woo-sk-cz-functions' ),
+				'label'       => __( 'VAT ID', 'nimble-help-sk-cz-store-tools' ),
 				'location'    => 'order',
 				'type'        => 'text',
 				'attributes'  => $this->get_block_company_field_attributes( false ),
@@ -142,7 +142,7 @@ class WSCF_Company_Checkout_Fields {
 
 		$fields['billing']['billing_buying_as_company'] = array(
 			'type'     => 'checkbox',
-			'label'    => __( 'Company purchase - Company ID, Tax ID', 'nimble-woo-sk-cz-functions' ),
+			'label'    => __( 'Company purchase - Company ID, Tax ID', 'nimble-help-sk-cz-store-tools' ),
 			'required' => false,
 			'class'    => array( 'form-row-wide' ),
 			'clear'    => true,
@@ -155,8 +155,8 @@ class WSCF_Company_Checkout_Fields {
 				: array(),
 			array(
 				'type'        => 'text',
-				'label'       => __( 'Company name', 'nimble-woo-sk-cz-functions' ),
-				'placeholder' => __( 'Company name', 'nimble-woo-sk-cz-functions' ),
+				'label'       => __( 'Company name', 'nimble-help-sk-cz-store-tools' ),
+				'placeholder' => __( 'Company name', 'nimble-help-sk-cz-store-tools' ),
 				'required'    => false,
 				'class'       => array( 'form-row-wide', 'nimble-company-field' ),
 				'clear'       => true,
@@ -166,8 +166,8 @@ class WSCF_Company_Checkout_Fields {
 
 		$fields['billing']['billing_ico'] = array(
 			'type'        => 'text',
-			'label'       => __( 'Company ID', 'nimble-woo-sk-cz-functions' ),
-			'placeholder' => __( 'Company ID', 'nimble-woo-sk-cz-functions' ),
+			'label'       => __( 'Company ID', 'nimble-help-sk-cz-store-tools' ),
+			'placeholder' => __( 'Company ID', 'nimble-help-sk-cz-store-tools' ),
 			'required'    => false,
 			'class'       => array( 'form-row-first', 'nimble-company-field' ),
 			'clear'       => false,
@@ -176,8 +176,8 @@ class WSCF_Company_Checkout_Fields {
 
 		$fields['billing']['billing_dic'] = array(
 			'type'        => 'text',
-			'label'       => __( 'Tax ID', 'nimble-woo-sk-cz-functions' ),
-			'placeholder' => __( 'Tax ID', 'nimble-woo-sk-cz-functions' ),
+			'label'       => __( 'Tax ID', 'nimble-help-sk-cz-store-tools' ),
+			'placeholder' => __( 'Tax ID', 'nimble-help-sk-cz-store-tools' ),
 			'required'    => false,
 			'class'       => array( 'form-row-last', 'nimble-company-field' ),
 			'clear'       => true,
@@ -186,8 +186,8 @@ class WSCF_Company_Checkout_Fields {
 
 		$fields['billing']['billing_ic_dph'] = array(
 			'type'        => 'text',
-			'label'       => __( 'VAT ID', 'nimble-woo-sk-cz-functions' ),
-			'placeholder' => __( 'VAT ID', 'nimble-woo-sk-cz-functions' ),
+			'label'       => __( 'VAT ID', 'nimble-help-sk-cz-store-tools' ),
+			'placeholder' => __( 'VAT ID', 'nimble-help-sk-cz-store-tools' ),
 			'required'    => false,
 			'class'       => array( 'form-row-wide', 'nimble-company-field' ),
 			'clear'       => true,
@@ -260,15 +260,15 @@ class WSCF_Company_Checkout_Fields {
 		$dic     = $this->get_posted_text( 'billing_dic' );
 
 		if ( '' === $company ) {
-			wc_add_notice( __( 'Please enter the company name.', 'nimble-woo-sk-cz-functions' ), 'error' );
+			wc_add_notice( __( 'Please enter the company name.', 'nimble-help-sk-cz-store-tools' ), 'error' );
 		}
 
 		if ( '' === $ico ) {
-			wc_add_notice( __( 'Please enter Company ID.', 'nimble-woo-sk-cz-functions' ), 'error' );
+			wc_add_notice( __( 'Please enter Company ID.', 'nimble-help-sk-cz-store-tools' ), 'error' );
 		}
 
 		if ( '' === $dic ) {
-			wc_add_notice( __( 'Please enter Tax ID.', 'nimble-woo-sk-cz-functions' ), 'error' );
+			wc_add_notice( __( 'Please enter Tax ID.', 'nimble-help-sk-cz-store-tools' ), 'error' );
 		}
 	}
 
@@ -297,15 +297,15 @@ class WSCF_Company_Checkout_Fields {
 		$dic     = $this->get_block_field_value( $fields, 'tax_id' );
 
 		if ( '' === $company ) {
-			$errors->add( 'wscf_missing_company_name', __( 'Please enter the company name.', 'nimble-woo-sk-cz-functions' ) );
+			$errors->add( 'wscf_missing_company_name', __( 'Please enter the company name.', 'nimble-help-sk-cz-store-tools' ) );
 		}
 
 		if ( '' === $ico ) {
-			$errors->add( 'wscf_missing_company_id', __( 'Please enter Company ID.', 'nimble-woo-sk-cz-functions' ) );
+			$errors->add( 'wscf_missing_company_id', __( 'Please enter Company ID.', 'nimble-help-sk-cz-store-tools' ) );
 		}
 
 		if ( '' === $dic ) {
-			$errors->add( 'wscf_missing_tax_id', __( 'Please enter Tax ID.', 'nimble-woo-sk-cz-functions' ) );
+			$errors->add( 'wscf_missing_tax_id', __( 'Please enter Tax ID.', 'nimble-help-sk-cz-store-tools' ) );
 		}
 	}
 
@@ -356,18 +356,18 @@ class WSCF_Company_Checkout_Fields {
 			return;
 		}
 
-		echo '<p><strong>' . esc_html__( 'Company data', 'nimble-woo-sk-cz-functions' ) . '</strong></p>';
+		echo '<p><strong>' . esc_html__( 'Company data', 'nimble-help-sk-cz-store-tools' ) . '</strong></p>';
 
 		if ( ! empty( $ico ) ) {
-			echo '<p><strong>' . esc_html__( 'Company ID:', 'nimble-woo-sk-cz-functions' ) . '</strong> ' . esc_html( $ico ) . '</p>';
+			echo '<p><strong>' . esc_html__( 'Company ID:', 'nimble-help-sk-cz-store-tools' ) . '</strong> ' . esc_html( $ico ) . '</p>';
 		}
 
 		if ( ! empty( $dic ) ) {
-			echo '<p><strong>' . esc_html__( 'Tax ID:', 'nimble-woo-sk-cz-functions' ) . '</strong> ' . esc_html( $dic ) . '</p>';
+			echo '<p><strong>' . esc_html__( 'Tax ID:', 'nimble-help-sk-cz-store-tools' ) . '</strong> ' . esc_html( $dic ) . '</p>';
 		}
 
 		if ( ! empty( $ic_dph ) ) {
-			echo '<p><strong>' . esc_html__( 'VAT ID:', 'nimble-woo-sk-cz-functions' ) . '</strong> ' . esc_html( $ic_dph ) . '</p>';
+			echo '<p><strong>' . esc_html__( 'VAT ID:', 'nimble-help-sk-cz-store-tools' ) . '</strong> ' . esc_html( $ic_dph ) . '</p>';
 		}
 	}
 
@@ -389,7 +389,7 @@ class WSCF_Company_Checkout_Fields {
 		}
 
 		echo '<section class="woocommerce-customer-details wscf-company-details">';
-		echo '<h2 class="woocommerce-column__title">' . esc_html__( 'Company data', 'nimble-woo-sk-cz-functions' ) . '</h2>';
+		echo '<h2 class="woocommerce-column__title">' . esc_html__( 'Company data', 'nimble-help-sk-cz-store-tools' ) . '</h2>';
 		echo '<table class="woocommerce-table woocommerce-table--custom-fields shop_table custom-fields">';
 		echo '<tbody>';
 
@@ -431,7 +431,7 @@ class WSCF_Company_Checkout_Fields {
 
 		if ( $plain_text ) {
 			if ( $show_heading ) {
-				echo "\n" . esc_html( wc_strtoupper( __( 'Additional information', 'nimble-woo-sk-cz-functions' ) ) ) . "\n\n";
+				echo "\n" . esc_html( wc_strtoupper( __( 'Additional information', 'nimble-help-sk-cz-store-tools' ) ) ) . "\n\n";
 			}
 
 			foreach ( $company_details as $company_detail ) {
@@ -442,7 +442,7 @@ class WSCF_Company_Checkout_Fields {
 		}
 
 		if ( $show_heading ) {
-			echo '<h2>' . esc_html__( 'Additional information', 'nimble-woo-sk-cz-functions' ) . '</h2>';
+			echo '<h2>' . esc_html__( 'Additional information', 'nimble-help-sk-cz-store-tools' ) . '</h2>';
 		}
 
 		echo '<ul class="additional-fields" style="margin-bottom: 40px;">';
@@ -469,28 +469,28 @@ class WSCF_Company_Checkout_Fields {
 
 		if ( ! empty( $company ) ) {
 			$details[] = array(
-				'label' => __( 'Company name', 'nimble-woo-sk-cz-functions' ),
+				'label' => __( 'Company name', 'nimble-help-sk-cz-store-tools' ),
 				'value' => $company,
 			);
 		}
 
 		if ( ! empty( $ico ) ) {
 			$details[] = array(
-				'label' => __( 'Company ID', 'nimble-woo-sk-cz-functions' ),
+				'label' => __( 'Company ID', 'nimble-help-sk-cz-store-tools' ),
 				'value' => $ico,
 			);
 		}
 
 		if ( ! empty( $dic ) ) {
 			$details[] = array(
-				'label' => __( 'Tax ID', 'nimble-woo-sk-cz-functions' ),
+				'label' => __( 'Tax ID', 'nimble-help-sk-cz-store-tools' ),
 				'value' => $dic,
 			);
 		}
 
 		if ( ! empty( $ic_dph ) ) {
 			$details[] = array(
-				'label' => __( 'VAT ID', 'nimble-woo-sk-cz-functions' ),
+				'label' => __( 'VAT ID', 'nimble-help-sk-cz-store-tools' ),
 				'value' => $ic_dph,
 			);
 		}
@@ -513,28 +513,28 @@ class WSCF_Company_Checkout_Fields {
 
 		if ( ! empty( $company ) ) {
 			$details[] = array(
-				'label' => __( 'Company name', 'nimble-woo-sk-cz-functions' ),
+				'label' => __( 'Company name', 'nimble-help-sk-cz-store-tools' ),
 				'value' => $company,
 			);
 		}
 
 		if ( ! empty( $ico ) ) {
 			$details[] = array(
-				'label' => __( 'Company ID', 'nimble-woo-sk-cz-functions' ),
+				'label' => __( 'Company ID', 'nimble-help-sk-cz-store-tools' ),
 				'value' => $ico,
 			);
 		}
 
 		if ( ! empty( $dic ) ) {
 			$details[] = array(
-				'label' => __( 'Tax ID', 'nimble-woo-sk-cz-functions' ),
+				'label' => __( 'Tax ID', 'nimble-help-sk-cz-store-tools' ),
 				'value' => $dic,
 			);
 		}
 
 		if ( ! empty( $ic_dph ) ) {
 			$details[] = array(
-				'label' => __( 'VAT ID', 'nimble-woo-sk-cz-functions' ),
+				'label' => __( 'VAT ID', 'nimble-help-sk-cz-store-tools' ),
 				'value' => $ic_dph,
 			);
 		}

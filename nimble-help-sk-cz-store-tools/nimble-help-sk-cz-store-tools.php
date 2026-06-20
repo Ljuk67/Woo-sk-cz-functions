@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       Nimble Woo SK/CZ Functions
+ * Plugin Name:       Nimble.help - SK/CZ Store Tools for WooCommerce
  * Plugin URI:        https://github.com/Ljuk67/Woo-sk-cz-functions
  * Description:       WooCommerce tools for Slovak and Czech stores: company checkout fields, COD fee, GDPR consent, shipping, and catalog helpers.
  * Version:           1.0.0
@@ -8,7 +8,7 @@
  * Requires PHP:      7.4
  * Author:            Nimble.help
  * Author URI:        https://nimble.help
- * Text Domain:       nimble-woo-sk-cz-functions
+ * Text Domain:       nimble-help-sk-cz-store-tools
  * Domain Path:       /languages
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html

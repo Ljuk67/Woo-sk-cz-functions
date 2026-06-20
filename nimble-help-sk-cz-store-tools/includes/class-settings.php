@@ -80,7 +80,7 @@ class WSCF_Settings {
 	 * @return string
 	 */
 	public function get_default_checkout_button_text() {
-		return __( 'Objednať s povinnosťou platby', 'nimble-woo-sk-cz-functions' );
+		return __( 'Place order with payment obligation', 'nimble-help-sk-cz-store-tools' );
 	}
 
 	/**
@@ -98,7 +98,7 @@ class WSCF_Settings {
 	 * @return string
 	 */
 	public function get_default_cod_fee_label() {
-		return __( 'Cash on delivery fee', 'nimble-woo-sk-cz-functions' );
+		return __( 'Cash on delivery fee', 'nimble-help-sk-cz-store-tools' );
 	}
 
 	/**
@@ -164,6 +164,7 @@ class WSCF_Settings {
 		return array_unique(
 			array(
 				$this->get_default_checkout_button_text(),
+				'Place order with payment obligation',
 				'Objednať s povinnosťou platby',
 				'Objednat s povinností platby',
 			)
@@ -212,12 +213,12 @@ class WSCF_Settings {
 			return $this->get_default_checkout_button_text();
 		}
 
-		if ( $this->is_checkout_button_text_customized() ) {
-			return $button_text;
-		}
-
 		if ( $this->is_checkout_button_text_default_value( $button_text ) ) {
 			return $this->get_default_checkout_button_text();
+		}
+
+		if ( $this->is_checkout_button_text_customized() ) {
+			return $button_text;
 		}
 
 		return $button_text;
