@@ -1,6 +1,6 @@
 === Nimble Woo SK/CZ Functions ===
 Contributors: lukascech
-Tags: woocommerce, checkout, nakup na firmu, company fields, gdpr
+Tags: woocommerce, checkout, nakup na firmu, company fields, gdpr, woo sk, woo cz
 Requires at least: 6.4
 Tested up to: 7.0
 Requires PHP: 7.4
