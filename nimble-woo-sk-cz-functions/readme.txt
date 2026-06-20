@@ -91,11 +91,10 @@ Yes, you can easily translate it to any language using Loco Translate.
 
 == Screenshots ==
 
-1. Plugin settings tab in WooCommerce settings.
-2. Company checkout fields on the checkout page.
-3. Checkout button text setting with Slovak/Czech default behavior.
-4. Cash on Delivery fee shown in checkout totals.
-5. Product subcategories row on a category archive page.
+1. Plugin settings.
+2. Product subcategories row above products on category archive pages.
+3. Block checkout Company fields & Cash on delivery.
+4. Additional information tab moved to main product description.
 
 == Changelog ==
 

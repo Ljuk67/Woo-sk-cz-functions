@@ -6,28 +6,36 @@ Public GitHub repository:
 
 - https://github.com/Ljuk67/Woo-sk-cz-functions
 
-This repo is not a WordPress installation root. It is the project workspace that holds plugin code and release files.
+This repo is not a WordPress installation root. It is the project workspace that holds plugin code, shared docs, and release-related files.
 
 ## What This Project Is
 
-Nimble Woo SK/CZ Functions is a WordPress/WooCommerce plugin project focused on practical store features commonly needed (not only) in Slovak and Czech ecommerce sites.
+Nimble Woo SK/CZ Functions is a WordPress/WooCommerce plugin project focused on practical store features commonly needed in Slovak and Czech ecommerce sites.
 
-The free plugin currently targets features such as:
+The free plugin currently includes these functions:
 
-- company checkout fields
-- configurable checkout order button text with Slovak and Czech defaults
-- GDPR consent handling
-- fixed Cash on Delivery fee for the WooCommerce `cod` gateway
-- catalog and checkout UX improvements
-- translation-ready SK/CZ store behavior
+- company checkout toggle with company name, ICO, DIC, and IC DPH fields
+- configurable checkout order button text with Slovak and Czech translated defaults
+- GDPR consent checkbox for classic checkout, with privacy-policy link support
+- fixed Cash on Delivery fee for the WooCommerce `cod` payment gateway
+- hide paid shipping methods when free shipping is available
+- hide the Additional Information product tab on single product pages
+- optional move of Additional Information tab content into the long product description
+- product subcategories row above products on category archive pages
+
+Checkout-facing functions are implemented for both classic checkout and Checkout Block where the current free plugin supports that surface. The GDPR checkbox is intentionally limited to classic checkout because WooCommerce handles legal consent differently in Checkout Block.
 
 The checkout button text setting appears in `WooCommerce > Settings > Nimble Woo SK/CZ` above the feature checkboxes. If the merchant leaves the predefined text unchanged or clears the field, the plugin uses the translated default for the active site language: Slovak `Objednať s povinnosťou platby` or Czech `Objednat s povinností platby`. Saving different text stores that merchant-defined wording for both classic checkout and Checkout Block.
 
 ## Repository Layout
 
 ```text
-/
+/ 
+  AGENTS.md
   README.md
+  docs/
+  memory/
+  .local/                        # ignored; private machine-specific notes
   nimble-woo-sk-cz-functions/    # free plugin root
   nimble-woo-sk-cz-functions-premium/  # planned premium plugin root
 ```
@@ -36,6 +44,9 @@ The checkout button text setting appears in `WooCommerce > Settings > Nimble Woo
 
 Use these files for shared project context:
 
+- `AGENTS.md`: stable repo instructions for agents
+- `docs/roadmap.md`: product direction and release phases
+- `memory/current-state.md`: live project state and active work
 - `nimble-woo-sk-cz-functions/readme.txt`: WordPress.org plugin readme for the free plugin package
 - `nimble-woo-sk-cz-functions/`: free plugin package source
 
