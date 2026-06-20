@@ -78,7 +78,9 @@ class WSCF_COD_Fee {
 	 * @return string
 	 */
 	private function get_selected_payment_method() {
-		if ( isset( $_POST['payment_method'] ) ) {
+		// phpcs:ignore WordPress.Security.NonceVerification.Missing -- Checkout POST data is read only after the WooCommerce checkout nonce is verified in the same condition.
+		if ( $this->has_checkout_post_nonce() && isset( $_POST['payment_method'] ) ) {
+			// phpcs:ignore WordPress.Security.NonceVerification.Missing -- Checkout POST data is read only after the WooCommerce checkout nonce is verified above.
 			return sanitize_text_field( wp_unslash( $_POST['payment_method'] ) );
 		}
 
@@ -102,6 +104,27 @@ class WSCF_COD_Fee {
 		}
 
 		return is_string( $payment_method ) ? $payment_method : '';
+	}
+
+	/**
+	 * Verify the WooCommerce checkout nonce before reading checkout POST data.
+	 *
+	 * @return bool
+	 */
+	private function has_checkout_post_nonce() {
+		$nonce = '';
+
+		// phpcs:ignore WordPress.Security.NonceVerification.Missing -- This branch checks whether a nonce value is available for verification.
+		if ( isset( $_POST['woocommerce-process-checkout-nonce'] ) ) {
+			// phpcs:ignore WordPress.Security.NonceVerification.Missing -- This line reads the nonce value for verification.
+			$nonce = sanitize_text_field( wp_unslash( $_POST['woocommerce-process-checkout-nonce'] ) );
+		// phpcs:ignore WordPress.Security.NonceVerification.Missing -- This branch checks whether a fallback nonce value is available for verification.
+		} elseif ( isset( $_POST['_wpnonce'] ) ) {
+			// phpcs:ignore WordPress.Security.NonceVerification.Missing -- This line reads the nonce value for verification.
+			$nonce = sanitize_text_field( wp_unslash( $_POST['_wpnonce'] ) );
+		}
+
+		return '' !== $nonce && wp_verify_nonce( $nonce, 'woocommerce-process_checkout' );
 	}
 
 	/**

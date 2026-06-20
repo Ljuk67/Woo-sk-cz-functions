@@ -50,7 +50,8 @@ class WSCF_GDPR_Checkbox {
 			return;
 		}
 
-		if ( empty( $_POST['privacy_policy'] ) ) {
+		// phpcs:ignore WordPress.Security.NonceVerification.Missing -- Checkout POST data is read only after the WooCommerce checkout nonce is verified in the same condition.
+		if ( ! $this->has_checkout_post_nonce() || empty( $_POST['privacy_policy'] ) ) {
 			wc_add_notice(
 				$this->get_validation_message(),
 				'error'
@@ -133,8 +134,29 @@ class WSCF_GDPR_Checkbox {
 			return false;
 		}
 
-		$request_uri = wp_unslash( $_SERVER['REQUEST_URI'] );
+		$request_uri = sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) );
 
 		return false !== strpos( $request_uri, '/wc/store/' ) && false !== strpos( $request_uri, '/checkout' );
+	}
+
+	/**
+	 * Verify the WooCommerce checkout nonce before reading classic checkout POST data.
+	 *
+	 * @return bool
+	 */
+	private function has_checkout_post_nonce() {
+		$nonce = '';
+
+		// phpcs:ignore WordPress.Security.NonceVerification.Missing -- This branch checks whether a nonce value is available for verification.
+		if ( isset( $_POST['woocommerce-process-checkout-nonce'] ) ) {
+			// phpcs:ignore WordPress.Security.NonceVerification.Missing -- This line reads the nonce value for verification.
+			$nonce = sanitize_text_field( wp_unslash( $_POST['woocommerce-process-checkout-nonce'] ) );
+		// phpcs:ignore WordPress.Security.NonceVerification.Missing -- This branch checks whether a fallback nonce value is available for verification.
+		} elseif ( isset( $_POST['_wpnonce'] ) ) {
+			// phpcs:ignore WordPress.Security.NonceVerification.Missing -- This line reads the nonce value for verification.
+			$nonce = sanitize_text_field( wp_unslash( $_POST['_wpnonce'] ) );
+		}
+
+		return '' !== $nonce && wp_verify_nonce( $nonce, 'woocommerce-process_checkout' );
 	}
 }
