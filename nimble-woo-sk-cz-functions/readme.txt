@@ -81,6 +81,10 @@ No. The plugin does not send store data to external services and does not load r
 
 Public development is hosted at https://github.com/Ljuk67/Woo-sk-cz-functions.
 
+= How can I support development? =
+
+You can support development at [GitHub Sponsors](https://github.com/sponsors/Ljuk67).
+
 = Is it translatable? =
 
 Yes, you can easily translate it to any language using Loco Translate.

@@ -42,7 +42,7 @@ class WSCF_Company_Checkout_Fields {
 		add_action( 'woocommerce_set_additional_field_value', array( $this, 'sync_block_field_to_order_meta' ), 10, 4 );
 		add_action( 'woocommerce_admin_order_data_after_billing_address', array( $this, 'show_company_fields_in_admin_order' ), 10, 1 );
 		add_action( 'woocommerce_order_details_after_order_table', array( $this, 'show_company_fields_in_order_details' ), 20, 1 );
-		add_filter( 'woocommerce_email_order_meta_fields', array( $this, 'add_company_fields_to_emails' ), 10, 3 );
+		add_action( 'woocommerce_email_customer_details', array( $this, 'show_company_fields_in_email_additional_information' ), 31, 4 );
 	}
 
 	/**
@@ -406,46 +406,52 @@ class WSCF_Company_Checkout_Fields {
 	}
 
 	/**
-	 * Add company data to WooCommerce emails.
+	 * Show company tax data in the email additional information area.
 	 *
-	 * @param array<string, array<string, string>> $fields        Existing email fields.
-	 * @param bool                                 $sent_to_admin Whether the email is sent to admin.
-	 * @param WC_Order                             $order         Order object.
-	 * @return array<string, array<string, string>>
+	 * @param WC_Order $order         Order object.
+	 * @param bool     $sent_to_admin Whether the email is sent to admin.
+	 * @param bool     $plain_text    Whether this is a plain text email.
+	 * @param WC_Email $email         Email object.
+	 * @return void
 	 */
-	public function add_company_fields_to_emails( $fields, $sent_to_admin, $order ) {
-		unset( $sent_to_admin );
+	public function show_company_fields_in_email_additional_information( $order, $sent_to_admin = false, $plain_text = false, $email = null ) {
+		unset( $sent_to_admin, $email );
 
-		if ( '1' !== $order->get_meta( '_billing_buying_as_company' ) ) {
-			return $fields;
+		if ( ! $order instanceof WC_Order || '1' !== $order->get_meta( '_billing_buying_as_company' ) ) {
+			return;
 		}
 
-		$ico    = $order->get_meta( '_billing_ico' );
-		$dic    = $order->get_meta( '_billing_dic' );
-		$ic_dph = $order->get_meta( '_billing_ic_dph' );
+		$company_details = $this->get_company_email_details( $order );
 
-		if ( ! empty( $ico ) ) {
-			$fields['billing_ico'] = array(
-				'label' => __( 'Company ID', 'nimble-woo-sk-cz-functions' ),
-				'value' => $ico,
-			);
+		if ( empty( $company_details ) ) {
+			return;
 		}
 
-		if ( ! empty( $dic ) ) {
-			$fields['billing_dic'] = array(
-				'label' => __( 'Tax ID', 'nimble-woo-sk-cz-functions' ),
-				'value' => $dic,
-			);
+		$show_heading = ! $this->has_block_company_purchase_email_section( $order );
+
+		if ( $plain_text ) {
+			if ( $show_heading ) {
+				echo "\n" . esc_html( wc_strtoupper( __( 'Additional information', 'nimble-woo-sk-cz-functions' ) ) ) . "\n\n";
+			}
+
+			foreach ( $company_details as $company_detail ) {
+				printf( "%s: %s\n", wp_kses_post( $company_detail['label'] ), wp_kses_post( $company_detail['value'] ) );
+			}
+
+			return;
 		}
 
-		if ( ! empty( $ic_dph ) ) {
-			$fields['billing_ic_dph'] = array(
-				'label' => __( 'VAT ID', 'nimble-woo-sk-cz-functions' ),
-				'value' => $ic_dph,
-			);
+		if ( $show_heading ) {
+			echo '<h2>' . esc_html__( 'Additional information', 'nimble-woo-sk-cz-functions' ) . '</h2>';
 		}
 
-		return $fields;
+		echo '<ul class="additional-fields" style="margin-bottom: 40px;">';
+
+		foreach ( $company_details as $company_detail ) {
+			printf( '<li><strong>%s</strong>: %s</li>', esc_html( $company_detail['label'] ), esc_html( $company_detail['value'] ) );
+		}
+
+		echo '</ul>';
 	}
 
 	/**
@@ -455,6 +461,50 @@ class WSCF_Company_Checkout_Fields {
 	 * @return array<int, array{label: string, value: string}>
 	 */
 	private function get_company_order_details( $order ) {
+		$details = array();
+		$company = $order->get_billing_company();
+		$ico     = $order->get_meta( '_billing_ico' );
+		$dic     = $order->get_meta( '_billing_dic' );
+		$ic_dph  = $order->get_meta( '_billing_ic_dph' );
+
+		if ( ! empty( $company ) ) {
+			$details[] = array(
+				'label' => __( 'Company name', 'nimble-woo-sk-cz-functions' ),
+				'value' => $company,
+			);
+		}
+
+		if ( ! empty( $ico ) ) {
+			$details[] = array(
+				'label' => __( 'Company ID', 'nimble-woo-sk-cz-functions' ),
+				'value' => $ico,
+			);
+		}
+
+		if ( ! empty( $dic ) ) {
+			$details[] = array(
+				'label' => __( 'Tax ID', 'nimble-woo-sk-cz-functions' ),
+				'value' => $dic,
+			);
+		}
+
+		if ( ! empty( $ic_dph ) ) {
+			$details[] = array(
+				'label' => __( 'VAT ID', 'nimble-woo-sk-cz-functions' ),
+				'value' => $ic_dph,
+			);
+		}
+
+		return $details;
+	}
+
+	/**
+	 * Get company fields for customer emails.
+	 *
+	 * @param WC_Order $order Order object.
+	 * @return array<int, array{label: string, value: string}>
+	 */
+	private function get_company_email_details( $order ) {
 		$details = array();
 		$company = $order->get_billing_company();
 		$ico     = $order->get_meta( '_billing_ico' );
@@ -784,6 +834,16 @@ class WSCF_Company_Checkout_Fields {
 		$this->delete_block_additional_field_meta( $order, $this->block_field_ids['company_id'] );
 		$this->delete_block_additional_field_meta( $order, $this->block_field_ids['tax_id'] );
 		$this->delete_block_additional_field_meta( $order, $this->block_field_ids['vat_id'] );
+	}
+
+	/**
+	 * Check whether WooCommerce will already render the block additional-info section.
+	 *
+	 * @param WC_Order $order Order object.
+	 * @return bool
+	 */
+	private function has_block_company_purchase_email_section( $order ) {
+		return '' !== (string) $order->get_meta( '_wc_other/' . $this->block_field_ids['buying_as_company'] );
 	}
 
 	/**

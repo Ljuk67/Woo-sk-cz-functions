@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Nimble Woo SK/CZ Functions 1.0.0\n"
 "Report-Msgid-Bugs-To: https://nimble.help\n"
-"POT-Creation-Date: 2026-06-09 18:44+0200\n"
+"POT-Creation-Date: 2026-06-20 11:36+0200\n"
 "PO-Revision-Date: 2026-06-09 14:40+0000\n"
 "Last-Translator: \n"
 "Language-Team: Slovenčina\n"
@@ -201,31 +201,32 @@ msgstr "Nákup na firmu - IČO, DIČ"
 #: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:73
 #: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:158
 #: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:159
-#: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:466
+#: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:472
+#: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:516
 msgid "Company name"
 msgstr "Názov firmy"
 
 #: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:83
 #: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:169
 #: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:170
-#: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:429
-#: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:473
+#: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:479
+#: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:523
 msgid "Company ID"
 msgstr "IČO"
 
 #: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:93
 #: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:179
 #: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:180
-#: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:436
-#: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:480
+#: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:486
+#: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:530
 msgid "Tax ID"
 msgstr "DIČ"
 
 #: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:103
 #: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:189
 #: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:190
-#: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:443
-#: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:487
+#: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:493
+#: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:537
 msgid "VAT ID"
 msgstr "IČ DPH"
 
@@ -261,6 +262,12 @@ msgstr "DIČ:"
 msgid "VAT ID:"
 msgstr "IČ DPH:"
 
+#: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:434
+#: nimble-woo-sk-cz-functions/includes/features/class-company-checkout-fields.php:445
+#: nimble-woo-sk-cz-functions/includes/features/class-remove-additional-information-tab.php:104
+msgid "Additional information"
+msgstr "Ďalšie informácie"
+
 #: nimble-woo-sk-cz-functions/includes/features/class-gdpr-checkbox.php:70
 #: nimble-woo-sk-cz-functions/includes/features/class-gdpr-checkbox.php:75
 msgid "I have read the privacy policy and agree with it."
@@ -275,10 +282,6 @@ msgstr ""
 #: nimble-woo-sk-cz-functions/includes/features/class-gdpr-checkbox.php:119
 msgid "Privacy Policy"
 msgstr "Zásady ochrany osobných údajov"
-
-#: nimble-woo-sk-cz-functions/includes/features/class-remove-additional-information-tab.php:104
-msgid "Additional information"
-msgstr "Ďalšie informácie"
 
 #~ msgid "Contact me"
 #~ msgstr "Kontaktujte ma"
