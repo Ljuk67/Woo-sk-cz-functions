@@ -18,9 +18,9 @@ Nimble Woo SK/CZ Functions adds practical WooCommerce features commonly needed i
 Current features:
 
 * Company checkout toggle with ICO, DIC, IC DPH, and billing company support.
-* Custom checkout order button text with Slovak and Czech defaults.
+* Custom checkout order button text with Slovak and Czech defaults (Objednať s povinnosťou platby / Objednat s povinností platby)
 * Classic checkout GDPR consent checkbox with privacy policy link support.
-* Fixed Cash on Delivery fee for the WooCommerce `cod` payment gateway.
+* Fixed Cash on Delivery (Platba na dobierku) fee for the WooCommerce `cod` payment gateway.
 * Hide paid shipping methods when free shipping is available.
 * Hide the Additional Information product tab, with an option to move its content into the product description.
 * Product subcategories row above products on category archive pages.

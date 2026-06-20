@@ -28,7 +28,6 @@ class WSCF_Plugin {
 		$wc_settings_tab = new WSCF_WC_Settings_Tab();
 		$wc_settings_tab->register_hooks();
 
-		add_action( 'plugins_loaded', array( $this, 'load_textdomain' ) );
 		add_action( 'plugins_loaded', array( $this, 'bootstrap_features' ), 20 );
 		add_filter(
 			'plugin_action_links_' . plugin_basename( WSCF_PLUGIN_FILE ),
@@ -66,19 +65,6 @@ class WSCF_Plugin {
 		}
 
 		$this->register_features();
-	}
-
-	/**
-	 * Load translation files.
-	 *
-	 * @return void
-	 */
-	public function load_textdomain() {
-		load_plugin_textdomain(
-			'nimble-woo-sk-cz-functions',
-			false,
-			dirname( plugin_basename( WSCF_PLUGIN_FILE ) ) . '/languages'
-		);
 	}
 
 	/**
