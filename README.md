@@ -10,7 +10,7 @@ This repo is not a WordPress installation root. It is the project workspace that
 
 ## What This Project Is
 
-Nimble.help - SK/CZ Store Tools for WooCommerce is a WordPress/WooCommerce plugin project focused on practical store features commonly needed in Slovak and Czech ecommerce sites.
+Nimble.help - SK/CZ Store Tools for WooCommerce is a WordPress/WooCommerce plugin project focused on practical store features commonly needed in (but not only) Slovak and Czech ecommerce sites.
 
 The free plugin currently includes these functions:
 
@@ -40,39 +40,4 @@ The checkout button text setting appears in `WooCommerce > Settings > Nimble Woo
   nimble-help-sk-cz-store-tools-premium/  # planned premium plugin root
 ```
 
-## Source Of Truth
 
-Use these files for shared project context:
-
-- `AGENTS.md`: stable repo instructions for agents
-- `docs/roadmap.md`: product direction and release phases
-- `memory/current-state.md`: live project state and active work
-- `nimble-help-sk-cz-store-tools/readme.txt`: WordPress.org plugin readme for the free plugin package
-- `nimble-help-sk-cz-store-tools/`: free plugin package source
-
-## WordPress.org Release Notes
-
-The free plugin is prepared for WordPress.org distribution from the `nimble-help-sk-cz-store-tools/` directory.
-
-Important rules for public release:
-
-- Keep the main plugin header version and `readme.txt` Stable tag in sync.
-- Keep `readme.txt` valid against the official WordPress.org readme validator before submission.
-- Do not bundle generated ZIP files in Git.
-- Do not add external update-checker code to the WordPress.org build; WordPress.org must serve updates for the directory version.
-- Keep all scripts and styles local to the plugin unless a documented WordPress/WooCommerce service requires otherwise.
-- Keep premium/add-on code outside the free plugin package.
-
-## Development Conventions
-
-- Keep free and premium codebases separate from the start.
-- Add repo-wide tooling at the repo root if needed later.
-- Keep plugin-specific packaging files inside each plugin root.
-
-## Local Plugin Usage
-
-The free plugin root is:
-
-- `nimble-help-sk-cz-store-tools/`
-
-Typical local usage is to symlink or copy that directory into a WordPress site's `wp-content/plugins/` directory, then activate it with WooCommerce enabled.

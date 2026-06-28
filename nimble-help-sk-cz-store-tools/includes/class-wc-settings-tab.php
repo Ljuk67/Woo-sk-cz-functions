@@ -18,6 +18,7 @@ class WSCF_WC_Settings_Tab {
 	 */
 	public function register_hooks() {
 		add_filter( 'woocommerce_settings_tabs_array', array( $this, 'add_tab' ), 50 );
+		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_assets' ) );
 		add_action( 'woocommerce_settings_tabs_wscf', array( $this, 'render_tab' ) );
 		add_action( 'woocommerce_update_options_wscf', array( $this, 'save_tab' ) );
 	}
@@ -41,7 +42,6 @@ class WSCF_WC_Settings_Tab {
 	public function render_tab() {
 		$this->delete_default_checkout_button_text_option();
 		$this->delete_default_cod_fee_label_option();
-		$this->render_settings_styles();
 		echo '<div class="wscf-settings-layout">';
 		echo '<div class="wscf-settings-main">';
 		woocommerce_admin_fields( $this->get_settings() );
@@ -51,34 +51,54 @@ class WSCF_WC_Settings_Tab {
 	}
 
 	/**
-	 * Render lightweight settings UI styles.
+	 * Enqueue admin assets on this plugin's WooCommerce settings tab.
 	 *
 	 * @return void
 	 */
-	private function render_settings_styles() {
-		echo '<style>';
-		echo 'tr.wscf-child-setting-row th{padding:0;}';
-		echo 'tr.wscf-child-setting-row td{padding-top:0;padding-left:24px;border-left:2px solid #dcdcde;}';
-		echo '.wscf-settings-preview-link{display:inline-block;margin-top:8px;}';
-		echo '.wscf-settings-preview-image{display:block;width:180px;max-width:100%;height:auto;border:1px solid #dcdcde;border-radius:4px;}';
-		echo '.wscf-settings-layout{display:flex;align-items:flex-start;gap:24px;width:100%;}';
-		echo '.wscf-settings-main{flex:1 1 calc(70% - 12px);min-width:0;}';
-		echo '.wscf-settings-sidebar{flex:0 0 calc(30% - 12px);max-width:calc(30% - 12px);display:flex;flex-direction:column;gap:16px;margin-top:16px;}';
-		echo '.wscf-promo-box{box-sizing:border-box;width:100%;padding:18px;background:#fff;border:1px solid #8c8f94;box-shadow:0 2px 8px rgba(0,0,0,.08);}';
-		echo '.wscf-promo-box-with-logo{display:flex;align-items:center;justify-content:space-between;gap:16px;}';
-		echo '.wscf-promo-box-content{min-width:0;}';
-		echo '.wscf-promo-title{display:flex;align-items:center;gap:6px;margin:0 0 8px;font-size:13px;font-weight:600;line-height:1.4;color:#1d2327;}';
-		echo '.wscf-promo-title .dashicons{width:16px;height:16px;font-size:16px;line-height:1;}';
-		echo '.wscf-promo-logo{display:block;flex:0 0 auto;width:200px;max-width:50%;height:auto;}';
-		echo '.wscf-promo-box p{margin:0 0 14px;font-size:14px;line-height:1.5;color:#1d2327;}';
-		echo '.wscf-promo-box strong{display:block;margin:0 0 14px;font-size:14px;line-height:1.5;color:#1d2327;}';
-		echo '.wscf-promo-box .button{margin-top:2px;}';
-		echo '@media (max-width:960px) and (min-width:783px){.wscf-promo-box-with-logo{align-items:flex-start;flex-direction:column;}.wscf-promo-logo{max-width:120px;}}';
-		echo '@media (max-width:782px){.wscf-settings-layout{display:block;}.wscf-settings-sidebar{max-width:none;width:100%;margin-top:24px;}.wscf-settings-main{width:100%;}.wscf-promo-logo{max-width:120px;}}';
-		echo '</style>';
-		echo '<script>';
-		echo 'document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll(\'#mainform input[data-wscf-child-setting]\').forEach(function(input){var row=input.closest("tr");if(row){row.classList.add("wscf-child-setting-row");}});});';
-		echo '</script>';
+	public function enqueue_admin_assets() {
+		if ( ! $this->is_plugin_settings_screen() ) {
+			return;
+		}
+
+		$style_path = WSCF_PLUGIN_PATH . 'assets/css/admin-settings.css';
+		$script_path = WSCF_PLUGIN_PATH . 'assets/js/admin-settings.js';
+
+		if ( file_exists( $style_path ) ) {
+			wp_enqueue_style(
+				'wscf-admin-settings',
+				WSCF_PLUGIN_URL . 'assets/css/admin-settings.css',
+				array(),
+				(string) filemtime( $style_path )
+			);
+		}
+
+		if ( file_exists( $script_path ) ) {
+			wp_enqueue_script(
+				'wscf-admin-settings',
+				WSCF_PLUGIN_URL . 'assets/js/admin-settings.js',
+				array(),
+				(string) filemtime( $script_path ),
+				true
+			);
+		}
+	}
+
+	/**
+	 * Check whether current admin screen is this plugin's settings tab.
+	 *
+	 * @return bool
+	 */
+	private function is_plugin_settings_screen() {
+		$screen = function_exists( 'get_current_screen' ) ? get_current_screen() : null;
+
+		if ( ! $screen || 'woocommerce_page_wc-settings' !== $screen->id ) {
+			return false;
+		}
+
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only screen routing value.
+		$current_tab = isset( $_GET['tab'] ) ? sanitize_key( wp_unslash( $_GET['tab'] ) ) : '';
+
+		return 'wscf' === $current_tab;
 	}
 
 	/**

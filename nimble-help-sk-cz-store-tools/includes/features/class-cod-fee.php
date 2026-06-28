@@ -34,7 +34,7 @@ class WSCF_COD_Fee {
 	 */
 	public function register_hooks() {
 		add_action( 'woocommerce_cart_calculate_fees', array( $this, 'maybe_add_cod_fee' ), 20, 1 );
-		add_action( 'woocommerce_review_order_before_payment', array( $this, 'enqueue_classic_checkout_refresh_script' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_classic_checkout_refresh_script' ) );
 	}
 
 	/**
@@ -185,12 +185,18 @@ class WSCF_COD_Fee {
 	 * @return void
 	 */
 	public function enqueue_classic_checkout_refresh_script() {
-		if ( ! function_exists( 'is_checkout' ) || ! is_checkout() || is_order_received_page() ) {
+		$script_path = WSCF_PLUGIN_PATH . 'assets/js/cod-fee-classic.js';
+
+		if ( ! function_exists( 'is_checkout' ) || ! is_checkout() || is_order_received_page() || ! file_exists( $script_path ) ) {
 			return;
 		}
 
-		wc_enqueue_js(
-			'jQuery(function($){$("form.checkout").on("change","input[name=\"payment_method\"]",function(){$(document.body).trigger("update_checkout");});});'
+		wp_enqueue_script(
+			'wscf-cod-fee-classic',
+			WSCF_PLUGIN_URL . 'assets/js/cod-fee-classic.js',
+			array( 'jquery' ),
+			(string) filemtime( $script_path ),
+			true
 		);
 	}
 

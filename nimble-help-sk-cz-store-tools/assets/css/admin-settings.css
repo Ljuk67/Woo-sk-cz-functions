@@ -1,0 +1,137 @@
+tr.wscf-child-setting-row th {
+	padding: 0;
+}
+
+tr.wscf-child-setting-row td {
+	padding-top: 0;
+	padding-left: 24px;
+	border-left: 2px solid #dcdcde;
+}
+
+.wscf-settings-preview-link {
+	display: inline-block;
+	margin-top: 8px;
+}
+
+.wscf-settings-preview-image {
+	display: block;
+	width: 180px;
+	max-width: 100%;
+	height: auto;
+	border: 1px solid #dcdcde;
+	border-radius: 4px;
+}
+
+.wscf-settings-layout {
+	display: flex;
+	align-items: flex-start;
+	gap: 24px;
+	width: 100%;
+}
+
+.wscf-settings-main {
+	flex: 1 1 calc(70% - 12px);
+	min-width: 0;
+}
+
+.wscf-settings-sidebar {
+	flex: 0 0 calc(30% - 12px);
+	max-width: calc(30% - 12px);
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	margin-top: 16px;
+}
+
+.wscf-promo-box {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 18px;
+	background: #fff;
+	border: 1px solid #8c8f94;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
+}
+
+.wscf-promo-box-with-logo {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+}
+
+.wscf-promo-box-content {
+	min-width: 0;
+}
+
+.wscf-promo-title {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	margin: 0 0 8px;
+	font-size: 13px;
+	font-weight: 600;
+	line-height: 1.4;
+	color: #1d2327;
+}
+
+.wscf-promo-title .dashicons {
+	width: 16px;
+	height: 16px;
+	font-size: 16px;
+	line-height: 1;
+}
+
+.wscf-promo-logo {
+	display: block;
+	flex: 0 0 auto;
+	width: 200px;
+	max-width: 50%;
+	height: auto;
+}
+
+.wscf-promo-box p,
+.wscf-promo-box strong {
+	margin: 0 0 14px;
+	font-size: 14px;
+	line-height: 1.5;
+	color: #1d2327;
+}
+
+.wscf-promo-box strong {
+	display: block;
+}
+
+.wscf-promo-box .button {
+	margin-top: 2px;
+}
+
+@media (max-width: 960px) and (min-width: 783px) {
+	.wscf-promo-box-with-logo {
+		align-items: flex-start;
+		flex-direction: column;
+	}
+
+	.wscf-promo-logo {
+		max-width: 120px;
+	}
+}
+
+@media (max-width: 782px) {
+	.wscf-settings-layout {
+		display: block;
+	}
+
+	.wscf-settings-sidebar {
+		max-width: none;
+		width: 100%;
+		margin-top: 24px;
+	}
+
+	.wscf-settings-main {
+		width: 100%;
+	}
+
+	.wscf-promo-logo {
+		max-width: 120px;
+	}
+}

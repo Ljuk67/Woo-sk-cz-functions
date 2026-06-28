@@ -31,7 +31,7 @@ class WSCF_Company_Checkout_Fields {
 	 */
 	public function register_hooks() {
 		add_filter( 'woocommerce_checkout_fields', array( $this, 'register_checkout_fields' ), 20 );
-		add_action( 'woocommerce_after_checkout_form', array( $this, 'render_toggle_script' ), 20 );
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_classic_checkout_assets' ) );
 		add_action( 'woocommerce_checkout_process', array( $this, 'validate_company_checkout_fields' ) );
 		add_action( 'woocommerce_checkout_create_order', array( $this, 'save_company_checkout_fields' ), 20, 2 );
 		add_action( 'woocommerce_init', array( $this, 'register_block_checkout_fields' ) );
@@ -198,45 +198,24 @@ class WSCF_Company_Checkout_Fields {
 	}
 
 	/**
-	 * Render inline checkout script for company field visibility.
+	 * Enqueue classic checkout company field visibility script.
 	 *
 	 * @return void
 	 */
-	public function render_toggle_script() {
-		if ( ! function_exists( 'is_checkout' ) || ! is_checkout() || is_order_received_page() ) {
+	public function enqueue_classic_checkout_assets() {
+		$script_path = WSCF_PLUGIN_PATH . 'assets/js/company-checkout-fields-classic.js';
+
+		if ( ! function_exists( 'is_checkout' ) || ! is_checkout() || is_order_received_page() || ! file_exists( $script_path ) ) {
 			return;
 		}
-		?>
-		<script type="text/javascript">
-			jQuery(function($) {
-				function nimbleToggleCompanyFields() {
-					var isCompany = $('#billing_buying_as_company').is(':checked');
 
-					if (isCompany) {
-						$('#billing_company_field').show();
-						$('#billing_ico_field').show();
-						$('#billing_dic_field').show();
-						$('#billing_ic_dph_field').show();
-					} else {
-						$('#billing_company_field').hide();
-						$('#billing_ico_field').hide();
-						$('#billing_dic_field').hide();
-						$('#billing_ic_dph_field').hide();
-					}
-				}
-
-				nimbleToggleCompanyFields();
-
-				$(document.body).on('change', '#billing_buying_as_company', function() {
-					nimbleToggleCompanyFields();
-				});
-
-				$(document.body).on('updated_checkout', function() {
-					nimbleToggleCompanyFields();
-				});
-			});
-		</script>
-		<?php
+		wp_enqueue_script(
+			'wscf-company-checkout-fields-classic',
+			WSCF_PLUGIN_URL . 'assets/js/company-checkout-fields-classic.js',
+			array( 'jquery' ),
+			(string) filemtime( $script_path ),
+			true
+		);
 	}
 
 	/**

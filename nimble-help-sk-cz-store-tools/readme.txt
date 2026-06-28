@@ -1,6 +1,6 @@
 === Nimble.help - SK/CZ Store Tools for WooCommerce ===
 Contributors: lukascech
-Tags: woocommerce, checkout, nakup na firmu, company fields, gdpr, woo sk, woo cz
+Tags: woocommerce, nakup na firmu, company fields, woo sk, woo cz
 Requires at least: 6.4
 Tested up to: 7.0
 Requires PHP: 7.4
