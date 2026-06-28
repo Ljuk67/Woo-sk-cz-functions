@@ -8,6 +8,7 @@ Requires Plugins: woocommerce
 Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Donate link: https://github.com/sponsors/Ljuk67
 
 WooCommerce tools for Slovak and Czech stores: company fields, checkout button text, COD fee, GDPR consent, shipping, and catalog helpers.
 
