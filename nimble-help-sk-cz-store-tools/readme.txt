@@ -5,7 +5,7 @@ Requires at least: 6.4
 Tested up to: 7.0
 Requires PHP: 7.4
 Requires Plugins: woocommerce
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://github.com/sponsors/Ljuk67
@@ -99,6 +99,10 @@ Yes, you can easily translate it to any language using Loco Translate.
 
 == Changelog ==
 
+= 1.0.1 =
+
+* Added WordPress.org rating link to the plugin settings page.
+
 = 1.0.0 =
 
 * Initial release.
@@ -112,6 +116,4 @@ Yes, you can easily translate it to any language using Loco Translate.
 
 == Upgrade Notice ==
 
-= 1.0.0 =
 
-Initial public release. No upgrade steps are needed.
