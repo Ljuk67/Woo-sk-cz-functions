@@ -118,8 +118,8 @@ class WSCF_WC_Settings_Tab {
 		echo '<img class="wscf-promo-logo" src="' . esc_url( WSCF_PLUGIN_URL . 'assets/img/nimble-logo.jpg' ) . '" alt="' . esc_attr( 'Nimble.help' ) . '" />';
 		echo '</div>';
 		echo '<div class="wscf-promo-box">';
-		echo '<p>' . esc_html__( "Like this plugin? Rate it on WordPress.org - we'll add a link once it's uploaded to WordPress here.", 'nimble-help-sk-cz-store-tools' ) . '</p>';
-		echo '<button type="button" class="button" disabled="disabled">' . esc_html__( 'Add rating', 'nimble-help-sk-cz-store-tools' ) . '</button>';
+		echo '<p>' . esc_html__( 'Like this plugin? Please rate it on WordPress.org.', 'nimble-help-sk-cz-store-tools' ) . '</p>';
+		echo '<a class="button" href="' . esc_url( 'https://wordpress.org/support/plugin/nimble-help-sk-cz-store-tools/reviews/#new-post' ) . '" target="_blank" rel="noopener noreferrer">' . esc_html__( 'Rate this plugin', 'nimble-help-sk-cz-store-tools' ) . '</a>';
 		echo '</div>';
 		echo '</aside>';
 	}

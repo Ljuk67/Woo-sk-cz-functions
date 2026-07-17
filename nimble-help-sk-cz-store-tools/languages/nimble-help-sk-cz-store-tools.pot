@@ -63,13 +63,11 @@ msgid "Ask about your website"
 msgstr ""
 
 #: nimble-help-sk-cz-store-tools/includes/class-wc-settings-tab.php:101
-msgid ""
-"Like this plugin? Rate it on WordPress.org - we'll add a link once it's "
-"uploaded to WordPress here."
+msgid "Like this plugin? Please rate it on WordPress.org."
 msgstr ""
 
 #: nimble-help-sk-cz-store-tools/includes/class-wc-settings-tab.php:102
-msgid "Add rating"
+msgid "Rate this plugin"
 msgstr ""
 
 #: nimble-help-sk-cz-store-tools/includes/class-wc-settings-tab.php:134

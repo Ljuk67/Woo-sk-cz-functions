@@ -64,16 +64,12 @@ msgid "Ask about your website"
 msgstr "Zeptejte se na svůj web"
 
 #: nimble-help-sk-cz-store-tools/includes/class-wc-settings-tab.php:101
-msgid ""
-"Like this plugin? Rate it on WordPress.org - we'll add a link once it's "
-"uploaded to WordPress here."
-msgstr ""
-"Líbí se vám tento plugin? Ohodnoťte ho na WordPress.org - odkaz sem přidáme "
-"po nahrání na WordPress."
+msgid "Like this plugin? Please rate it on WordPress.org."
+msgstr "Líbí se vám tento plugin? Ohodnoťte ho na WordPress.org."
 
 #: nimble-help-sk-cz-store-tools/includes/class-wc-settings-tab.php:102
-msgid "Add rating"
-msgstr "Přidat hodnocení"
+msgid "Rate this plugin"
+msgstr "Ohodnotit plugin"
 
 #: nimble-help-sk-cz-store-tools/includes/class-wc-settings-tab.php:134
 msgid "Checkout button text"
