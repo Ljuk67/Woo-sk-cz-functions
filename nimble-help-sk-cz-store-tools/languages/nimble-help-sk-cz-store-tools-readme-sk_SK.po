@@ -1,0 +1,243 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Nimble.help - SK/CZ Store Tools for WooCommerce Readme 1.0.1\n"
+"Report-Msgid-Bugs-To: https://nimble.help\n"
+"POT-Creation-Date: 2026-08-02 00:00+0200\n"
+"PO-Revision-Date: 2026-08-02 00:00+0200\n"
+"Last-Translator: Lukas Cech\n"
+"Language-Team: Slovenčina\n"
+"Language: sk_SK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Domain: nimble-help-sk-cz-store-tools\n"
+"X-Generator: Codex\n"
+
+#: readme.txt:1
+msgid "Nimble.help - SK/CZ Store Tools for WooCommerce"
+msgstr "Nimble.help - SK/CZ nástroje pre WooCommerce obchody"
+
+#: readme.txt:13
+msgid "WooCommerce tools for Slovak and Czech stores: company fields, checkout button text, COD fee, GDPR consent, shipping, and catalog helpers."
+msgstr "WooCommerce nástroje pre slovenské a české obchody: firemné polia, text tlačidla objednávky, poplatok za dobierku, súhlas GDPR, doprava a katalógové pomôcky."
+
+#: readme.txt:17
+msgid "Nimble.help - SK/CZ Store Tools for WooCommerce adds practical WooCommerce features commonly needed in (not only) Slovak and Czech stores."
+msgstr "Nimble.help - SK/CZ nástroje pre WooCommerce obchody pridáva praktické WooCommerce funkcie, ktoré často potrebujú nielen slovenské a české obchody."
+
+#: readme.txt:19
+msgid "Current features:"
+msgstr "Aktuálne funkcie:"
+
+#: readme.txt:21
+msgid "Company checkout toggle with ICO, DIC, IC DPH, and billing company support."
+msgstr "Prepínač nákupu na firmu v pokladni s podporou IČO, DIČ, IČ DPH a fakturačnej firmy."
+
+#: readme.txt:22 readme.txt:108
+msgid "Custom checkout order button text with English default and Slovak/Czech translations."
+msgstr "Vlastný text tlačidla objednávky v pokladni s anglickým predvoleným textom a slovenským/českým prekladom."
+
+#: readme.txt:23
+msgid "Classic checkout GDPR consent checkbox with privacy policy link support."
+msgstr "Zaškrtávacie políčko súhlasu GDPR v klasickej pokladni s podporou odkazu na zásady ochrany osobných údajov."
+
+#: readme.txt:24
+msgid "Fixed Cash on Delivery (Platba na dobierku) fee for the WooCommerce `cod` payment gateway."
+msgstr "Fixný poplatok za platbu na dobierku pre platobnú bránu WooCommerce `cod`."
+
+#: readme.txt:25
+msgid "Hide paid shipping methods when free shipping is available."
+msgstr "Skrytie platených spôsobov dopravy, keď je dostupná doprava zdarma."
+
+#: readme.txt:26
+msgid "Hide the Additional Information product tab, with an option to move its content into the product description."
+msgstr "Skrytie produktovej záložky Ďalšie informácie s možnosťou presunúť jej obsah do popisu produktu."
+
+#: readme.txt:27 readme.txt:96
+msgid "Product subcategories row above products on category archive pages."
+msgstr "Riadok podkategórií produktov nad produktmi na stránkach archívu kategórií."
+
+#: readme.txt:29
+msgid "Most feature toggles are disabled by default. Enable only the features you need in WooCommerce settings. The checkout button text field is available immediately and defaults to the active site language unless you save custom text."
+msgstr "Väčšina prepínačov funkcií je predvolene vypnutá. V nastaveniach WooCommerce zapnite iba funkcie, ktoré potrebujete. Pole textu tlačidla pokladne je dostupné okamžite a používa predvolený text podľa aktívneho jazyka webu, pokiaľ neuložíte vlastný text."
+
+#: readme.txt:31
+msgid "Compatibility"
+msgstr "Kompatibilita"
+
+#: readme.txt:33
+msgid "Checkout-facing features were built for both classic checkout and Checkout Block where WooCommerce provides a stable block-compatible API. Company checkout fields, custom checkout button text, and the fixed COD fee support both checkout experiences."
+msgstr "Funkcie súvisiace s pokladňou boli vytvorené pre klasickú pokladňu aj blok Pokladňa tam, kde WooCommerce poskytuje stabilné API kompatibilné s blokmi. Firemné polia v pokladni, vlastný text tlačidla objednávky a fixný poplatok za dobierku podporujú obe pokladne."
+
+#: readme.txt:35
+msgid "The GDPR checkbox is intentionally limited to classic checkout. In Checkout Block, WooCommerce combines legal consent with its terms and conditions flow."
+msgstr "Zaškrtávacie políčko GDPR je zámerne obmedzené na klasickú pokladňu. V bloku Pokladňa WooCommerce spája právny súhlas s procesom obchodných podmienok."
+
+#: readme.txt:37
+msgid "The product subcategories row is designed for standard WooCommerce category archive templates and hooks. Custom blocks and custom archive templates use their own structure and are outside this feature's scope."
+msgstr "Riadok podkategórií produktov je navrhnutý pre štandardné šablóny archívu kategórií WooCommerce a hooky. Vlastné bloky a vlastné šablóny archívov používajú vlastnú štruktúru a sú mimo rozsahu tejto funkcie."
+
+#: readme.txt:39
+msgid "The Additional Information tab feature uses WooCommerce's product tabs API and applies to standard WooCommerce single product templates."
+msgstr "Funkcia záložky Ďalšie informácie používa API produktových záložiek WooCommerce a vzťahuje sa na štandardné šablóny detailu produktu WooCommerce."
+
+#: readme.txt:41
+msgid "Tested themes before the 1.0.0 release:"
+msgstr "Témy otestované pred vydaním verzie 1.0.0:"
+
+#: readme.txt:43
+msgid "Astra"
+msgstr "Astra"
+
+#: readme.txt:44
+msgid "Blocksy"
+msgstr "Blocksy"
+
+#: readme.txt:45
+msgid "GeneratePress"
+msgstr "GeneratePress"
+
+#: readme.txt:46
+msgid "Kadence"
+msgstr "Kadence"
+
+#: readme.txt:47
+msgid "OceanWP"
+msgstr "OceanWP"
+
+#: readme.txt:48
+msgid "Storefront"
+msgstr "Storefront"
+
+#: readme.txt:49
+msgid "Twenty Twenty-Five / current bundled WordPress block theme"
+msgstr "Twenty Twenty-Five / aktuálna pribalená bloková téma WordPressu"
+
+#: readme.txt:53
+msgid "Upload the `nimble-help-sk-cz-store-tools` folder to the `/wp-content/plugins/` directory."
+msgstr "Nahrajte priečinok `nimble-help-sk-cz-store-tools` do adresára `/wp-content/plugins/`."
+
+#: readme.txt:54
+msgid "Activate the plugin through the `Plugins` menu in WordPress."
+msgstr "Aktivujte plugin cez menu `Pluginy` vo WordPresse."
+
+#: readme.txt:55
+msgid "Ensure WooCommerce is installed and active."
+msgstr "Uistite sa, že WooCommerce je nainštalovaný a aktívny."
+
+#: readme.txt:56
+msgid "Go to WooCommerce > Settings > Nimble Woo SK/CZ tab."
+msgstr "Prejdite do WooCommerce > Nastavenia > karta Nimble Woo SK/CZ."
+
+#: readme.txt:57
+msgid "Enable the features your store needs and save changes."
+msgstr "Zapnite funkcie, ktoré váš obchod potrebuje, a uložte zmeny."
+
+#: readme.txt:61
+msgid "Does this plugin require WooCommerce?"
+msgstr "Vyžaduje tento plugin WooCommerce?"
+
+#: readme.txt:63
+msgid "Yes. WooCommerce must be installed and active."
+msgstr "Áno. WooCommerce musí byť nainštalovaný a aktívny."
+
+#: readme.txt:65
+msgid "Is this plugin intended for SK/CZ stores only?"
+msgstr "Je tento plugin určený iba pre SK/CZ obchody?"
+
+#: readme.txt:67
+msgid "It is primarily focused on Slovak and Czech store requirements, but some functions are generic for any store in any language."
+msgstr "Primárne sa zameriava na požiadavky slovenských a českých obchodov, ale niektoré funkcie sú všeobecné pre akýkoľvek obchod v akomkoľvek jazyku."
+
+#: readme.txt:69
+msgid "Does it support Checkout Block?"
+msgstr "Podporuje blok Pokladňa?"
+
+#: readme.txt:71
+msgid "Company checkout fields, custom checkout button text, and the fixed COD fee support classic checkout and Checkout Block. The GDPR checkbox is intentionally added only to classic checkout; block checkout uses WooCommerce's combined legal consent flow."
+msgstr "Firemné polia v pokladni, vlastný text tlačidla objednávky a fixný poplatok za dobierku podporujú klasickú pokladňu aj blok Pokladňa. Zaškrtávacie políčko GDPR je zámerne pridané iba do klasickej pokladne; bloková pokladňa používa kombinovaný proces právneho súhlasu WooCommerce."
+
+#: readme.txt:73
+msgid "Can I change the checkout order button text?"
+msgstr "Môžem zmeniť text tlačidla objednávky v pokladni?"
+
+#: readme.txt:75
+msgid "Yes. Go to WooCommerce > Settings > Nimble Woo SK/CZ and edit \"Checkout button text\". Leave the predefined text unchanged to use the translated default for the current site language. Clear the field and save to return to the translated default after saving custom text."
+msgstr "Áno. Prejdite do WooCommerce > Nastavenia > Nimble Woo SK/CZ a upravte \"Text tlačidla v pokladni\". Ak chcete používať preložený predvolený text pre aktuálny jazyk webu, ponechajte preddefinovaný text bez zmeny. Ak sa po uložení vlastného textu chcete vrátiť k preloženému predvolenému textu, vymažte pole a uložte zmeny."
+
+#: readme.txt:77
+msgid "Does the plugin connect to external services?"
+msgstr "Pripája sa plugin k externým službám?"
+
+#: readme.txt:79
+msgid "No. The plugin does not send store data to external services and does not load remote scripts or styles."
+msgstr "Nie. Plugin neposiela údaje obchodu externým službám a nenačítava vzdialené skripty ani štýly."
+
+#: readme.txt:81
+msgid "Where is development hosted?"
+msgstr "Kde prebieha vývoj?"
+
+#: readme.txt:83
+msgid "Public development is hosted at https://github.com/Ljuk67/Woo-sk-cz-functions."
+msgstr "Verejný vývoj je dostupný na https://github.com/Ljuk67/Woo-sk-cz-functions."
+
+#: readme.txt:85
+msgid "How can I support development?"
+msgstr "Ako môžem podporiť vývoj?"
+
+#: readme.txt:87
+msgid "You can support development at [GitHub Sponsors](https://github.com/sponsors/Ljuk67)."
+msgstr "Vývoj môžete podporiť cez [GitHub Sponsors](https://github.com/sponsors/Ljuk67)."
+
+#: readme.txt:89
+msgid "Is it translatable?"
+msgstr "Dá sa plugin preložiť?"
+
+#: readme.txt:91
+msgid "Yes, you can easily translate it to any language using Loco Translate."
+msgstr "Áno, plugin môžete jednoducho preložiť do akéhokoľvek jazyka pomocou Loco Translate."
+
+#: readme.txt:95
+msgid "Plugin settings."
+msgstr "Nastavenia pluginu."
+
+#: readme.txt:97
+msgid "Block checkout Company fields & Cash on delivery."
+msgstr "Firemné polia a dobierka v bloku Pokladňa."
+
+#: readme.txt:98
+msgid "Additional information tab moved to main product description."
+msgstr "Záložka Ďalšie informácie presunutá do hlavného popisu produktu."
+
+#: readme.txt:102
+msgid "Added WordPress.org rating link to the plugin settings page."
+msgstr "Pridaný odkaz na hodnotenie na WordPress.org na stránku nastavení pluginu."
+
+#: readme.txt:106
+msgid "Initial release."
+msgstr "Prvé vydanie."
+
+#: readme.txt:107
+msgid "Company checkout fields."
+msgstr "Firemné polia v pokladni."
+
+#: readme.txt:109
+msgid "GDPR checkbox."
+msgstr "Zaškrtávacie políčko GDPR."
+
+#: readme.txt:110
+msgid "Category subcategory row."
+msgstr "Riadok podkategórií kategórie."
+
+#: readme.txt:111
+msgid "Hide paid shipping when free shipping is available."
+msgstr "Skrytie platenej dopravy, keď je dostupná doprava zdarma."
+
+#: readme.txt:112
+msgid "Remove or move Additional Information product tab content."
+msgstr "Odstránenie alebo presunutie obsahu produktovej záložky Ďalšie informácie."
+
+#: readme.txt:113
+msgid "Fixed COD fee for the WooCommerce Cash on Delivery gateway."
+msgstr "Fixný poplatok za dobierku pre platobnú bránu WooCommerce Cash on Delivery."

@@ -5,7 +5,7 @@ Requires at least: 6.4
 Tested up to: 7.0
 Requires PHP: 7.4
 Requires Plugins: woocommerce
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://github.com/sponsors/Ljuk67
@@ -98,6 +98,10 @@ Yes, you can easily translate it to any language using Loco Translate.
 4. Additional information tab moved to main product description.
 
 == Changelog ==
+
+= 1.0.2 =
+
+* Removed "(Optional)" from all Company fields.
 
 = 1.0.1 =
 

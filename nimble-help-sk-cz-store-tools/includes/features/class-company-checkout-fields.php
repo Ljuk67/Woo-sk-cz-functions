@@ -31,6 +31,7 @@ class WSCF_Company_Checkout_Fields {
 	 */
 	public function register_hooks() {
 		add_filter( 'woocommerce_checkout_fields', array( $this, 'register_checkout_fields' ), 20 );
+		add_filter( 'woocommerce_form_field', array( $this, 'remove_classic_company_field_status_label' ), 20, 4 );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_classic_checkout_assets' ) );
 		add_action( 'woocommerce_checkout_process', array( $this, 'validate_company_checkout_fields' ) );
 		add_action( 'woocommerce_checkout_create_order', array( $this, 'save_company_checkout_fields' ), 20, 2 );
@@ -195,6 +196,38 @@ class WSCF_Company_Checkout_Fields {
 		);
 
 		return $fields;
+	}
+
+	/**
+	 * Remove WooCommerce optional/required indicators from classic company field labels.
+	 *
+	 * Company fields are conditionally validated when company purchase is checked,
+	 * so the generated field-status label is misleading in every locale.
+	 *
+	 * @param string               $field Rendered field HTML.
+	 * @param string               $key   Field key.
+	 * @param array<string, mixed> $args  Field arguments.
+	 * @param mixed                $value Field value.
+	 * @return string
+	 */
+	public function remove_classic_company_field_status_label( $field, $key, $args, $value ) {
+		unset( $args, $value );
+
+		$company_field_keys = array(
+			'billing_company',
+			'billing_ico',
+			'billing_dic',
+			'billing_ic_dph',
+		);
+
+		if ( ! in_array( $key, $company_field_keys, true ) ) {
+			return $field;
+		}
+
+		$field = preg_replace( '/\s*<span[^>]*class=(["\'])(?:[^"\']*\s)?optional(?:\s[^"\']*)?\1[^>]*>.*?<\/span>/i', '', $field );
+		$field = preg_replace( '/\s*<abbr[^>]*class=(["\'])(?:[^"\']*\s)?required(?:\s[^"\']*)?\1[^>]*>.*?<\/abbr>/i', '', $field );
+
+		return null === $field ? '' : $field;
 	}
 
 	/**

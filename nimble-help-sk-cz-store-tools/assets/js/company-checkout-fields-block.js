@@ -7,6 +7,51 @@
 		return input.closest( '.wc-block-components-text-input, .wc-block-components-checkbox, .wc-block-components-select' );
 	}
 
+	function removeStatusElements( wrapper ) {
+		var indicators;
+
+		if ( ! wrapper ) {
+			return;
+		}
+
+		indicators = wrapper.querySelectorAll(
+			'span.optional, span.required, abbr.optional, abbr.required, small.optional, small.required, span[class*="optional"], span[class*="required"], abbr[class*="optional"], abbr[class*="required"], small[class*="optional"], small[class*="required"]'
+		);
+
+		indicators.forEach( function( indicator ) {
+			if ( indicator.closest( '.wscf-company-toggle-helper' ) ) {
+				return;
+			}
+
+			indicator.remove();
+		} );
+	}
+
+	function removeTrailingStatusText( wrapper ) {
+		var labels;
+
+		if ( ! wrapper ) {
+			return;
+		}
+
+		labels = wrapper.querySelectorAll( 'label, .wc-block-components-text-input__label, .wc-block-components-checkbox__label' );
+
+		labels.forEach( function( label ) {
+			label.childNodes.forEach( function( node ) {
+				if ( Node.TEXT_NODE !== node.nodeType ) {
+					return;
+				}
+
+				node.textContent = node.textContent.replace( /\s*\([^()]*\)\s*$/, '' );
+			} );
+		} );
+	}
+
+	function removeCompanyFieldStatusLabels( wrapper ) {
+		removeStatusElements( wrapper );
+		removeTrailingStatusText( wrapper );
+	}
+
 	function appendCompanyHelperText( toggleInput ) {
 		var label;
 		var textContainer;
@@ -57,6 +102,7 @@
 
 			if ( wrapper ) {
 				wrapper.style.display = isCompany ? '' : 'none';
+				removeCompanyFieldStatusLabels( wrapper );
 			}
 
 			field.required = isCompany && isRequired;
